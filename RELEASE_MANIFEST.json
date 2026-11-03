@@ -3,7 +3,7 @@
  "title": "Lean 4 - Proof - Navier–Stokes C/D (KTS Global)",
  "version": "1.0.1",
  "state": "RELEASE v1.0.1 (approved by the operator on 2026-11-03; documentation and provenance only; Lean sources byte-identical to v1.0.0; not independently reviewed or reproduced)",
- "frozen_utc": "2026-11-03T10:32:00Z",
+ "frozen_utc": "2026-11-03T10:44:54Z",
  "integrity_note": "sha256 values are external distribution-integrity checks of file bytes only. They authenticate file/archive correspondence; they do not establish mathematical truth.",
  "toolchain": "leanprover/lean4:v4.34.1",
  "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
@@ -3880,13 +3880,13 @@
   },
   {
    "path": "docs/PORT_SUMMARY.md",
-   "bytes": 3747,
-   "sha256": "311d72d86f170b0ff327fbcd393e6f1a7b0262ad5349fa6b3999ade1fb0c00f3"
+   "bytes": 4155,
+   "sha256": "d75b3b32eb64a2b377beeb920d371d9c9c2e0085aa74aae727b8437943c4af25"
   },
   {
    "path": "docs/PROVENANCE.md",
-   "bytes": 5993,
-   "sha256": "fbc677fb0f3bcb1697d6e68a0bcdb0ff49e8a954c0fdb79229af4c0a931dd66c"
+   "bytes": 6221,
+   "sha256": "b79859118f6dc74b4f4d6c27e1a31a4901b4c446570c2bf1f59468aeb08b7703"
   },
   {
    "path": "docs/REBUILD_OFFLINE.md",
