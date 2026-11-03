@@ -1,0 +1,15 @@
+BATTERY|decl|Clay.NavierStokes.Bridge.optionC_imp_statementC|role=BRIDGE
+BATTERY|axioms|[propext, Classical.choice, Quot.sound]|standard_only=true
+BATTERY|pin|verdict=PINNED|required=[Clay.NavierStokes.StatementC]|project_modules=[ClayStatement.Fefferman, NavierStokes.ComparatorCompleteSolution, NavierStokes.ComparatorDefinitions]|closure_size=183
+BATTERY|vacuity|conclusion_defeq_hypothesis=false|conclusion_True=false|hypothesis_False=false|binders=1
+BATTERY|mutant|S_drop_0|strengthening|expected=FAIL|proved=false|ok=true|the proof term uses this hypothesis
+BATTERY|mutant|S_false|strengthening|expected=FAIL|proved=false|ok=true|bounded closer (assumption/tauto/aesop) with the theorem in context
+BATTERY|mutant|W_extra|weakening|expected=PROVE|proved=true|ok=true|term built from the actual proof and type-checked
+BATTERY|mutant|W_disj|weakening|expected=PROVE|proved=true|ok=true|Or.inl of the actual proof, type-checked
+BATTERY|mutant|P_contra|polarity|expected=PROVE|proved=true|ok=true|contrapositive built from the actual proof, type-checked
+BATTERY|mutant|P_converse|polarity|expected=FAIL|proved=false|ok=true|bounded closer with the theorem in context
+BATTERY|constrained|all_mutants_as_expected=true
+BATTERY|dimensional|UNDEFINED
+BATTERY|END
+Clay.NavierStokes.Bridge.optionC_imp_statementC : NavierStokes.Comparator.OptionC → Clay.NavierStokes.StatementC
+'Clay.NavierStokes.Bridge.optionC_imp_statementC' depends on axioms: [propext, Classical.choice, Quot.sound]

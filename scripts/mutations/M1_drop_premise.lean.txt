@@ -1,0 +1,2 @@
+import CDVerification
+example : Clay.NavierStokes.StatementC := Clay.NavierStokes.Bridge.optionC_imp_statementC

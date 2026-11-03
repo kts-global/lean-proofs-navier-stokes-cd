@@ -1,0 +1,11 @@
+Navier-Stokes C/D verification package (Fefferman's alternatives C and D)
+
+First-party files added by this package are licensed under the Apache License, Version 2.0 (LICENSE).
+
+The Lean sources under NavierStokes/ are the formalization of 'Finite time blowup for Navier-Stokes' by OpenAI (repository NavierStokesAndEuler, commit f9e8bc5b38b6e212696e8a30e3e91517af887bbd, Apache-2.0), as ported to Lean 4.34.1 / Mathlib d13f23b7 in the R2R1 community package (24 upstream files modified; docs/PROVENANCE.md). Their licence, README and metadata are kept in third_party/NavierStokesAndEuler/.
+
+NavierStokes/ComparatorDefinitions.lean keeps its own header: 'Copyright 2026 The Formal Conjectures Authors. This file has been modified from its original form in the Formal Conjectures project. Licensed under the Apache License, Version 2.0.'
+
+Mathlib, Lean 4 and their dependencies are fetched from their own repositories at the revisions in lake-manifest.json and lean-toolchain and are not redistributed here; their licences are those of their repositories.
+
+KTS Global additions: the statement and bridge layer, R3 per-alternative packaging, and community verification tooling and documentation are credited to Tim Jacobs, KTS Global, in the R2R1 release notes (docs/PROVENANCE.md quotes them exactly). The port patch to the upstream files is KTS Global's; no person is named for it.

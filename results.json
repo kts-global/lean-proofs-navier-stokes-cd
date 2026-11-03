@@ -1,0 +1,305 @@
+{
+ "package": "lean-proofs-navier-stokes-cd",
+ "version": "1.0.0",
+ "status": "release v1.0.0; approved for publication by the operator on 2026-11-03; not independently reviewed or reproduced",
+ "lean_toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "scope": "Lean-checked proofs of Fefferman's alternatives (C) and (D) of the Clay Navier-Stokes problem as formalized in ClayStatement/Fefferman.lean, and of the disjunction A or B or C or D, with logical bridges to the authors' formulation. The mathematics and formalization are OpenAI's. Not claimed: (A) or (B); independent confirmation that the Lean statements transcribe the official text; a CHAOS-route proof.",
+ "declarations_verified": 12,
+ "results": [
+  {
+   "id": "cd-01",
+   "declaration": "NavierStokes.ClayC.clay_C",
+   "role": "TARGET",
+   "description": "alternative (C) alone: forced breakdown on R^3",
+   "source_file": "NavierStokes/ClayCSolution.lean",
+   "source_line": 6,
+   "elaborated_type_pp_fullnames": "Clay.NavierStokes.StatementC",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axiom_policy": "checked by CDVerification.lean on every build",
+   "ecr_battery": "ACCEPTED as a returned DECLARATION_CHECK job; zero unused-hypothesis rows",
+   "ecr_record": {
+    "ecr_id": "ECR-CLAY-3-NavierStokes_ClayC_clay_C-v1",
+    "version": 1,
+    "statement_class": "LIBRARY_SUPPORT",
+    "closing": false
+   },
+   "authorship": "statement: package publisher (Fefferman-style StatementC/D); proof term (R3 addition NavierStokes/ClayCSolution.lean): package publisher, one application of the publisher's bridge to OpenAI's navier_stokes_breakdown_R3"
+  },
+  {
+   "id": "cd-02",
+   "declaration": "NavierStokes.ClayD.clay_D",
+   "role": "TARGET",
+   "description": "alternative (D) alone: forced breakdown on the torus",
+   "source_file": "NavierStokes/ClayDSolution.lean",
+   "source_line": 6,
+   "elaborated_type_pp_fullnames": "Clay.NavierStokes.StatementD",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axiom_policy": "checked by CDVerification.lean on every build",
+   "ecr_battery": "ACCEPTED as a returned DECLARATION_CHECK job; zero unused-hypothesis rows",
+   "ecr_record": {
+    "ecr_id": "ECR-CLAY-3-NavierStokes_ClayD_clay_D-v1",
+    "version": 1,
+    "statement_class": "LIBRARY_SUPPORT",
+    "closing": false
+   },
+   "authorship": "statement: package publisher (Fefferman-style StatementC/D); proof term (R3 addition NavierStokes/ClayDSolution.lean): package publisher, one application of the publisher's bridge to OpenAI's navier_stokes_breakdown_periodic"
+  },
+  {
+   "id": "cd-03",
+   "declaration": "NavierStokes.ClayChallenge.clay_navier_stokes_fefferman",
+   "role": "TARGET",
+   "description": "A or B or C or D, proved through C",
+   "source_file": "NavierStokes/ClayFeffermanSolution.lean",
+   "source_line": 15,
+   "elaborated_type_pp_fullnames": "Clay.NavierStokes.ClayNavierStokes",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axiom_policy": "checked by CDVerification.lean on every build",
+   "ecr_battery": "ACCEPTED as a returned DECLARATION_CHECK job; zero unused-hypothesis rows",
+   "ecr_record": {
+    "ecr_id": "ECR-CLAY-3-NavierStokes_ClayChallenge_clay_navier_stokes_fefferman-v1",
+    "version": 1,
+    "statement_class": "LIBRARY_SUPPORT",
+    "closing": false
+   },
+   "authorship": "statement: package publisher (Fefferman-style statement module ClayStatement/Fefferman.lean); proof term (solution module NavierStokes/ClayFeffermanSolution.lean): package publisher, using OpenAI's breakdown theorems"
+  },
+  {
+   "id": "cd-04",
+   "declaration": "NavierStokes.ClayChallenge.clay_navier_stokes_fefferman_via_D",
+   "role": "TARGET",
+   "description": "A or B or C or D, proved through D",
+   "source_file": "NavierStokes/ClayFeffermanSolution.lean",
+   "source_line": 19,
+   "elaborated_type_pp_fullnames": "Clay.NavierStokes.ClayNavierStokes",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axiom_policy": "checked by CDVerification.lean on every build",
+   "ecr_battery": "ACCEPTED as a returned DECLARATION_CHECK job; zero unused-hypothesis rows",
+   "ecr_record": {
+    "ecr_id": "ECR-CLAY-3-avierStokes_ClayChallenge_clay_navier_stokes_fefferman_via_D-v1",
+    "version": 1,
+    "statement_class": "LIBRARY_SUPPORT",
+    "closing": false
+   },
+   "authorship": "statement: package publisher; proof term (NavierStokes/ClayFeffermanSolution.lean): package publisher, through alternative D, using OpenAI's breakdown theorems"
+  },
+  {
+   "id": "cd-05",
+   "declaration": "NavierStokes.Comparator.navier_stokes_clay_via_C",
+   "role": "TARGET",
+   "description": "the authors' formal disjunction OptionA..OptionD, proved through C",
+   "source_file": "NavierStokes/ComparatorCompleteSolution.lean",
+   "source_line": 44,
+   "elaborated_type_pp_fullnames": "NavierStokes.Comparator.OptionA ∨ NavierStokes.Comparator.OptionB ∨ NavierStokes.Comparator.OptionC ∨ NavierStokes.Comparator.OptionD",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axiom_policy": "checked by CDVerification.lean on every build",
+   "ecr_battery": "ACCEPTED as a returned DECLARATION_CHECK job; zero unused-hypothesis rows",
+   "ecr_record": {
+    "ecr_id": "ECR-CLAY-3-NavierStokes_Comparator_navier_stokes_clay_via_C-v2",
+    "version": 2,
+    "statement_class": "LIBRARY_SUPPORT",
+    "closing": false
+   },
+   "authorship": "statement: OpenAI (the authors' formal disjunction of OptionA..OptionD, ComparatorChallenges/NavierStokesComplete.lean, added to the package by the publisher); proof term (NavierStokes/ComparatorCompleteSolution.lean): package publisher, using OpenAI's breakdown theorems"
+  },
+  {
+   "id": "cd-06",
+   "declaration": "NavierStokes.Comparator.navier_stokes_clay_via_D",
+   "role": "TARGET",
+   "description": "the authors' formal disjunction OptionA..OptionD, proved through D",
+   "source_file": "NavierStokes/ComparatorCompleteSolution.lean",
+   "source_line": 48,
+   "elaborated_type_pp_fullnames": "NavierStokes.Comparator.OptionA ∨ NavierStokes.Comparator.OptionB ∨ NavierStokes.Comparator.OptionC ∨ NavierStokes.Comparator.OptionD",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axiom_policy": "checked by CDVerification.lean on every build",
+   "ecr_battery": "ACCEPTED as a returned DECLARATION_CHECK job; zero unused-hypothesis rows",
+   "ecr_record": {
+    "ecr_id": "ECR-CLAY-3-NavierStokes_Comparator_navier_stokes_clay_via_D-v2",
+    "version": 2,
+    "statement_class": "LIBRARY_SUPPORT",
+    "closing": false
+   },
+   "authorship": "statement: OpenAI (as above); proof term (NavierStokes/ComparatorCompleteSolution.lean): package publisher, using OpenAI's breakdown theorems"
+  },
+  {
+   "id": "cd-07",
+   "declaration": "Clay.NavierStokes.Bridge.optionA_iff_statementA",
+   "role": "BRIDGE",
+   "description": "bridge: authors' option A <-> Fefferman (A)",
+   "source_file": "ClayStatement/Bridge.lean",
+   "source_line": 34,
+   "elaborated_type_pp_fullnames": "NavierStokes.Comparator.OptionA ↔ Clay.NavierStokes.StatementA",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axiom_policy": "checked by CDVerification.lean on every build",
+   "ecr_battery": "ACCEPTED as a returned DECLARATION_CHECK job; zero unused-hypothesis rows",
+   "ecr_record": {
+    "ecr_id": "ECR-CLAY-3-Clay_NavierStokes_Bridge_optionA_iff_statementA-v1",
+    "version": 1,
+    "statement_class": "LIBRARY_SUPPORT",
+    "closing": false
+   },
+   "authorship": "statement and proof term: package publisher (bridge modules ClayStatement/Bridge*.lean, added by the publisher; the bridge is a logical implication or equivalence between two encodings, not definitional equality)"
+  },
+  {
+   "id": "cd-08",
+   "declaration": "Clay.NavierStokes.Bridge.optionB_iff_statementB",
+   "role": "BRIDGE",
+   "description": "bridge: authors' option B <-> Fefferman (B)",
+   "source_file": "ClayStatement/Bridge.lean",
+   "source_line": 42,
+   "elaborated_type_pp_fullnames": "NavierStokes.Comparator.OptionB ↔ Clay.NavierStokes.StatementB",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axiom_policy": "checked by CDVerification.lean on every build",
+   "ecr_battery": "ACCEPTED as a returned DECLARATION_CHECK job; zero unused-hypothesis rows",
+   "ecr_record": {
+    "ecr_id": "ECR-CLAY-3-Clay_NavierStokes_Bridge_optionB_iff_statementB-v1",
+    "version": 1,
+    "statement_class": "LIBRARY_SUPPORT",
+    "closing": false
+   },
+   "authorship": "statement and proof term: package publisher (bridge modules ClayStatement/Bridge*.lean, added by the publisher; the bridge is a logical implication or equivalence between two encodings, not definitional equality)"
+  },
+  {
+   "id": "cd-09",
+   "declaration": "Clay.NavierStokes.Bridge.optionC_imp_statementC",
+   "role": "BRIDGE",
+   "description": "bridge: authors' option C -> Fefferman (C)",
+   "source_file": "ClayStatement/Bridge.lean",
+   "source_line": 51,
+   "elaborated_type_pp_fullnames": "NavierStokes.Comparator.OptionC → Clay.NavierStokes.StatementC",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axiom_policy": "checked by CDVerification.lean on every build",
+   "ecr_battery": "ACCEPTED as a returned DECLARATION_CHECK job; zero unused-hypothesis rows",
+   "ecr_record": {
+    "ecr_id": "ECR-CLAY-3-Clay_NavierStokes_Bridge_optionC_imp_statementC-v1",
+    "version": 1,
+    "statement_class": "LIBRARY_SUPPORT",
+    "closing": false
+   },
+   "authorship": "statement and proof term: package publisher (bridge modules ClayStatement/Bridge*.lean, added by the publisher; the bridge is a logical implication or equivalence between two encodings, not definitional equality)"
+  },
+  {
+   "id": "cd-10",
+   "declaration": "Clay.NavierStokes.Bridge.optionD_imp_statementD",
+   "role": "BRIDGE",
+   "description": "bridge: authors' option D -> Fefferman (D)",
+   "source_file": "ClayStatement/Bridge.lean",
+   "source_line": 57,
+   "elaborated_type_pp_fullnames": "NavierStokes.Comparator.OptionD → Clay.NavierStokes.StatementD",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axiom_policy": "checked by CDVerification.lean on every build",
+   "ecr_battery": "ACCEPTED as a returned DECLARATION_CHECK job; zero unused-hypothesis rows",
+   "ecr_record": {
+    "ecr_id": "ECR-CLAY-3-Clay_NavierStokes_Bridge_optionD_imp_statementD-v1",
+    "version": 1,
+    "statement_class": "LIBRARY_SUPPORT",
+    "closing": false
+   },
+   "authorship": "statement and proof term: package publisher (bridge modules ClayStatement/Bridge*.lean, added by the publisher; the bridge is a logical implication or equivalence between two encodings, not definitional equality)"
+  },
+  {
+   "id": "cd-11",
+   "declaration": "Clay.NavierStokes.BridgeConverse.statementC_imp_optionC",
+   "role": "BRIDGE",
+   "description": "bridge converse: Fefferman (C) -> authors' option C",
+   "source_file": "ClayStatement/BridgeConverse.lean",
+   "source_line": 16,
+   "elaborated_type_pp_fullnames": "Clay.NavierStokes.StatementC → NavierStokes.Comparator.OptionC",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axiom_policy": "checked by CDVerification.lean on every build",
+   "ecr_battery": "ACCEPTED as a returned DECLARATION_CHECK job; zero unused-hypothesis rows",
+   "ecr_record": {
+    "ecr_id": "ECR-CLAY-3-Clay_NavierStokes_BridgeConverse_statementC_imp_optionC-v1",
+    "version": 1,
+    "statement_class": "LIBRARY_SUPPORT",
+    "closing": false
+   },
+   "authorship": "statement and proof term: package publisher (bridge modules ClayStatement/Bridge*.lean, added by the publisher; the bridge is a logical implication or equivalence between two encodings, not definitional equality)"
+  },
+  {
+   "id": "cd-12",
+   "declaration": "Clay.NavierStokes.BridgeConverse.statementD_imp_optionD",
+   "role": "BRIDGE",
+   "description": "bridge converse: Fefferman (D) -> authors' option D",
+   "source_file": "ClayStatement/BridgeConverse.lean",
+   "source_line": 23,
+   "elaborated_type_pp_fullnames": "Clay.NavierStokes.StatementD → NavierStokes.Comparator.OptionD",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "axiom_policy": "checked by CDVerification.lean on every build",
+   "ecr_battery": "ACCEPTED as a returned DECLARATION_CHECK job; zero unused-hypothesis rows",
+   "ecr_record": {
+    "ecr_id": "ECR-CLAY-3-Clay_NavierStokes_BridgeConverse_statementD_imp_optionD-v1",
+    "version": 1,
+    "statement_class": "LIBRARY_SUPPORT",
+    "closing": false
+   },
+   "authorship": "statement and proof term: package publisher (bridge modules ClayStatement/Bridge*.lean, added by the publisher; the bridge is a logical implication or equivalence between two encodings, not definitional equality)"
+  }
+ ],
+ "non_vacuity": [
+  "CDNonVacuity.zero_solR3",
+  "CDNonVacuity.zero_solTorus"
+ ],
+ "shipped_modules": 620,
+ "title": "Lean 4 - Proof - Navier–Stokes C/D (KTS Global)",
+ "ecr_class": "LIBRARY_SUPPORT",
+ "attribution": {
+  "kts_global_statement_and_bridge_layer_r3_packaging_verification_tooling": "Tim Jacobs, KTS Global",
+  "basis": "published R2R1 release notes and README (quoted in docs/PROVENANCE.md); the operator's statement agrees",
+  "port_patch": "KTS Global; no person named",
+  "mathematics_and_formalization": "OpenAI",
+  "chaos_route_proof": "none recorded"
+ },
+ "builder_authored_files_not_claimed": [
+  "CDVerification.lean",
+  "CDNonVacuity.lean"
+ ]
+}

@@ -1,0 +1,28 @@
+{
+  "kind": "DECLARATION_CHECK_RESULT",
+  "job_id": "dc.r114b-cd-clay-fefferman",
+  "requested_declaration": "NavierStokes.ClayChallenge.clay_navier_stokes_fefferman",
+  "checked_declaration": "NavierStokes.ClayChallenge.clay_navier_stokes_fefferman",
+  "elaborated_type_or_context": "BATTERY|decl|NavierStokes.ClayChallenge.clay_navier_stokes_fefferman|role=TARGET NavierStokes.ClayChallenge.clay_navier_stokes_fefferman : Clay.NavierStokes.ClayNavierStokes 'NavierStokes.ClayChallenge.clay_navier_stokes_fefferman' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "axioms_as_printed": "'NavierStokes.ClayChallenge.clay_navier_stokes_fefferman' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "outcome": "ACCEPTED",
+  "stdout_file": "<HOME>/chaos_node/spool/logs/dc.r114b-cd-clay-fefferman_dc_stdout.txt",
+  "stderr_file": "<HOME>/chaos_node/spool/logs/dc.r114b-cd-clay-fefferman_dc_stderr.txt",
+  "rc": 0,
+  "toolchain_used": "leanprover/lean4:v4.34.1",
+  "lean_version_output": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "tree_read_back": "<HOME>/chaos_ns_r2_S523/tree",
+  "dependency_state": {
+    "manifest_kcoord_before": "k:lake-manifest.json|3841|1791525495",
+    "manifest_kcoord_after": "k:lake-manifest.json|3841|1791525495",
+    "lake_update_executed": false,
+    "note": "dependency state from the local project's resolved state; no git ids"
+  },
+  "source_kcoord": "k:source.lean|11024|1793621674",
+  "source_courtesy_readback": "<HOME>/chaos_node/workspace/dc.r114b-cd-clay-fefferman/source.lean",
+  "workspace": "fresh",
+  "command_executed": "lake env lean <HOME>/chaos_node/workspace/dc.r114b-cd-clay-fefferman/probe.lean",
+  "working_directory": "<HOME>/chaos_ns_r2_S523/tree",
+  "elapsed_s": 16.0,
+  "node_identity_kcoord": "k:NODE_IDENTITY.json.kid|493|1791568880"
+}

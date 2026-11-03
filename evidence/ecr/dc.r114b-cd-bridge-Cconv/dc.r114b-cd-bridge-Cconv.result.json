@@ -1,0 +1,28 @@
+{
+  "kind": "DECLARATION_CHECK_RESULT",
+  "job_id": "dc.r114b-cd-bridge-Cconv",
+  "requested_declaration": "Clay.NavierStokes.BridgeConverse.statementC_imp_optionC",
+  "checked_declaration": "Clay.NavierStokes.BridgeConverse.statementC_imp_optionC",
+  "elaborated_type_or_context": "BATTERY|decl|Clay.NavierStokes.BridgeConverse.statementC_imp_optionC|role=BRIDGE Clay.NavierStokes.BridgeConverse.statementC_imp_optionC : Clay.NavierStokes.StatementC \u2192 NavierStokes.Comparator.OptionC 'Clay.NavierStokes.BridgeConverse.statementC_imp_optionC' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "axioms_as_printed": "'Clay.NavierStokes.BridgeConverse.statementC_imp_optionC' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "outcome": "ACCEPTED",
+  "stdout_file": "<HOME>/chaos_node/spool/logs/dc.r114b-cd-bridge-Cconv_dc_stdout.txt",
+  "stderr_file": "<HOME>/chaos_node/spool/logs/dc.r114b-cd-bridge-Cconv_dc_stderr.txt",
+  "rc": 0,
+  "toolchain_used": "leanprover/lean4:v4.34.1",
+  "lean_version_output": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "tree_read_back": "<HOME>/chaos_ns_r2_S523/tree",
+  "dependency_state": {
+    "manifest_kcoord_before": "k:lake-manifest.json|3841|1791525495",
+    "manifest_kcoord_after": "k:lake-manifest.json|3841|1791525495",
+    "lake_update_executed": false,
+    "note": "dependency state from the local project's resolved state; no git ids"
+  },
+  "source_kcoord": "k:source.lean|11018|1793621658",
+  "source_courtesy_readback": "<HOME>/chaos_node/workspace/dc.r114b-cd-bridge-Cconv/source.lean",
+  "workspace": "fresh",
+  "command_executed": "lake env lean <HOME>/chaos_node/workspace/dc.r114b-cd-bridge-Cconv/probe.lean",
+  "working_directory": "<HOME>/chaos_ns_r2_S523/tree",
+  "elapsed_s": 13.0,
+  "node_identity_kcoord": "k:NODE_IDENTITY.json.kid|493|1791568880"
+}

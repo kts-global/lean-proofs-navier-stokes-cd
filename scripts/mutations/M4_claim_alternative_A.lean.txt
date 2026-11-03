@@ -1,0 +1,2 @@
+import CDVerification
+example : Clay.NavierStokes.StatementA := NavierStokes.ClayC.clay_C

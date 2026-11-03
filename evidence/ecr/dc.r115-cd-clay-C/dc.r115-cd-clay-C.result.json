@@ -1,0 +1,28 @@
+{
+  "kind": "DECLARATION_CHECK_RESULT",
+  "job_id": "dc.r115-cd-clay-C",
+  "requested_declaration": "NavierStokes.ClayC.clay_C",
+  "checked_declaration": "NavierStokes.ClayC.clay_C",
+  "elaborated_type_or_context": "NavierStokes.ClayC.clay_C : Clay.NavierStokes.StatementC BATTERY|decl|NavierStokes.ClayC.clay_C|role=TARGET NavierStokes.ClayC.clay_C : Clay.NavierStokes.StatementC 'NavierStokes.ClayC.clay_C' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "axioms_as_printed": "'NavierStokes.ClayC.clay_C' depends on axioms: [propext, Classical.choice, Quot.sound]",
+  "outcome": "ACCEPTED",
+  "stdout_file": "<HOME>/chaos_node/spool/logs/dc.r115-cd-clay-C_dc_stdout.txt",
+  "stderr_file": "<HOME>/chaos_node/spool/logs/dc.r115-cd-clay-C_dc_stderr.txt",
+  "rc": 0,
+  "toolchain_used": "leanprover/lean4:v4.34.1",
+  "lean_version_output": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "tree_read_back": "<HOME>/r115_cd",
+  "dependency_state": {
+    "manifest_kcoord_before": "k:lake-manifest.json|3841|1791525495",
+    "manifest_kcoord_after": "k:lake-manifest.json|3841|1791525495",
+    "lake_update_executed": false,
+    "note": "dependency state from the local project's resolved state; no git ids"
+  },
+  "source_kcoord": "k:source.lean|11001|1793624605",
+  "source_courtesy_readback": "<HOME>/chaos_node/workspace/dc.r115-cd-clay-C/source.lean",
+  "workspace": "fresh",
+  "command_executed": "lake env lean <HOME>/chaos_node/workspace/dc.r115-cd-clay-C/probe.lean",
+  "working_directory": "<HOME>/r115_cd",
+  "elapsed_s": 8.0,
+  "node_identity_kcoord": "k:NODE_IDENTITY.json.kid|493|1791568880"
+}

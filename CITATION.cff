@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this package, please cite it, and cite the OpenAI formalization it packages."
+title: "Lean 4 - Proof - Navier–Stokes C/D (KTS Global)"
+repository-code: "https://github.com/kts-global/lean-proofs-navier-stokes-cd"
+type: software
+authors:
+  - family-names: "Jacobs"
+    given-names: "Tim"
+    affiliation: "KTS Global"
+    orcid: "https://orcid.org/0009-0008-7130-1448"
+version: "1.0.0"
+license: Apache-2.0
+abstract: "Lean 4.34.1 proofs of Fefferman's alternatives C and D of the Clay Navier-Stokes problem and of the disjunction A or B or C or D, with bridges to the authors' formulation. Mathematics and formalization: OpenAI (NavierStokesAndEuler, Apache-2.0). Not independently reviewed or reproduced; not a proof of A or B."
+keywords:
+  - Lean 4
+  - Navier-Stokes
+  - formal verification
+references:
+  - type: software
+    title: "NavierStokesAndEuler"
+    authors:
+      - name: "OpenAI"
+    repository-code: "https://github.com/openai/NavierStokesAndEuler"
+    version: "f9e8bc5b38b6e212696e8a30e3e91517af887bbd"

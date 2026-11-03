@@ -1,0 +1,4298 @@
+{
+ "package": "lean-proofs-navier-stokes-cd",
+ "title": "Lean 4 - Proof - Navier–Stokes C/D (KTS Global)",
+ "version": "1.0.0",
+ "state": "RELEASE v1.0.0 (approved by the operator on 2026-11-03; not independently reviewed or reproduced)",
+ "frozen_utc": "2026-11-03T01:26:01Z",
+ "integrity_note": "sha256 values are external distribution-integrity checks of file bytes only. They authenticate file/archive correspondence; they do not establish mathematical truth.",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "dependencies": [
+  {
+   "name": "mathlib",
+   "url": "https://github.com/leanprover-community/mathlib4.git",
+   "rev": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+  },
+  {
+   "name": "plausible",
+   "url": "https://github.com/leanprover-community/plausible",
+   "rev": "118aa17ee84656b8bd727fef7c458ee8c833385c"
+  },
+  {
+   "name": "LeanSearchClient",
+   "url": "https://github.com/leanprover-community/LeanSearchClient",
+   "rev": "ddf04cf3949fa556442341e87d47f9f6e6074707"
+  },
+  {
+   "name": "importGraph",
+   "url": "https://github.com/leanprover-community/import-graph",
+   "rev": "e928b72544873815af278d38681b31c0293588e3"
+  },
+  {
+   "name": "proofwidgets",
+   "url": "https://github.com/leanprover-community/ProofWidgets4",
+   "rev": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5"
+  },
+  {
+   "name": "aesop",
+   "url": "https://github.com/leanprover-community/aesop",
+   "rev": "355695d523e41d0554926416cba2a2b3544fbbc9"
+  },
+  {
+   "name": "Qq",
+   "url": "https://github.com/leanprover-community/quote4",
+   "rev": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259"
+  },
+  {
+   "name": "batteries",
+   "url": "https://github.com/leanprover-community/batteries",
+   "rev": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2"
+  },
+  {
+   "name": "Cli",
+   "url": "https://github.com/leanprover/lean4-cli",
+   "rev": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204"
+  }
+ ],
+ "import_closure_modules": [
+  "ClayStatement",
+  "ClayStatement.Bridge",
+  "ClayStatement.BridgeConverse",
+  "ClayStatement.BridgeEquiv",
+  "ClayStatement.BridgeLemmas",
+  "ClayStatement.BridgeSwap",
+  "ClayStatement.Fefferman",
+  "NavierStokes.ActivationBounds",
+  "NavierStokes.ActivationCone",
+  "NavierStokes.ActivationContinuation",
+  "NavierStokes.ActivationHolomorphic",
+  "NavierStokes.ActivationStocks",
+  "NavierStokes.ActiveAnnulusWeight",
+  "NavierStokes.ActualBaseResidual",
+  "NavierStokes.ActualBaseVelocityBounds",
+  "NavierStokes.ActualCandidateAssembly",
+  "NavierStokes.ActualCandidateConstruction",
+  "NavierStokes.ActualCarrierGeometry",
+  "NavierStokes.ActualCarrierTransport",
+  "NavierStokes.ActualCarrierTransportBase",
+  "NavierStokes.ActualCopySliceRegularity",
+  "NavierStokes.ActualCoreSupport",
+  "NavierStokes.ActualCurrentCarrierJets",
+  "NavierStokes.ActualCurrentParticularAssembly",
+  "NavierStokes.ActualCurrentParticularBounds",
+  "NavierStokes.ActualCurrentParticularPhysical",
+  "NavierStokes.ActualCurrentWaveSupport",
+  "NavierStokes.ActualCycleAssembly",
+  "NavierStokes.ActualCycleCoherence",
+  "NavierStokes.ActualCycleExcluded",
+  "NavierStokes.ActualCycleGeometry",
+  "NavierStokes.ActualCycleParameters",
+  "NavierStokes.ActualCyclePeriodicity",
+  "NavierStokes.ActualCyclePreservation",
+  "NavierStokes.ActualCycleResidualBounds",
+  "NavierStokes.ActualEndpointInputs",
+  "NavierStokes.ActualExteriorPrefix",
+  "NavierStokes.ActualGaussianCoverage",
+  "NavierStokes.ActualInitialCoherence",
+  "NavierStokes.ActualInitialExcluded",
+  "NavierStokes.ActualInitialMean",
+  "NavierStokes.ActualInitialMeanEquation",
+  "NavierStokes.ActualInitialization",
+  "NavierStokes.ActualIntermediateDebtBounds",
+  "NavierStokes.ActualIterationLedger",
+  "NavierStokes.ActualMeanExterior",
+  "NavierStokes.ActualMeanPhysicalData",
+  "NavierStokes.ActualMeanPotentialRealization",
+  "NavierStokes.ActualMeanStageData",
+  "NavierStokes.ActualParticularBackground",
+  "NavierStokes.ActualParticularCoherence",
+  "NavierStokes.ActualParticularControl",
+  "NavierStokes.ActualParticularCycleData",
+  "NavierStokes.ActualParticularDynamics",
+  "NavierStokes.ActualParticularGaussian",
+  "NavierStokes.ActualParticularMeanGain",
+  "NavierStokes.ActualParticularPotentialCoherence",
+  "NavierStokes.ActualParticularRealization",
+  "NavierStokes.ActualParticularStageControls",
+  "NavierStokes.ActualPeriodizedSignedRealization",
+  "NavierStokes.ActualPhaseDefect",
+  "NavierStokes.ActualPhaseJetBounds",
+  "NavierStokes.ActualPhysicalPrefixFields",
+  "NavierStokes.ActualPhysicalStageBounds",
+  "NavierStokes.ActualPolarCoverage",
+  "NavierStokes.ActualPrimaryBounds",
+  "NavierStokes.ActualPrimaryCoherence",
+  "NavierStokes.ActualPrimaryCovariance",
+  "NavierStokes.ActualPrimaryDynamics",
+  "NavierStokes.ActualReferenceRebase",
+  "NavierStokes.ActualSeedPeriodicity",
+  "NavierStokes.ActualSignedCoherence",
+  "NavierStokes.ActualSignedCommonDynamics",
+  "NavierStokes.ActualSignedControl",
+  "NavierStokes.ActualSignedCurrentSupport",
+  "NavierStokes.ActualSignedDynamics",
+  "NavierStokes.ActualSignedExterior",
+  "NavierStokes.ActualSignedFamilySupport",
+  "NavierStokes.ActualSignedGaussian",
+  "NavierStokes.ActualSignedGaussianCoherence",
+  "NavierStokes.ActualSignedGeometry",
+  "NavierStokes.ActualSignedMeanBinding",
+  "NavierStokes.ActualSignedNativeBounds",
+  "NavierStokes.ActualSignedNativeProfiles",
+  "NavierStokes.ActualSignedNativeRegularity",
+  "NavierStokes.ActualSignedOutputBounds",
+  "NavierStokes.ActualSignedPhysicalBinding",
+  "NavierStokes.ActualSignedPhysicalCoherence",
+  "NavierStokes.ActualSignedPhysicalData",
+  "NavierStokes.ActualSignedPhysicalGeometry",
+  "NavierStokes.ActualSignedPhysicalZeros",
+  "NavierStokes.ActualSignedPotentialCoherence",
+  "NavierStokes.ActualSignedReferenceGeometry",
+  "NavierStokes.ActualSignedStageControls",
+  "NavierStokes.ActualSignedUnmaskedBinding",
+  "NavierStokes.ActualSignedUnmaskedBounds",
+  "NavierStokes.ActualSignedWaveData",
+  "NavierStokes.ActualSlowAxis",
+  "NavierStokes.ActualStageEstimates",
+  "NavierStokes.ActualValidBandWaves",
+  "NavierStokes.ActualWaveCoefficientPeriodicity",
+  "NavierStokes.ActualWaveRegularity",
+  "NavierStokes.ActualWaveRegularityData",
+  "NavierStokes.AlignedProfileSpectralCone",
+  "NavierStokes.AllBandBaseJets",
+  "NavierStokes.AnalyticCoefficientBounds",
+  "NavierStokes.AnalyticPrimitive",
+  "NavierStokes.AngularMomentReset",
+  "NavierStokes.AnnularAuxiliary",
+  "NavierStokes.AnnularEndpoint",
+  "NavierStokes.AssembledSlowBase",
+  "NavierStokes.AxisCoefficientSpace",
+  "NavierStokes.AxisContraction",
+  "NavierStokes.AxisEvaluation",
+  "NavierStokes.AxisEvaluationAlgebra",
+  "NavierStokes.AxisHolomorphic",
+  "NavierStokes.AxisHolomorphicJoint",
+  "NavierStokes.AxisOperators",
+  "NavierStokes.AxisPreservation",
+  "NavierStokes.AxisProfile",
+  "NavierStokes.AxisReference",
+  "NavierStokes.AxisResolvent",
+  "NavierStokes.AxisSeries",
+  "NavierStokes.AxisSourceRegularity",
+  "NavierStokes.AxisTailRegularity",
+  "NavierStokes.AxisWeightEstimates",
+  "NavierStokes.AxisymmetricFields",
+  "NavierStokes.AxisymmetricResidual",
+  "NavierStokes.AxisymmetricResidualGrouping",
+  "NavierStokes.BandReindexedSignedMeanGain",
+  "NavierStokes.BaseChartJets",
+  "NavierStokes.BaseContextAssembly",
+  "NavierStokes.BaseExterior",
+  "NavierStokes.BasePhaseGeometry",
+  "NavierStokes.BasePrefixIdentity",
+  "NavierStokes.BaseRadialJets",
+  "NavierStokes.BaseRankPatch",
+  "NavierStokes.BaseResidual",
+  "NavierStokes.BaseStressClasses",
+  "NavierStokes.BlowupImplication",
+  "NavierStokes.BorelExtension",
+  "NavierStokes.BoundaryAxisJets",
+  "NavierStokes.CandidateConsequences",
+  "NavierStokes.CandidateFromLimits",
+  "NavierStokes.CartesianCopySource",
+  "NavierStokes.CauchyRestriction",
+  "NavierStokes.ChartScales",
+  "NavierStokes.ClayCSolution",
+  "NavierStokes.ClayDSolution",
+  "NavierStokes.ClayFeffermanSolution",
+  "NavierStokes.ClosedNativeWaveIdentities",
+  "NavierStokes.CommonBaseContext",
+  "NavierStokes.CommonCoverClass",
+  "NavierStokes.CommonCoverSolve",
+  "NavierStokes.CompactForceDecay",
+  "NavierStokes.CompactSmoothFamily",
+  "NavierStokes.CompactSpatialForceDecay",
+  "NavierStokes.ComparatorBridge",
+  "NavierStokes.ComparatorCompleteSolution",
+  "NavierStokes.ComparatorDefinitions",
+  "NavierStokes.ComparatorR3Bridge",
+  "NavierStokes.ComparatorR3Theorem",
+  "NavierStokes.ComparatorSolution",
+  "NavierStokes.ComparatorTheorem",
+  "NavierStokes.ConeAlgebra",
+  "NavierStokes.ConstructedSlowBase",
+  "NavierStokes.CoordinateAlgebra",
+  "NavierStokes.CopyAngularInvariance",
+  "NavierStokes.CopySolveCompatibility",
+  "NavierStokes.CorrectedPressureBounds",
+  "NavierStokes.CorrectedPulseAmplitude",
+  "NavierStokes.CorrectionAnalyticStep",
+  "NavierStokes.CorrectionInitialization",
+  "NavierStokes.CorrectionState",
+  "NavierStokes.CorrectionStep",
+  "NavierStokes.Covariance",
+  "NavierStokes.CrossBasedMeanComposition",
+  "NavierStokes.CurlClassBounds",
+  "NavierStokes.CurlGeometry",
+  "NavierStokes.CurrentModeGeometry",
+  "NavierStokes.CurrentParticularLabelBounds",
+  "NavierStokes.CurrentParticularPhysicalCoherence",
+  "NavierStokes.CurrentPhysicalChartJets",
+  "NavierStokes.CurrentPhysicalModeGerms",
+  "NavierStokes.CurrentSignedCurl",
+  "NavierStokes.CutStageEstimates",
+  "NavierStokes.CycleMeanEquation",
+  "NavierStokes.CyclePhysicalPrefixes",
+  "NavierStokes.CycleStateCoherence",
+  "NavierStokes.CylindricalResidual",
+  "NavierStokes.DefectIncrementBounds",
+  "NavierStokes.DependentSignedPhysicalFamily",
+  "NavierStokes.DiagonalJetBounds",
+  "NavierStokes.DiagonalResidual",
+  "NavierStokes.DiagonalScale",
+  "NavierStokes.DiophantineGraph",
+  "NavierStokes.DirectAngularDiagonal",
+  "NavierStokes.EdgeWeightJets",
+  "NavierStokes.EndpointCoordinates",
+  "NavierStokes.EndpointExtension",
+  "NavierStokes.EntranceAlignedBase",
+  "NavierStokes.ErrorHarmonics",
+  "NavierStokes.EvenSmoothDescent",
+  "NavierStokes.ExponentLedger",
+  "NavierStokes.ExtendedHeatDebts",
+  "NavierStokes.ExtendedHeatedOutgoing",
+  "NavierStokes.FinalSlowBase",
+  "NavierStokes.FiniteHeadClass",
+  "NavierStokes.FirstOrderBaseEdge",
+  "NavierStokes.FiveProfileMoments",
+  "NavierStokes.FiveRowRank",
+  "NavierStokes.FlatCovariance",
+  "NavierStokes.FlatCutoff",
+  "NavierStokes.FlatDyadicExtension",
+  "NavierStokes.FlatKernelBounds",
+  "NavierStokes.FlatPrimitive",
+  "NavierStokes.FlatPrimitiveFactor",
+  "NavierStokes.FlatZeroExtension",
+  "NavierStokes.Flatness",
+  "NavierStokes.FourierAlias",
+  "NavierStokes.FuturePressureBounds",
+  "NavierStokes.GaugeAliasDecay",
+  "NavierStokes.GaugeDebtIncrement",
+  "NavierStokes.GaugeExcludedBounds",
+  "NavierStokes.GaugeMassPreservation",
+  "NavierStokes.GaugeMomentBalances",
+  "NavierStokes.GaugeRadialResidualBounds",
+  "NavierStokes.GaugeStateCoherence",
+  "NavierStokes.GaussianEnvelope",
+  "NavierStokes.GaussianErrorNaturality",
+  "NavierStokes.GaussianTailFlat",
+  "NavierStokes.GenericEndpointExtension",
+  "NavierStokes.GermCandidateAssembly",
+  "NavierStokes.GermEndpointInputs",
+  "NavierStokes.GlobalBaseError",
+  "NavierStokes.GlobalSlowProfiles",
+  "NavierStokes.GlobalStressSupport",
+  "NavierStokes.GluedStageEstimates",
+  "NavierStokes.GraphCalculus",
+  "NavierStokes.GrowingMode",
+  "NavierStokes.HarmonicCalculus",
+  "NavierStokes.HarmonicCovariance",
+  "NavierStokes.HarmonicFields",
+  "NavierStokes.HarmonicMeanInteraction",
+  "NavierStokes.HarmonicResidual",
+  "NavierStokes.HarmonicSourceSupport",
+  "NavierStokes.HarmonicStructurePreservation",
+  "NavierStokes.HarmonicWaveInteraction",
+  "NavierStokes.HeatProfileExtension",
+  "NavierStokes.HeatSwitchCone",
+  "NavierStokes.HeatSwitchHistoryDerivatives",
+  "NavierStokes.HeatTailEdit",
+  "NavierStokes.HeatTailHistoryLimits",
+  "NavierStokes.HeatedOutgoing",
+  "NavierStokes.HolomorphicFamily",
+  "NavierStokes.InitialNativeRegularity",
+  "NavierStokes.InitialPhysicalData",
+  "NavierStokes.InitializedPhysicalBackground",
+  "NavierStokes.IntegratedMeanBalances",
+  "NavierStokes.IntervalCopyTransport",
+  "NavierStokes.JetBounds",
+  "NavierStokes.JointODE",
+  "NavierStokes.JointResidualLimits",
+  "NavierStokes.LabelSumBounds",
+  "NavierStokes.LabelSupportPreservation",
+  "NavierStokes.LeadingStress",
+  "NavierStokes.LeadingStressWeights",
+  "NavierStokes.LiftedMeanResidual",
+  "NavierStokes.LinearWaveBounds",
+  "NavierStokes.LinearWaveResidual",
+  "NavierStokes.LocalAngularDiagonal",
+  "NavierStokes.LocalAxisymmetricResidual",
+  "NavierStokes.LocalMeanPhysicalBounds",
+  "NavierStokes.LocalPhysicalCopyBounds",
+  "NavierStokes.LocalRankDefect",
+  "NavierStokes.LocalResidualGrouping",
+  "NavierStokes.LocalSignedRequest",
+  "NavierStokes.LocalizedCurlRealization",
+  "NavierStokes.LocalizedGaussianBounds",
+  "NavierStokes.LocalizedMeanInteraction",
+  "NavierStokes.LocalizedMomentRepair",
+  "NavierStokes.LocalizedWaveBounds",
+  "NavierStokes.LoopMoments",
+  "NavierStokes.LoopVariance",
+  "NavierStokes.MatchingConeBounds",
+  "NavierStokes.MatchingDebtBounds",
+  "NavierStokes.MaximalLifespan",
+  "NavierStokes.MeanBoundsReindex",
+  "NavierStokes.MeanChartCompatibility",
+  "NavierStokes.MeanIncrementBounds",
+  "NavierStokes.MeanMomentBounds",
+  "NavierStokes.MeanRankUpdate",
+  "NavierStokes.MeanResidual",
+  "NavierStokes.MeanStageRegularity",
+  "NavierStokes.MeanStateRegularity",
+  "NavierStokes.MixedAxisPreservation",
+  "NavierStokes.MixedCandidateAssembly",
+  "NavierStokes.MixedCandidateWitness",
+  "NavierStokes.MixedDiagonalExtensions",
+  "NavierStokes.MixedDiagonalResidual",
+  "NavierStokes.MixedDiagonalSchedule",
+  "NavierStokes.MixedFiniteBackground",
+  "NavierStokes.MixedPeriodicAssembly",
+  "NavierStokes.ModeSolenoidalReindex",
+  "NavierStokes.ModulatedCone",
+  "NavierStokes.ModulatedExterior",
+  "NavierStokes.ModulatedHistories",
+  "NavierStokes.ModulatedProfileAssembly",
+  "NavierStokes.ModulatedStockBounds",
+  "NavierStokes.MomentRepair",
+  "NavierStokes.MovingFrameODE",
+  "NavierStokes.MovingMomentBounds",
+  "NavierStokes.NativeBandExtension",
+  "NavierStokes.NativeCutoffJets",
+  "NavierStokes.NativePrincipalEquations",
+  "NavierStokes.NaturalAxisBridge",
+  "NavierStokes.NaturalAxisCoefficients",
+  "NavierStokes.NaturalAxisData",
+  "NavierStokes.NaturalAxisRange",
+  "NavierStokes.NaturalCoefficientBridge",
+  "NavierStokes.NaturalCore",
+  "NavierStokes.NaturalEntrance",
+  "NavierStokes.NaturalProfile",
+  "NavierStokes.NilpotentVolterra",
+  "NavierStokes.NominalConeAssembly",
+  "NavierStokes.NominalProfile",
+  "NavierStokes.NormalScaling",
+  "NavierStokes.OffplaneCorrectionExtensions",
+  "NavierStokes.OffplaneJetExtensions",
+  "NavierStokes.OscillatoryCurl",
+  "NavierStokes.OutgoingCone",
+  "NavierStokes.OutgoingDilation",
+  "NavierStokes.OutgoingEntranceCone",
+  "NavierStokes.OutgoingHistories",
+  "NavierStokes.OutgoingProfile",
+  "NavierStokes.OutgoingPulseBounds",
+  "NavierStokes.OutgoingSchedule",
+  "NavierStokes.OutgoingTail",
+  "NavierStokes.ParametricEvenDescent",
+  "NavierStokes.ParametricFlatFactor",
+  "NavierStokes.ParametricHeatTail",
+  "NavierStokes.ParametricKernelBounds",
+  "NavierStokes.ParametricModulation",
+  "NavierStokes.ParametricODE",
+  "NavierStokes.ParametricRadialExtension",
+  "NavierStokes.ParametricRephase",
+  "NavierStokes.ParametricTerminalCompensation",
+  "NavierStokes.ParametricTorusInverse",
+  "NavierStokes.ParticularCopyBounds",
+  "NavierStokes.ParticularPaddedBackground",
+  "NavierStokes.ParticularWaveAssembly",
+  "NavierStokes.ParticularWaveBounds",
+  "NavierStokes.PartitionedCovariance",
+  "NavierStokes.PastExtension",
+  "NavierStokes.PeriodicComparatorSolution",
+  "NavierStokes.PeriodicIntegration",
+  "NavierStokes.PeriodicLocalization",
+  "NavierStokes.PeriodicPaperComparator",
+  "NavierStokes.PeriodicPaperScalingSupport",
+  "NavierStokes.PeriodicPaperSupport",
+  "NavierStokes.PeriodicPaperTheorem",
+  "NavierStokes.PeriodicPhaseAssembly",
+  "NavierStokes.PeriodicResidualLimits",
+  "NavierStokes.PeriodicSobolev",
+  "NavierStokes.PeriodicUniqueness",
+  "NavierStokes.PeriodicViscosity",
+  "NavierStokes.PeriodicViscosityUniqueness",
+  "NavierStokes.PeriodizeLatticeCover",
+  "NavierStokes.PeriodizePDE",
+  "NavierStokes.PeriodizedWaveBounds",
+  "NavierStokes.PhaseCalculus",
+  "NavierStokes.PhaseEstimates",
+  "NavierStokes.PhaseJetBounds",
+  "NavierStokes.PhysicalClassBounds",
+  "NavierStokes.PhysicalCoordinateBounds",
+  "NavierStokes.PhysicalCopyBounds",
+  "NavierStokes.PhysicalCurlCovariance",
+  "NavierStokes.PhysicalGraphBounds",
+  "NavierStokes.PhysicalHeatCoordinates",
+  "NavierStokes.PhysicalMeanDomain",
+  "NavierStokes.PhysicalMeanJetBounds",
+  "NavierStokes.PhysicalParticularWave",
+  "NavierStokes.PhysicalResidualBridge",
+  "NavierStokes.PhysicalResidualJetBounds",
+  "NavierStokes.PhysicalResidualNaturality",
+  "NavierStokes.PhysicalResidualTZ",
+  "NavierStokes.PhysicalSignedWave",
+  "NavierStokes.PhysicalStageBounds",
+  "NavierStokes.PhysicalStageSupport",
+  "NavierStokes.PhysicalWaveSum",
+  "NavierStokes.PolarCharts",
+  "NavierStokes.PositiveAxisExistence",
+  "NavierStokes.PositiveAxisSystem",
+  "NavierStokes.PositiveOrderMoments",
+  "NavierStokes.PositiveRepresentatives",
+  "NavierStokes.PositiveTimeCopyFamily",
+  "NavierStokes.PositiveTimeSignedData",
+  "NavierStokes.PositiveTimeSignedLocalization",
+  "NavierStokes.PowerMomentMatrix",
+  "NavierStokes.PreparedOutgoing",
+  "NavierStokes.PressureDatum",
+  "NavierStokes.PressureStream",
+  "NavierStokes.PrimaryCopyBounds",
+  "NavierStokes.PrimaryCopyBridge",
+  "NavierStokes.PrimaryCovarianceBounds",
+  "NavierStokes.PrimaryFieldAssembly",
+  "NavierStokes.PrimaryGeometryAssembly",
+  "NavierStokes.PrimaryMaterialDefect",
+  "NavierStokes.PrimaryODE",
+  "NavierStokes.PrimaryPulseBounds",
+  "NavierStokes.PrimaryRepresentatives",
+  "NavierStokes.PrimaryResidualClass",
+  "NavierStokes.PrimaryTargetBounds",
+  "NavierStokes.ProblemStatement",
+  "NavierStokes.ProfileHistories",
+  "NavierStokes.ProfileSpectralCone",
+  "NavierStokes.PulseAmplitude",
+  "NavierStokes.PulseCone",
+  "NavierStokes.PulseCovariance",
+  "NavierStokes.PulseEnergyHistory",
+  "NavierStokes.PulseGrowth",
+  "NavierStokes.PulseLag",
+  "NavierStokes.R3.ActualCandidate",
+  "NavierStokes.R3.ActualPressureFlux",
+  "NavierStokes.R3.CandidateBreakdown",
+  "NavierStokes.R3.CompactComparisonBounds",
+  "NavierStokes.R3.CompactEnergy",
+  "NavierStokes.R3.CompactForceBound",
+  "NavierStokes.R3.CompactSchwartz",
+  "NavierStokes.R3.CompactTimeIntegral",
+  "NavierStokes.R3.ComparatorBridge",
+  "NavierStokes.R3.ComparisonCutoffs",
+  "NavierStokes.R3.ComparisonFiniteEnergy",
+  "NavierStokes.R3.ComparisonFourierSetup",
+  "NavierStokes.R3.ComparisonGronwall",
+  "NavierStokes.R3.ComparisonRateBound",
+  "NavierStokes.R3.ComparisonSetup",
+  "NavierStokes.R3.ComparisonTimeAverages",
+  "NavierStokes.R3.ComparisonYoung",
+  "NavierStokes.R3.ConservativeDifference",
+  "NavierStokes.R3.DelayedExtension",
+  "NavierStokes.R3.ForceL2Norm",
+  "NavierStokes.R3.FourierConvolution",
+  "NavierStokes.R3.FourierSobolevWeights",
+  "NavierStokes.R3.FourierTestDerivatives",
+  "NavierStokes.R3.GaussianMoments",
+  "NavierStokes.R3.GradientOperator",
+  "NavierStokes.R3.HarmonicTestFunctionals",
+  "NavierStokes.R3.HeatKernel",
+  "NavierStokes.R3.HeatKernelCancellation",
+  "NavierStokes.R3.HeatKernelCommutator",
+  "NavierStokes.R3.HeatKernelFourier",
+  "NavierStokes.R3.HeatKernelFubini",
+  "NavierStokes.R3.HeatKernelPairedBound",
+  "NavierStokes.R3.HeatKernelTimeBound",
+  "NavierStokes.R3.HilbertFunctionalExtension",
+  "NavierStokes.R3.IntegratedDissipation",
+  "NavierStokes.R3.LocalizedDifferenceEnergy",
+  "NavierStokes.R3.LocalizedFluxEstimates",
+  "NavierStokes.R3.LocalizedLaplacian",
+  "NavierStokes.R3.LocalizedTensorBounds",
+  "NavierStokes.R3.LocalizedTransport",
+  "NavierStokes.R3.LpNormTools",
+  "NavierStokes.R3.PairedKernelBound",
+  "NavierStokes.R3.ParabolicCalculus",
+  "NavierStokes.R3.ParabolicDefinitions",
+  "NavierStokes.R3.ParabolicEnergy",
+  "NavierStokes.R3.ParabolicScaling",
+  "NavierStokes.R3.ParabolicSupport",
+  "NavierStokes.R3.PositiveTimeForce",
+  "NavierStokes.R3.PressureFlux",
+  "NavierStokes.R3.PressureFluxIdentity",
+  "NavierStokes.R3.PressureFluxTest",
+  "NavierStokes.R3.PressureFunctionals",
+  "NavierStokes.R3.PressureRecovery",
+  "NavierStokes.R3.PressureRecoveryHelpers",
+  "NavierStokes.R3.PressureTemporalIdentity",
+  "NavierStokes.R3.PressureTestBounds",
+  "NavierStokes.R3.ProblemStatement",
+  "NavierStokes.R3.RadialKernelBounds",
+  "NavierStokes.R3.RieszHeatRepresentation",
+  "NavierStokes.R3.RieszL2Bounds",
+  "NavierStokes.R3.RieszLinearityDecay",
+  "NavierStokes.R3.RieszPairing",
+  "NavierStokes.R3.RieszSymbolRegularity",
+  "NavierStokes.R3.RieszTestOperators",
+  "NavierStokes.R3.ScalarEnergyBound",
+  "NavierStokes.R3.SchwartzCompactApproximation",
+  "NavierStokes.R3.SchwartzParseval",
+  "NavierStokes.R3.SharpEnergyBound",
+  "NavierStokes.R3.SmoothSobolevL6",
+  "NavierStokes.R3.SpatialCauchySchwarz",
+  "NavierStokes.R3.SpatialEnergyScaling",
+  "NavierStokes.R3.SpatialSupportScaling",
+  "NavierStokes.R3.TemporalTestUniqueness",
+  "NavierStokes.R3.Theorem",
+  "NavierStokes.R3.ViscosityScaling",
+  "NavierStokes.R3.ViscousEnergyBalance",
+  "NavierStokes.R3.WeakFourierUniqueness",
+  "NavierStokes.R3.WeakTimeContinuity",
+  "NavierStokes.R3.WeightedInterpolation",
+  "NavierStokes.R3.WeightedSobolev",
+  "NavierStokes.R3.WholeSpaceComparisonClosure",
+  "NavierStokes.R3.WholeSpaceEnergyLimit",
+  "NavierStokes.R3.WholeSpaceUniqueness",
+  "NavierStokes.R3ActualCandidate",
+  "NavierStokes.R3CompactCandidate",
+  "NavierStokes.R3FiniteEnergyComparison",
+  "NavierStokes.RadialAlias",
+  "NavierStokes.RadialFluxResidual",
+  "NavierStokes.RadialHeatProfile",
+  "NavierStokes.RadialModulation",
+  "NavierStokes.RadialPullback",
+  "NavierStokes.RadialSchedule",
+  "NavierStokes.RankStateBounds",
+  "NavierStokes.RankStateCoherence",
+  "NavierStokes.ReferenceBounds",
+  "NavierStokes.ReferenceJetBounds",
+  "NavierStokes.ReferencePath",
+  "NavierStokes.ReleaseMoments",
+  "NavierStokes.RenormalizedHeatMoment",
+  "NavierStokes.RepairConeBounds",
+  "NavierStokes.ReservedPatches",
+  "NavierStokes.ResetEnergyBounds",
+  "NavierStokes.ResidualCalculus",
+  "NavierStokes.ResidualPolarGraph",
+  "NavierStokes.ResidualRegularity",
+  "NavierStokes.ResidualStability",
+  "NavierStokes.ScalarParticularSupport",
+  "NavierStokes.ScaledActualParticularControl",
+  "NavierStokes.ScaledParticularFrameJets",
+  "NavierStokes.ScaledTangentTransport",
+  "NavierStokes.Scaling",
+  "NavierStokes.SchedulePressure",
+  "NavierStokes.ScheduledProfileChoice",
+  "NavierStokes.ShapeTransition",
+  "NavierStokes.ShapedWaitBounds",
+  "NavierStokes.SignedCopyBounds",
+  "NavierStokes.SignedCovariance",
+  "NavierStokes.SignedCrossDefectClass",
+  "NavierStokes.SignedMeanGain",
+  "NavierStokes.SignedPhysicalSumCalculus",
+  "NavierStokes.SignedStressPrimitive",
+  "NavierStokes.SignedWaveUpdate",
+  "NavierStokes.SimilarityApproach",
+  "NavierStokes.SimilarityCoordinates",
+  "NavierStokes.SimilarityHomogeneity",
+  "NavierStokes.SimilarityProfile",
+  "NavierStokes.SlotColoring",
+  "NavierStokes.SlotGeometry",
+  "NavierStokes.SlowBaseEndpoint",
+  "NavierStokes.SlowBorelBase",
+  "NavierStokes.SlowDivergence",
+  "NavierStokes.SlowExpansionResidual",
+  "NavierStokes.SlowFirstOrderEdge",
+  "NavierStokes.SlowRecursion",
+  "NavierStokes.SlowResidualMatching",
+  "NavierStokes.SlowStressSupport",
+  "NavierStokes.SmoothCovariance",
+  "NavierStokes.SmoothCutoffs",
+  "NavierStokes.SmoothFamilyTorusInverse",
+  "NavierStokes.SmoothFourierData",
+  "NavierStokes.SmoothLoop",
+  "NavierStokes.SmoothMomentRepair",
+  "NavierStokes.SmoothParameterIntegral",
+  "NavierStokes.SmoothPathFamily",
+  "NavierStokes.SolenoidalDiagonal",
+  "NavierStokes.SpacetimeEndpoint",
+  "NavierStokes.SpacetimeGluing",
+  "NavierStokes.SpatialBorelExtension",
+  "NavierStokes.SpatialCurl",
+  "NavierStokes.SpatialLocalization",
+  "NavierStokes.SquaredPartition",
+  "NavierStokes.StateMomentBalances",
+  "NavierStokes.StateReindex",
+  "NavierStokes.StressActivation",
+  "NavierStokes.StressAlgebra",
+  "NavierStokes.SubcoverPeriodicity",
+  "NavierStokes.TailCone",
+  "NavierStokes.TailEnergyBounds",
+  "NavierStokes.TailGaugePotential",
+  "NavierStokes.TangentODE",
+  "NavierStokes.TangentProjection",
+  "NavierStokes.TemporalMeanUpdate",
+  "NavierStokes.TemporalStateCoherence",
+  "NavierStokes.TerminalCompensation",
+  "NavierStokes.TerminalCone",
+  "NavierStokes.TerminalEdgeFactor",
+  "NavierStokes.TerminalHistoryBridge",
+  "NavierStokes.TerminalPressure",
+  "NavierStokes.TerminalStress",
+  "NavierStokes.TimeLocalization",
+  "NavierStokes.TorusAverages",
+  "NavierStokes.TorusInverse",
+  "NavierStokes.TorusMeanRequestRebase",
+  "NavierStokes.TransitionRamp",
+  "NavierStokes.TransportPrimitive",
+  "NavierStokes.TrueConeLoop",
+  "NavierStokes.UniformAngularReset",
+  "NavierStokes.UniformBlockBounds",
+  "NavierStokes.UniformCone",
+  "NavierStokes.UniformFourierAlias",
+  "NavierStokes.UniformHarmonicInteraction",
+  "NavierStokes.UniformPrimaryWeights",
+  "NavierStokes.ValidBandGluing",
+  "NavierStokes.ValidDyadicBandCover",
+  "NavierStokes.VariableGaugeMean",
+  "NavierStokes.ViscousPropagator",
+  "NavierStokes.VolterraAnalyticBounds",
+  "NavierStokes.VolterraParity",
+  "NavierStokes.VolterraRegularity",
+  "NavierStokes.WaveEdgeExtension",
+  "NavierStokes.WaveEnvelopeTransport",
+  "NavierStokes.WaveInteractionBounds",
+  "NavierStokes.WaveStateRegularity",
+  "NavierStokes.WeightedClasses",
+  "NavierStokes.WeightedODEJets",
+  "NavierStokes.WeightedQuotients",
+  "NavierStokes.WeightedRadialPrimitive",
+  "NavierStokes.ZerothStressIdentity"
+ ],
+ "lean_sources_identical_to_R2R1": true,
+ "files": [
+  {
+   "path": ".gitattributes",
+   "bytes": 91,
+   "sha256": "5f2b9747c6ed9227f06ca62a74dad09e1b4ef782f2f0a0ee58f6a9c51fa33524"
+  },
+  {
+   "path": ".github/workflows/verify.yml",
+   "bytes": 1203,
+   "sha256": "27cb1b3e55b6a1e5fc68b94249da71b5767b692ee19d472f5f099a6c7e7e5df8"
+  },
+  {
+   "path": ".gitignore",
+   "bytes": 77,
+   "sha256": "3bbe98ca3362d790f00f267e5cfb9bd8de027eff58ca4328ea021197c70a75e8"
+  },
+  {
+   "path": "CDNonVacuity.lean",
+   "bytes": 2329,
+   "sha256": "16ab1ca0102c684ef6c7f96fc1ca512bd4e0fa03fbe3ad8fbdf30bb827570c99"
+  },
+  {
+   "path": "CDVerification.lean",
+   "bytes": 2698,
+   "sha256": "a4c56e657a3919d70bf9f30562b6bdbf4b9b972c0ace2dc6a6ff84e49ab98f4f"
+  },
+  {
+   "path": "CHANGELOG.md",
+   "bytes": 373,
+   "sha256": "f3b3cace61b2087108b603357a0597c3651c645799f68c15422b7c3a8d26fd7c"
+  },
+  {
+   "path": "CITATION.cff",
+   "bytes": 1060,
+   "sha256": "54da9f5d0b9b7e4066749e0626ba17d70d2b97d5d3a70b77ee7b1f39b146403c"
+  },
+  {
+   "path": "ClayStatement/Bridge.lean",
+   "bytes": 3072,
+   "sha256": "9f958c8672f18b5459fada04d5f4de758ac9795c90e8377d1042685c174b61bf"
+  },
+  {
+   "path": "ClayStatement/BridgeConverse.lean",
+   "bytes": 1395,
+   "sha256": "370a5a09c0b9370d7f16a20f52319ebeff5e59a05eaaebcace45c8a9275dc31c"
+  },
+  {
+   "path": "ClayStatement/BridgeEquiv.lean",
+   "bytes": 9375,
+   "sha256": "5bc453b1d3e104a41911e722d70bb2b6b6f6cd81c0bf91f0f46b11bb6be9deea"
+  },
+  {
+   "path": "ClayStatement/BridgeLemmas.lean",
+   "bytes": 2822,
+   "sha256": "ecf863015037b7068a5ea494e01e32054be67f21b95cb4b4c857410321d24c00"
+  },
+  {
+   "path": "ClayStatement/BridgeSwap.lean",
+   "bytes": 3847,
+   "sha256": "af6c287225f408c8491c10c7ea632a903f56ae4d3dfeec9479f5126368e1057b"
+  },
+  {
+   "path": "ClayStatement/Fefferman.lean",
+   "bytes": 6748,
+   "sha256": "abba33b6784f6954d4a16bbe96f9ae27a7bf79bd194f531dcb0cf75ae56c2676"
+  },
+  {
+   "path": "ClayStatement.lean",
+   "bytes": 535,
+   "sha256": "9153a8013495bfd5cec09eb83aed38c3c8385df776fd2978b3c6d503797aa4b7"
+  },
+  {
+   "path": "CONTRIBUTING.md",
+   "bytes": 345,
+   "sha256": "924c177813d101d4cac32ca8d62d5a26d225e70d6e0c09d4405891c68622d9aa"
+  },
+  {
+   "path": "docs/ECR.md",
+   "bytes": 1023,
+   "sha256": "804a74d087a7eaf1cb920fbafd8cb965cf0821117347119ea19f68ed4fd804f0"
+  },
+  {
+   "path": "docs/KNOWN_LIMITATIONS.md",
+   "bytes": 1180,
+   "sha256": "9eb251614543e674e96183efb55e2f016a9628a84e492725a27cb9d4a4a248de"
+  },
+  {
+   "path": "docs/PLATFORM_SUPPORT.md",
+   "bytes": 313,
+   "sha256": "89b69343610d94cfc4557f752758c2425b2c2445c3181aa8f5d219265dd0b370"
+  },
+  {
+   "path": "docs/PROVENANCE.md",
+   "bytes": 5110,
+   "sha256": "11c48ca260661b97d3a1030d80d4a6c0a5eab1a66a8f0e737199025d01ef7a9e"
+  },
+  {
+   "path": "docs/REBUILD_OFFLINE.md",
+   "bytes": 1873,
+   "sha256": "dc93d0efd7e6cd5c66bfeb2b518cab951102553dec07883b1577b180e932193a"
+  },
+  {
+   "path": "docs/SOURCE_CHANGES.md",
+   "bytes": 821,
+   "sha256": "268ef77014d4d689be899aa6ce076248133e21383f0656d82c51c07e75829ec6"
+  },
+  {
+   "path": "docs/STATEMENT_CORRESPONDENCE.md",
+   "bytes": 4178,
+   "sha256": "b61f1629a0241eaeed08c7bb443afb36bbc3336ff7978f0340494a9b0b96f069"
+  },
+  {
+   "path": "docs/STATEMENTS.md",
+   "bytes": 25655,
+   "sha256": "f9f23497831c0099ba27d279ee4e449012de9ec9ebc4f6e4120f32a3c5f8c5f0"
+  },
+  {
+   "path": "docs/THIRD_PARTY.md",
+   "bytes": 1174,
+   "sha256": "9e630aaaaffa2a0d81a097963b265a7aaa0513e01d9c887c2f34e7a6bfd35983"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-authors-viaC/dc.r114b-cd-authors-viaC.receipt.json",
+   "bytes": 131,
+   "sha256": "0f773a70832388410dbbed2eec4623959fa66cc74f5a0ea1fe8017ceaf01bac9"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-authors-viaC/dc.r114b-cd-authors-viaC.result.json",
+   "bytes": 1836,
+   "sha256": "41d5636adba72f31a1cc866d5ec30b74211d5f3a4bdf9ec79031c8ba55790668"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-authors-viaC/dc.r114b-cd-authors-viaC_dc_stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-authors-viaC/dc.r114b-cd-authors-viaC_dc_stdout.txt",
+   "bytes": 1167,
+   "sha256": "af3663cef767e8a12a104d2c48151170c8e81528b2fa86051efd9fc85d7a7040"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-authors-viaD/dc.r114b-cd-authors-viaD.receipt.json",
+   "bytes": 131,
+   "sha256": "c48625d9adbbc686f23359ec0f0b2ac0a02f8c8685d5a88009af025acc4da662"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-authors-viaD/dc.r114b-cd-authors-viaD.result.json",
+   "bytes": 1836,
+   "sha256": "569ed9f8836c41266b62232a41696a6a709f4a6c3bf90b9b813b08bf15b187b7"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-authors-viaD/dc.r114b-cd-authors-viaD_dc_stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-authors-viaD/dc.r114b-cd-authors-viaD_dc_stdout.txt",
+   "bytes": 1167,
+   "sha256": "0f1787d43bb503e80d095b99e8e7ee69f148b9defcec0bd12324ae434ef61176"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-A/dc.r114b-cd-bridge-A.receipt.json",
+   "bytes": 126,
+   "sha256": "fb85485b6d977120ce3cdfe9f45e3621d10b58e1ddc3bccf0bfc257808fd6535"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-A/dc.r114b-cd-bridge-A.result.json",
+   "bytes": 1840,
+   "sha256": "a8b0a5a05ed740555069e2c091c53004a6347844a113bc8a1d327f6c4b0facb0"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-A/dc.r114b-cd-bridge-A_dc_stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-A/dc.r114b-cd-bridge-A_dc_stdout.txt",
+   "bytes": 1136,
+   "sha256": "59f78d38e2d9e2816636d71e9c468132cce87e433770e11d1208d3fd0f1fcbd7"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-B/dc.r114b-cd-bridge-B.receipt.json",
+   "bytes": 126,
+   "sha256": "5b8f0e170b6907463ae557bcf6dec826e7beb1aa62bf6d0392127847e96863db"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-B/dc.r114b-cd-bridge-B.result.json",
+   "bytes": 1840,
+   "sha256": "a9ae52aeb4dd8e974b5a01d105802790c6f25acc5f012063724bc6c92c2284a7"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-B/dc.r114b-cd-bridge-B_dc_stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-B/dc.r114b-cd-bridge-B_dc_stdout.txt",
+   "bytes": 1136,
+   "sha256": "6ab14085c2fc6b36849ff26b0daa80948a6bf2edba009cbe9dc8058140b73da3"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-C/dc.r114b-cd-bridge-C.receipt.json",
+   "bytes": 126,
+   "sha256": "42750c8829d4ad3acefee7239e1bb188cab392dd4ec049e0977a41519fa6b433"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-C/dc.r114b-cd-bridge-C.result.json",
+   "bytes": 1840,
+   "sha256": "00ed5d3d4b71e42e8132dd358f4533831d0495f7c9edbf85084e17734c62bb70"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-C/dc.r114b-cd-bridge-C_dc_stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-C/dc.r114b-cd-bridge-C_dc_stdout.txt",
+   "bytes": 1483,
+   "sha256": "ba3a7a0fae383ca13c1a9d5a09d71585c1a146385fe241bcb0b70e02c4ce5aa1"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-Cconv/dc.r114b-cd-bridge-Cconv.receipt.json",
+   "bytes": 138,
+   "sha256": "5ee2973e18b622951d35bff5ee7c7050ab0103ebf8d9be93aef27e3ded45baed"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-Cconv/dc.r114b-cd-bridge-Cconv.result.json",
+   "bytes": 1908,
+   "sha256": "14d0bcdbe3fd25739775152946987334e7c7c02e1ea516ee4ec8a0a2479752df"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-Cconv/dc.r114b-cd-bridge-Cconv_dc_stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-Cconv/dc.r114b-cd-bridge-Cconv_dc_stdout.txt",
+   "bytes": 1507,
+   "sha256": "3f36232ef8d3c65858fb234dcf033343a3ebc97b4d528cfcc130c84c54419beb"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-D/dc.r114b-cd-bridge-D.receipt.json",
+   "bytes": 126,
+   "sha256": "0d1e76ccef9a04a151a348eae0bfaf6e657b2a56dc10b1632e8490b78afe76e1"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-D/dc.r114b-cd-bridge-D.result.json",
+   "bytes": 1840,
+   "sha256": "7cdbac6d08814c5805a2eef7aea95ceed3e9825f9e1121688ded3901f34e6dd7"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-D/dc.r114b-cd-bridge-D_dc_stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-D/dc.r114b-cd-bridge-D_dc_stdout.txt",
+   "bytes": 1483,
+   "sha256": "450ec9e349d7fafd66c781b9c9a8ffceb662d067a456a2295d7c840f9a0a9cff"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-Dconv/dc.r114b-cd-bridge-Dconv.receipt.json",
+   "bytes": 138,
+   "sha256": "134abeeba6718c2ed9dc4272fe75d5b5529cffddd367b5194966653a7dabfa1b"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-Dconv/dc.r114b-cd-bridge-Dconv.result.json",
+   "bytes": 1908,
+   "sha256": "c7c34f439fa818440c08050a6543eb14fa4030e974b29e6763fa2d408e1bc707"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-Dconv/dc.r114b-cd-bridge-Dconv_dc_stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-bridge-Dconv/dc.r114b-cd-bridge-Dconv_dc_stdout.txt",
+   "bytes": 1507,
+   "sha256": "2d1cced3533de66fc120408390b9ab3ea649fbbd96aca53062bdd126beeb9482"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-clay-fefferman/dc.r114b-cd-clay-fefferman.receipt.json",
+   "bytes": 140,
+   "sha256": "3fad3f8652191a30ab3225ceae5338b40a9e284fd327b5ed0de02cdde4f1d89e"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-clay-fefferman/dc.r114b-cd-clay-fefferman.result.json",
+   "bytes": 1885,
+   "sha256": "c074afe72c8226d1644692aca56515396e228f66876345598068c35e6705365c"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-clay-fefferman/dc.r114b-cd-clay-fefferman_dc_stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-clay-fefferman/dc.r114b-cd-clay-fefferman_dc_stdout.txt",
+   "bytes": 1059,
+   "sha256": "1d2312444c2ac5d6eb21b4930ea37ac59cc36630d7e0a1131e0e4cfc15137753"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-clay-fefferman-viaD/dc.r114b-cd-clay-fefferman-viaD.receipt.json",
+   "bytes": 151,
+   "sha256": "f30d4ff5b6fa355c5d8cb087482652cb949f9738eb1ef5b58e530ef673c6dc69"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-clay-fefferman-viaD/dc.r114b-cd-clay-fefferman-viaD.result.json",
+   "bytes": 1918,
+   "sha256": "dfafaaf044c7874bf81b2d54c020507bf5f1d1a19e8253367cda7c557a0424ab"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-clay-fefferman-viaD/dc.r114b-cd-clay-fefferman-viaD_dc_stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evidence/ecr/dc.r114b-cd-clay-fefferman-viaD/dc.r114b-cd-clay-fefferman-viaD_dc_stdout.txt",
+   "bytes": 1079,
+   "sha256": "95fd80e53edcf1d0abdb2e969d105a52704e973209997cc6261f8fbc899693f6"
+  },
+  {
+   "path": "evidence/ecr/dc.r115-cd-clay-C/dc.r115-cd-clay-C.receipt.json",
+   "bytes": 101,
+   "sha256": "7b606f8287590b3d9c9920db21aa3faf192a7435e7e87c25060829bac3c83313"
+  },
+  {
+   "path": "evidence/ecr/dc.r115-cd-clay-C/dc.r115-cd-clay-C.result.json",
+   "bytes": 1682,
+   "sha256": "63a645100b99bfe4e06ff55af35099776e73cb72943a034c76dfdd53d844ac78"
+  },
+  {
+   "path": "evidence/ecr/dc.r115-cd-clay-C/dc.r115-cd-clay-C_dc_stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evidence/ecr/dc.r115-cd-clay-C/dc.r115-cd-clay-C_dc_stdout.txt",
+   "bytes": 1014,
+   "sha256": "c0afbd2f412309f34743a4757f318eb27e2dbb9b217f343d45ef7e2af83ebd76"
+  },
+  {
+   "path": "evidence/ecr/dc.r115-cd-clay-D/dc.r115-cd-clay-D.receipt.json",
+   "bytes": 101,
+   "sha256": "645aae1938d0c02463c31d06c0ec93f48208c4eb332d453e24474446465cf481"
+  },
+  {
+   "path": "evidence/ecr/dc.r115-cd-clay-D/dc.r115-cd-clay-D.result.json",
+   "bytes": 1682,
+   "sha256": "04704b20a3f62bad469f16768bd95f2d42f6ffc12378915f267a1051fca246ca"
+  },
+  {
+   "path": "evidence/ecr/dc.r115-cd-clay-D/dc.r115-cd-clay-D_dc_stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "evidence/ecr/dc.r115-cd-clay-D/dc.r115-cd-clay-D_dc_stdout.txt",
+   "bytes": 1014,
+   "sha256": "fb53f774bcc602b8022285097650ca2e3c12c611282867cd79f97c9120878ac9"
+  },
+  {
+   "path": "evidence/ecr/ecr_clay_C_CLAY3_NavierStokes_ClayC_clay_C-v1.json",
+   "bytes": 5061,
+   "sha256": "189ec4d5f156207c6b793525c06271588ee5eacfab1c90cc9d7b5052773ab316"
+  },
+  {
+   "path": "evidence/ecr/ecr_clay_D_CLAY3_NavierStokes_ClayD_clay_D-v1.json",
+   "bytes": 5073,
+   "sha256": "bbc3375f879116b655cf5281800e6849a83911ea8cb700af28f81d38381b6f9f"
+  },
+  {
+   "path": "evidence/ecr/ecr_clay_navier_stokes_fefferman_CLAY3_NavierStokes_ClayChallenge_clay_navier_stokes_fefferman-v1.json",
+   "bytes": 5219,
+   "sha256": "534808d81f9799b10abd760d186314e968a46f3eb1766e8ed2d940b3279a6ef1"
+  },
+  {
+   "path": "evidence/ecr/ecr_clay_navier_stokes_fefferman_via_D_CLAY3_avierStokes_ClayChallenge_clay_navier_stokes_fefferman_via_D-v1.json",
+   "bytes": 5155,
+   "sha256": "f88f9486925a956b7c94f79b577744d7a23d2526b0e74c4f371918b7741faa04"
+  },
+  {
+   "path": "evidence/ecr/ecr_navier_stokes_clay_via_C_CLAY3_NavierStokes_Comparator_navier_stokes_clay_via_C-v2.json",
+   "bytes": 5649,
+   "sha256": "4f62cc27e07076756f6f99b6c428bbd53efbfffd221b89e7d63439e4d8f20312"
+  },
+  {
+   "path": "evidence/ecr/ecr_navier_stokes_clay_via_D_CLAY3_NavierStokes_Comparator_navier_stokes_clay_via_D-v2.json",
+   "bytes": 5389,
+   "sha256": "79fd0e0b1a41a06c81d2d7daf458f195e0a99cb0af444b93ebfae54ed8d49ac7"
+  },
+  {
+   "path": "evidence/ecr/ecr_optionA_iff_statementA_CLAY3_Clay_NavierStokes_Bridge_optionA_iff_statementA-v1.json",
+   "bytes": 5244,
+   "sha256": "a3ff2923d827926c31c6cd0813270fc8dd1b1f566661ad260e0a5d91065ee242"
+  },
+  {
+   "path": "evidence/ecr/ecr_optionB_iff_statementB_CLAY3_Clay_NavierStokes_Bridge_optionB_iff_statementB-v1.json",
+   "bytes": 5244,
+   "sha256": "f18ec96338105f020753f91f4825d1b151f82a744aaa36c1a9477f9e4886c6a2"
+  },
+  {
+   "path": "evidence/ecr/ecr_optionC_imp_statementC_CLAY3_Clay_NavierStokes_Bridge_optionC_imp_statementC-v1.json",
+   "bytes": 5618,
+   "sha256": "b30f3413f0a038be5c9b231efec62e3446afe95c12e45bc2168b861c0aed8769"
+  },
+  {
+   "path": "evidence/ecr/ecr_optionD_imp_statementD_CLAY3_Clay_NavierStokes_Bridge_optionD_imp_statementD-v1.json",
+   "bytes": 5618,
+   "sha256": "218843e4c2708c53f0f45ba3e0cc64449407ab10bd7b0ab52a45cb33086917bb"
+  },
+  {
+   "path": "evidence/ecr/ecr_statementC_imp_optionC_CLAY3_Clay_NavierStokes_BridgeConverse_statementC_imp_optionC-v1.json",
+   "bytes": 5682,
+   "sha256": "e490b162cd2af3a567a269950626106e6034b45bdca0aed5cb9401de611cfc11"
+  },
+  {
+   "path": "evidence/ecr/ecr_statementD_imp_optionD_CLAY3_Clay_NavierStokes_BridgeConverse_statementD_imp_optionD-v1.json",
+   "bytes": 5682,
+   "sha256": "cb150ea50b6f890ed3de8c9c407a0db918728ce22bb8eb858a6868e6605edf71"
+  },
+  {
+   "path": "evidence/ecr/README.md",
+   "bytes": 209,
+   "sha256": "8a8c4af66e7858f7599433ffc23dd1f9582691081eba4a55f79298ab6df59623"
+  },
+  {
+   "path": "lake-manifest.json",
+   "bytes": 3255,
+   "sha256": "4d3b8e8a0f71d92cb37d31af915040357b80d1fa3f2f1a233cc7ffb7fbc950a6"
+  },
+  {
+   "path": "lakefile.toml",
+   "bytes": 830,
+   "sha256": "9cbc94ec2dbe4263242db078007423a8e1b72fb16910a483e45d04f7c50b741f"
+  },
+  {
+   "path": "lean-toolchain",
+   "bytes": 24,
+   "sha256": "94c294272bf1d94dede2649ab08dac5d9f2ae329127ad555db672fc0a53b26c3"
+  },
+  {
+   "path": "LICENSE",
+   "bytes": 11358,
+   "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+   "path": "NavierStokes/ActivationBounds.lean",
+   "bytes": 38179,
+   "sha256": "cf60d02ccb694f460bb0b85bc3ec80c4e6eab43ce976b0816b86b2b959e79736"
+  },
+  {
+   "path": "NavierStokes/ActivationCone.lean",
+   "bytes": 56121,
+   "sha256": "5e6f5653fb2a7414860a5ef92af42db1231b1ebd10b73bc7e2de289e25bc3c1f"
+  },
+  {
+   "path": "NavierStokes/ActivationContinuation.lean",
+   "bytes": 109179,
+   "sha256": "569aac3c37212cfe327dd392f5647d2184f06e5043605d8b6a6e59e510f73c3b"
+  },
+  {
+   "path": "NavierStokes/ActivationHolomorphic.lean",
+   "bytes": 68800,
+   "sha256": "996ec0e85bd0c0fa904f0c9ee41c730daa232954d02e59cd7a301d189b2daf4a"
+  },
+  {
+   "path": "NavierStokes/ActivationStocks.lean",
+   "bytes": 57617,
+   "sha256": "e95526a777350a5bad4b9baf68175622e1341a9a6a49016496ab378a07ae1d37"
+  },
+  {
+   "path": "NavierStokes/ActiveAnnulusWeight.lean",
+   "bytes": 67871,
+   "sha256": "bb2a4b556d1579ee86555736ad7f763cb5c17eb2449cb84ce5231bcd9b40b971"
+  },
+  {
+   "path": "NavierStokes/ActualBaseResidual.lean",
+   "bytes": 49916,
+   "sha256": "f09e02e5df8a28cf4b8b020088fd92cfae40f3d356f116fbda89a5d1fa68e765"
+  },
+  {
+   "path": "NavierStokes/ActualBaseVelocityBounds.lean",
+   "bytes": 29239,
+   "sha256": "ac6e7e129eb2ec167facd40a96ddc67e059c34411561b06f753798b3c2b1a2ad"
+  },
+  {
+   "path": "NavierStokes/ActualCandidateAssembly.lean",
+   "bytes": 65609,
+   "sha256": "bba2f74a938039caec486ca6a35576efd21e6fe35c1ba695e4d21609d89b8a94"
+  },
+  {
+   "path": "NavierStokes/ActualCandidateConstruction.lean",
+   "bytes": 51265,
+   "sha256": "8873126962014e9077e74c6d71d7603bf9b7249c9d02d085abd35dec4d8766f5"
+  },
+  {
+   "path": "NavierStokes/ActualCarrierGeometry.lean",
+   "bytes": 18225,
+   "sha256": "73c4a89856395b6414c49fc0d5a8d054571ebb0b724a5f368e7abbcb9786e312"
+  },
+  {
+   "path": "NavierStokes/ActualCarrierTransport.lean",
+   "bytes": 2883,
+   "sha256": "a1b3dcd2bb202af069ed304410ce3164aa1b0139cb94fe0ce4fbc4a2e893bc49"
+  },
+  {
+   "path": "NavierStokes/ActualCarrierTransportBase.lean",
+   "bytes": 12599,
+   "sha256": "9ae1e3146a5492ca42d904cad3f653c7da506fbd75f2c65b4995238fb8786c04"
+  },
+  {
+   "path": "NavierStokes/ActualCopySliceRegularity.lean",
+   "bytes": 12649,
+   "sha256": "b064ccf4823d8ba094b99dd7c3850f85d731a437e9fbf6ae0c0a7b32a0d3dd45"
+  },
+  {
+   "path": "NavierStokes/ActualCoreSupport.lean",
+   "bytes": 16596,
+   "sha256": "7f505b0475c8981e5bd8382cddea1839cf61fc65e5a8ff7acf68dbcaf6b3527f"
+  },
+  {
+   "path": "NavierStokes/ActualCurrentCarrierJets.lean",
+   "bytes": 11485,
+   "sha256": "b292e337f4edf0c87f322adeda4d1c3e949ddf5f6dd350d35cff5e793ce071e1"
+  },
+  {
+   "path": "NavierStokes/ActualCurrentParticularAssembly.lean",
+   "bytes": 15870,
+   "sha256": "ef23a15e45fc54ca0e732805c39daf9f11f694d8440fd01f246f7670fbcd4832"
+  },
+  {
+   "path": "NavierStokes/ActualCurrentParticularBounds.lean",
+   "bytes": 57618,
+   "sha256": "bb2e9a8441857e945c18b658d85412b2929db18e8fa64f3c13e25742c1f51d42"
+  },
+  {
+   "path": "NavierStokes/ActualCurrentParticularPhysical.lean",
+   "bytes": 53007,
+   "sha256": "e8e02f39b3321493639a153f6acb3d1d36fa364420f59160aa0f7627fd0d680f"
+  },
+  {
+   "path": "NavierStokes/ActualCurrentWaveSupport.lean",
+   "bytes": 37816,
+   "sha256": "bfe9d89941842402ffd89e18eee0074f0e66e24ddc0bc3c5dd8e984576827bfb"
+  },
+  {
+   "path": "NavierStokes/ActualCycleAssembly.lean",
+   "bytes": 66259,
+   "sha256": "a26c8192e6d1069535d443feb2ad01a53a24baa0fa5d74fc98830570b57e7769"
+  },
+  {
+   "path": "NavierStokes/ActualCycleCoherence.lean",
+   "bytes": 50722,
+   "sha256": "f99252c887898f554bbb9721025876fccbe9ad2e3c9556242030bc567658aa3d"
+  },
+  {
+   "path": "NavierStokes/ActualCycleExcluded.lean",
+   "bytes": 11614,
+   "sha256": "71e69da16c00b70d137a3217613f4d0b919c0acdec919a723780f94206575792"
+  },
+  {
+   "path": "NavierStokes/ActualCycleGeometry.lean",
+   "bytes": 5047,
+   "sha256": "973aed720304308accc9f1fadfefba526b69e74092e9040ee40bc226dd5d3d7c"
+  },
+  {
+   "path": "NavierStokes/ActualCycleParameters.lean",
+   "bytes": 25793,
+   "sha256": "4101ac8a09f5fddcd893994d9417e79e9adf5525d079bed315313023406339a0"
+  },
+  {
+   "path": "NavierStokes/ActualCyclePeriodicity.lean",
+   "bytes": 24548,
+   "sha256": "f94acca6df9a8b6c49ec12425db3749f81ff15b288b1c4b723d3a593117f2c85"
+  },
+  {
+   "path": "NavierStokes/ActualCyclePreservation.lean",
+   "bytes": 47390,
+   "sha256": "f6d26b802063ee803bcc2e7923555481144e6919f64ddcb4d265cdd4d0d4674c"
+  },
+  {
+   "path": "NavierStokes/ActualCycleResidualBounds.lean",
+   "bytes": 70291,
+   "sha256": "58da6df60e7cf32e7f04e7ff87d94e45ac3315d99ca6d4784eeef9f3a1723c0b"
+  },
+  {
+   "path": "NavierStokes/ActualEndpointInputs.lean",
+   "bytes": 14545,
+   "sha256": "029c960ecc05292e4b5b1c475f4fe7df0b7e16821f1b4e017122ed00b624dd6f"
+  },
+  {
+   "path": "NavierStokes/ActualExteriorPrefix.lean",
+   "bytes": 7520,
+   "sha256": "9cfc1ec5f0dc0cd8aebb60d8b8215c629c582bd4f8524502df594fd7fe537c42"
+  },
+  {
+   "path": "NavierStokes/ActualGaussianCoverage.lean",
+   "bytes": 75997,
+   "sha256": "605065fbef52f62a513c73f464de6bf48c2d1f344e22486d887884fbe66c7ab1"
+  },
+  {
+   "path": "NavierStokes/ActualInitialCoherence.lean",
+   "bytes": 46234,
+   "sha256": "b169e3dc15da8d5a7ba1aa717902f17069fc5525db5118933eb6dd6d2f51f448"
+  },
+  {
+   "path": "NavierStokes/ActualInitialExcluded.lean",
+   "bytes": 76445,
+   "sha256": "bfb2c0c945e96f7a8570581b04a0d7f71b3a2b389270e639cbc199e38de92480"
+  },
+  {
+   "path": "NavierStokes/ActualInitialization.lean",
+   "bytes": 83267,
+   "sha256": "90c3c2e2b815a1cea3d0462312369579d5de0f0dbc9a674e2942cd6d47c01415"
+  },
+  {
+   "path": "NavierStokes/ActualInitialMean.lean",
+   "bytes": 37691,
+   "sha256": "011d45ba60429ffcceedf25d9d6867a58209a1d34bfdd2e01aeb4dfef2de8880"
+  },
+  {
+   "path": "NavierStokes/ActualInitialMeanEquation.lean",
+   "bytes": 38931,
+   "sha256": "7e43ce45b6974b860517116f61512313db945772b789f2b804fe1e387d695102"
+  },
+  {
+   "path": "NavierStokes/ActualIntermediateDebtBounds.lean",
+   "bytes": 10598,
+   "sha256": "ae331b57c46e9ad595cafcf533446f5f2408c27f21dd5336c4b59c486290f999"
+  },
+  {
+   "path": "NavierStokes/ActualIterationLedger.lean",
+   "bytes": 19306,
+   "sha256": "25a1b7e920cfe0af7cdda488c4d0407ee47c526abcfa3a6491a8fb335a1a6a31"
+  },
+  {
+   "path": "NavierStokes/ActualMeanExterior.lean",
+   "bytes": 9554,
+   "sha256": "f9c1d7e1fd4e659185f580112b45941c72c09c54cc92210a07d23764b9ef77ea"
+  },
+  {
+   "path": "NavierStokes/ActualMeanPhysicalData.lean",
+   "bytes": 73184,
+   "sha256": "c02d02e1af34d47b5d9fd5a58dec92ccfc8884033f783377fb2dee68bf147648"
+  },
+  {
+   "path": "NavierStokes/ActualMeanPotentialRealization.lean",
+   "bytes": 42201,
+   "sha256": "0e134e809e038bdcf60f868a65885ff8e81f0e42ee3c5e551e6403a8181a6e0b"
+  },
+  {
+   "path": "NavierStokes/ActualMeanStageData.lean",
+   "bytes": 27199,
+   "sha256": "7195488e5bed2a1261067ff7e997c7b1ce230747b235b9178c53da3a7184b471"
+  },
+  {
+   "path": "NavierStokes/ActualParticularBackground.lean",
+   "bytes": 16244,
+   "sha256": "ffc9ee8993b4b34be267f5be6d1b17eba9ee67ddd958fd117843aece52f56c24"
+  },
+  {
+   "path": "NavierStokes/ActualParticularCoherence.lean",
+   "bytes": 64346,
+   "sha256": "ea6b28a49d44631f15b44b524cf45d83417a82b81041e0028e6e8c1427e4e4f5"
+  },
+  {
+   "path": "NavierStokes/ActualParticularControl.lean",
+   "bytes": 59831,
+   "sha256": "a25f2bfdeec0d2279fe1fa6f4adecc2ebca8168a63bb79c216ff7fd91f92355e"
+  },
+  {
+   "path": "NavierStokes/ActualParticularCycleData.lean",
+   "bytes": 47523,
+   "sha256": "1a5f7134028ebc31452fc1116187d913e2eec38d7d9cb6c9d8c0ad693a12ad19"
+  },
+  {
+   "path": "NavierStokes/ActualParticularDynamics.lean",
+   "bytes": 99289,
+   "sha256": "0131f17e5bc64f55189efb14424189e1a6a41c0574acf7193e35daf2cade0c45"
+  },
+  {
+   "path": "NavierStokes/ActualParticularGaussian.lean",
+   "bytes": 13517,
+   "sha256": "309650e3073ead1a776b75337265042f0b9f378799868040c89e735a62488841"
+  },
+  {
+   "path": "NavierStokes/ActualParticularMeanGain.lean",
+   "bytes": 8986,
+   "sha256": "f8cd3f9691e456caba4064e51ca153398712088cfc80ef68d849ad58afcbbc40"
+  },
+  {
+   "path": "NavierStokes/ActualParticularPotentialCoherence.lean",
+   "bytes": 16468,
+   "sha256": "c87205aa184e3b2de8a5a30a8392be11ffdecf8c3875b3e92b32d8f0a6d1746c"
+  },
+  {
+   "path": "NavierStokes/ActualParticularRealization.lean",
+   "bytes": 61109,
+   "sha256": "719cc92fb43bdd34ed41a8c7700b396839d08859a0f9050bc303b789692337c8"
+  },
+  {
+   "path": "NavierStokes/ActualParticularStageControls.lean",
+   "bytes": 79988,
+   "sha256": "fa9e51f5e110789977611e8dc8730fea8ff0c55a98600db3c59d258c8c2540c6"
+  },
+  {
+   "path": "NavierStokes/ActualPeriodizedSignedRealization.lean",
+   "bytes": 49189,
+   "sha256": "3b7af53183442aba7c252de5fc6d942e495115696727ef36c9f74b6d200c74c1"
+  },
+  {
+   "path": "NavierStokes/ActualPhaseDefect.lean",
+   "bytes": 51580,
+   "sha256": "9f2027858628291ea79d5cc218be0c73fd8b3e644a6c1f761f8dfafc6944bf52"
+  },
+  {
+   "path": "NavierStokes/ActualPhaseJetBounds.lean",
+   "bytes": 37522,
+   "sha256": "0eaa43826bf37b36a3e34369e02aa9726cf57191d14839abcff4a077e512b959"
+  },
+  {
+   "path": "NavierStokes/ActualPhysicalPrefixFields.lean",
+   "bytes": 28479,
+   "sha256": "3f03223ea715627a2eb2ea80218edaf99a9e9e2f937a8e896cfe7015b6df0b32"
+  },
+  {
+   "path": "NavierStokes/ActualPhysicalStageBounds.lean",
+   "bytes": 55120,
+   "sha256": "d3e0d63e4e2a311029a3155d88e14d00f1f58a5bc6b99ff842ad8dba7586ebd4"
+  },
+  {
+   "path": "NavierStokes/ActualPolarCoverage.lean",
+   "bytes": 14767,
+   "sha256": "5a200c8e0c23011bb09ff0bc33b90753abacd4b02e34f927a48bfb8a954a83e7"
+  },
+  {
+   "path": "NavierStokes/ActualPrimaryBounds.lean",
+   "bytes": 101488,
+   "sha256": "9ac571c161016081a212ff57a98ed915d68ecf6ab67c8cb455bc0954fba6d39b"
+  },
+  {
+   "path": "NavierStokes/ActualPrimaryCoherence.lean",
+   "bytes": 111947,
+   "sha256": "7c508e8ab05bd21763c177005d5d352a85a5ad85bc9587d1dd6acb0410b9017f"
+  },
+  {
+   "path": "NavierStokes/ActualPrimaryCovariance.lean",
+   "bytes": 73494,
+   "sha256": "9acd63d2870909d9754fb88b320df86c92dc113522cfc6b5b0f1908c66b069fb"
+  },
+  {
+   "path": "NavierStokes/ActualPrimaryDynamics.lean",
+   "bytes": 65014,
+   "sha256": "bac8db6ef2f8de2b35821d340f9cd68732768bd4ffc6dbee779a3dae2aaee222"
+  },
+  {
+   "path": "NavierStokes/ActualReferenceRebase.lean",
+   "bytes": 64125,
+   "sha256": "93fe7ada17aa7f7c0ed75b0df06e7a68b3bb0cf2f431823af063277f89601b09"
+  },
+  {
+   "path": "NavierStokes/ActualSeedPeriodicity.lean",
+   "bytes": 5800,
+   "sha256": "9b924dffa093774e1e195ce2dd52e5ecbbb5bb01ad2a11bb38b781474a66f568"
+  },
+  {
+   "path": "NavierStokes/ActualSignedCoherence.lean",
+   "bytes": 36228,
+   "sha256": "e729eb3bc76cbb5429b5b153b62c61cdfaecfe7290de38ee6459eb72306e3615"
+  },
+  {
+   "path": "NavierStokes/ActualSignedCommonDynamics.lean",
+   "bytes": 34618,
+   "sha256": "2a53864b95b39fe4d93b97c22b7a237d8ff2537dec524d140e3ace1869020e08"
+  },
+  {
+   "path": "NavierStokes/ActualSignedControl.lean",
+   "bytes": 40751,
+   "sha256": "9ff00ba8f5710177d57132736d1ea211822f533b77110df7449867d159d2dd03"
+  },
+  {
+   "path": "NavierStokes/ActualSignedCurrentSupport.lean",
+   "bytes": 11250,
+   "sha256": "82ebe7f816f7ab7c9fd3fbbe0bcb6c8fde61d97248168ef35f7685cd89ba10ad"
+  },
+  {
+   "path": "NavierStokes/ActualSignedDynamics.lean",
+   "bytes": 14973,
+   "sha256": "c0e9f7d67ed3ae0fcedea9117f6d4f5863d9535e9b55959e10b875b0934179e8"
+  },
+  {
+   "path": "NavierStokes/ActualSignedExterior.lean",
+   "bytes": 20050,
+   "sha256": "459cd2997fb53946e4bcd273b37cb2981de42ef4c6bf50e759dd824a67d38b16"
+  },
+  {
+   "path": "NavierStokes/ActualSignedFamilySupport.lean",
+   "bytes": 9911,
+   "sha256": "ba7577a2be313f861f5ba3bb73841e2f23e94fb1f5b0b4b86442a06336bc972e"
+  },
+  {
+   "path": "NavierStokes/ActualSignedGaussian.lean",
+   "bytes": 15384,
+   "sha256": "07391f33140c079f9b83de610d6ac76a53580a8091dc65e04947dddc98ccfd4e"
+  },
+  {
+   "path": "NavierStokes/ActualSignedGaussianCoherence.lean",
+   "bytes": 14677,
+   "sha256": "b9fe34da89a171f332c05a93e33cebf27d891193c5bc8b37c24b5c7ed30e897a"
+  },
+  {
+   "path": "NavierStokes/ActualSignedGeometry.lean",
+   "bytes": 81448,
+   "sha256": "9197f783e6c5e95a5e25cf4afc96ad48d7236976c8259058aee2f620b94e809f"
+  },
+  {
+   "path": "NavierStokes/ActualSignedMeanBinding.lean",
+   "bytes": 38999,
+   "sha256": "a1dcaf34bf2e773002034594023641d2f614da8e38e534f439c956a10daaa8f0"
+  },
+  {
+   "path": "NavierStokes/ActualSignedNativeBounds.lean",
+   "bytes": 38692,
+   "sha256": "8c0a1fde48de80171989739562fc703be4e69b8849449562847dcd6e320074c0"
+  },
+  {
+   "path": "NavierStokes/ActualSignedNativeProfiles.lean",
+   "bytes": 13070,
+   "sha256": "998ead497be29ea4c27eb967a77d051755688d7f1c3d95d20457699e76f3ccbd"
+  },
+  {
+   "path": "NavierStokes/ActualSignedNativeRegularity.lean",
+   "bytes": 29547,
+   "sha256": "d9a90cc772243b305cd3fd0625ecbc99aadc1931cac25f9c4ce63e1118890a64"
+  },
+  {
+   "path": "NavierStokes/ActualSignedOutputBounds.lean",
+   "bytes": 20650,
+   "sha256": "20f1eaae807da92f5442fa48b052b5f7a902e15ec470a0a80c70a29ef0fdad80"
+  },
+  {
+   "path": "NavierStokes/ActualSignedPhysicalBinding.lean",
+   "bytes": 45809,
+   "sha256": "62393dfd772e2d218c14faccb2c1c522cf929000c3b520275d80c607feadad75"
+  },
+  {
+   "path": "NavierStokes/ActualSignedPhysicalCoherence.lean",
+   "bytes": 48875,
+   "sha256": "bdfc44a045e3613d44991684904e2bbb4385125ce42c584954321484adc78b65"
+  },
+  {
+   "path": "NavierStokes/ActualSignedPhysicalData.lean",
+   "bytes": 119610,
+   "sha256": "b6cc6122526a2e89f910ff385008acaf6c560c7fd0c36ab3ed473314568ff6e4"
+  },
+  {
+   "path": "NavierStokes/ActualSignedPhysicalGeometry.lean",
+   "bytes": 10135,
+   "sha256": "e3151e1f4ff8c0f516d0c9dcaa38bfa3b0c10f9d9b558d456d38ddcc7754f871"
+  },
+  {
+   "path": "NavierStokes/ActualSignedPhysicalZeros.lean",
+   "bytes": 17626,
+   "sha256": "67a425b3d0a995d635b18e472eeb10804ca949630fac37071cc8422e29340d3e"
+  },
+  {
+   "path": "NavierStokes/ActualSignedPotentialCoherence.lean",
+   "bytes": 21992,
+   "sha256": "8b0793aa87a46cec9a0d8687457761131d18a9b4d30e878eb9060f9926efa7d8"
+  },
+  {
+   "path": "NavierStokes/ActualSignedReferenceGeometry.lean",
+   "bytes": 8605,
+   "sha256": "5383398017b5d0c8d307143e0c5c76915c4ea3ba9d549d09b2627b5fd8fce3c4"
+  },
+  {
+   "path": "NavierStokes/ActualSignedStageControls.lean",
+   "bytes": 77080,
+   "sha256": "8cd7fbdc7cafaec24cfd1527f6f430eb405552a9fe0b7ee8ea732128a20c5a11"
+  },
+  {
+   "path": "NavierStokes/ActualSignedUnmaskedBinding.lean",
+   "bytes": 16619,
+   "sha256": "cf6cfd696ba7f11cdda06c3ef6ac6b9666a22de1cc139a46f4cfa8cbfeea7de8"
+  },
+  {
+   "path": "NavierStokes/ActualSignedUnmaskedBounds.lean",
+   "bytes": 24766,
+   "sha256": "df1e255bafdd8f6af620564de04e99af9da308e15d30825c82ce6195b91e67bd"
+  },
+  {
+   "path": "NavierStokes/ActualSignedWaveData.lean",
+   "bytes": 35276,
+   "sha256": "8f4dc17ac772b32c88d4c8fba4469387626878aa95d669735b828aabcb52830c"
+  },
+  {
+   "path": "NavierStokes/ActualSlowAxis.lean",
+   "bytes": 27844,
+   "sha256": "179020174c953ebe7cf258d3596f925543f7fa03108f49d137ab4f112f0f5d8c"
+  },
+  {
+   "path": "NavierStokes/ActualStageEstimates.lean",
+   "bytes": 20334,
+   "sha256": "c23f7573ea3db4ea8435c863110ee7e2ef81bb3cf23161f565acb39a27cbf99d"
+  },
+  {
+   "path": "NavierStokes/ActualValidBandWaves.lean",
+   "bytes": 20379,
+   "sha256": "3e058e7f84b61de977590972218906cdffd387954280a095f830de77164e0991"
+  },
+  {
+   "path": "NavierStokes/ActualWaveCoefficientPeriodicity.lean",
+   "bytes": 11154,
+   "sha256": "f0f1ee040357cbdef1fca702bbed5754dd37728ac61539fab210901038d9b76a"
+  },
+  {
+   "path": "NavierStokes/ActualWaveRegularity.lean",
+   "bytes": 44866,
+   "sha256": "f3c7693e3a50b63e1496187f574b74ab7ccacce995cc0583b3489c3b60a83b1b"
+  },
+  {
+   "path": "NavierStokes/ActualWaveRegularityData.lean",
+   "bytes": 119147,
+   "sha256": "79783380f276e7380d12b4d1c9f10f313a3435eed6f215b9733c4056a608171a"
+  },
+  {
+   "path": "NavierStokes/AlignedProfileSpectralCone.lean",
+   "bytes": 45957,
+   "sha256": "889a1fe68422b615ee861c6cb8841e17f108080f334f56a49446890bb3d2fd41"
+  },
+  {
+   "path": "NavierStokes/AllBandBaseJets.lean",
+   "bytes": 25077,
+   "sha256": "4491f10073211c7fe81b1e5260f747aaa2d209d9f06aadfbb7465da214463486"
+  },
+  {
+   "path": "NavierStokes/AnalyticCoefficientBounds.lean",
+   "bytes": 17677,
+   "sha256": "65938f84b2dad5519bfc4c76412540edb552a3b5bf300f3422b8639acc9c9941"
+  },
+  {
+   "path": "NavierStokes/AnalyticPrimitive.lean",
+   "bytes": 13800,
+   "sha256": "37ce34327c1920de33dcbfabd0a6c3c5cb524359c395e2a526266851d20e4008"
+  },
+  {
+   "path": "NavierStokes/AngularMomentReset.lean",
+   "bytes": 37810,
+   "sha256": "54e4ee32a9b432e589dafddf73b6a2a2cffeac75627ebcbcf5e0e2b93e9892cc"
+  },
+  {
+   "path": "NavierStokes/AnnularAuxiliary.lean",
+   "bytes": 5665,
+   "sha256": "c209e2a42824dcbc3a0c4a2285ac0f812a90a9fc827a4b2ebc74b5f9f2384e13"
+  },
+  {
+   "path": "NavierStokes/AnnularEndpoint.lean",
+   "bytes": 29353,
+   "sha256": "e6b8975eeda50369d802cb89837c6aa6e47c10c62ce3f043caf8f2b11cd84dad"
+  },
+  {
+   "path": "NavierStokes/AssembledSlowBase.lean",
+   "bytes": 99129,
+   "sha256": "c0a4c39b0f7cb8e975b925f8a9ea342b65ff19e14a956392310385e47138221b"
+  },
+  {
+   "path": "NavierStokes/AxisCoefficientSpace.lean",
+   "bytes": 22823,
+   "sha256": "7ba94255b58aad84c19d8803fca4a4db5750f40bafdf8fd5a02d14fcd1a4467c"
+  },
+  {
+   "path": "NavierStokes/AxisContraction.lean",
+   "bytes": 36988,
+   "sha256": "d9151673815948eef8e8e2db3e93c95119ce7be80fc6a01d8a83f2bc4cd4df9d"
+  },
+  {
+   "path": "NavierStokes/AxisEvaluation.lean",
+   "bytes": 24422,
+   "sha256": "98ed7ae961cd3f1fd7ea50c28296a3d827b0c3c24c4ed3e73a5e4e073bcd5cb8"
+  },
+  {
+   "path": "NavierStokes/AxisEvaluationAlgebra.lean",
+   "bytes": 25595,
+   "sha256": "90f950860a4ccaa61f14e7906bbaa7e92bac8b01949c7443ebd32d770b15576a"
+  },
+  {
+   "path": "NavierStokes/AxisHolomorphic.lean",
+   "bytes": 29213,
+   "sha256": "b7e0c8b8ba3e429d0fbbdd1f53b75449030624af084767cccb28c3ca6d88f7bd"
+  },
+  {
+   "path": "NavierStokes/AxisHolomorphicJoint.lean",
+   "bytes": 12936,
+   "sha256": "2ed527f237047f94251ca92c7b60e5c09a9f5a6bbbef3c87cb2fe7e832786094"
+  },
+  {
+   "path": "NavierStokes/AxisOperators.lean",
+   "bytes": 37270,
+   "sha256": "ac985c72a27a89528fd7087b5252de43b488fe41c780da289f16ec0f756597c8"
+  },
+  {
+   "path": "NavierStokes/AxisPreservation.lean",
+   "bytes": 8854,
+   "sha256": "a176022e61983163d3df923484324af5bd1f8962af08f4769e76fe578cf6e78d"
+  },
+  {
+   "path": "NavierStokes/AxisProfile.lean",
+   "bytes": 7291,
+   "sha256": "f52fa0e7ae3f27869eb50fd2d1fbcad6794734fa16f45c74299c5ddda0ffc42e"
+  },
+  {
+   "path": "NavierStokes/AxisReference.lean",
+   "bytes": 16686,
+   "sha256": "4cdc595ab11bdb2b42b7e1096764f9f4d2605d8fb458158533e1cde1a5f4ed32"
+  },
+  {
+   "path": "NavierStokes/AxisResolvent.lean",
+   "bytes": 22014,
+   "sha256": "9118d00d4e748561f2df2b6be2a86df83ff08e9cfbebfea1b48375e8224cef99"
+  },
+  {
+   "path": "NavierStokes/AxisSeries.lean",
+   "bytes": 16535,
+   "sha256": "c3ea1179ece5d6dbbeaf8ababf7ac8e7e5e49b36351073d7a367ff51c1908013"
+  },
+  {
+   "path": "NavierStokes/AxisSourceRegularity.lean",
+   "bytes": 38855,
+   "sha256": "de672f3c03d548bcd053a6829f5d8476ec997ac9544d034bba3800f492d7e8e3"
+  },
+  {
+   "path": "NavierStokes/AxisTailRegularity.lean",
+   "bytes": 23206,
+   "sha256": "b9b4a0d3dae9997f44e50b16fe1115a30f745ee3fa06e3f73a10cac006a233c3"
+  },
+  {
+   "path": "NavierStokes/AxisWeightEstimates.lean",
+   "bytes": 28596,
+   "sha256": "d053266bd9effd8c5fc159e41107725f468b41a7cfb44f32564842ed0884e930"
+  },
+  {
+   "path": "NavierStokes/AxisymmetricFields.lean",
+   "bytes": 14708,
+   "sha256": "41d403ae4cec8887c17a80f621744399522a3247bddbcab64e577cb296b3020d"
+  },
+  {
+   "path": "NavierStokes/AxisymmetricResidual.lean",
+   "bytes": 23831,
+   "sha256": "07dcb2c088db4a1359bd21c093eb5811848cf44042126c07457519a4c89d51fb"
+  },
+  {
+   "path": "NavierStokes/AxisymmetricResidualGrouping.lean",
+   "bytes": 14997,
+   "sha256": "655bbbab367234f72c289b1801f9ee8d6afaacb15274f9f554722957cf9f5b03"
+  },
+  {
+   "path": "NavierStokes/BandReindexedSignedMeanGain.lean",
+   "bytes": 8651,
+   "sha256": "9b8e39cf5b65931e89df314b97391ed5c1d90ab508f169532646ed3a9b4e89f5"
+  },
+  {
+   "path": "NavierStokes/BaseChartJets.lean",
+   "bytes": 52121,
+   "sha256": "d811f25ca3cd4c645a5efdddd3edeb58dde1989c69865bbd124c3013f516cb20"
+  },
+  {
+   "path": "NavierStokes/BaseContextAssembly.lean",
+   "bytes": 49975,
+   "sha256": "3fed93378f4979e5e1eecc0dd7ee4c62470480ad5fa341b7fbea8fc4a1bef91a"
+  },
+  {
+   "path": "NavierStokes/BaseExterior.lean",
+   "bytes": 39000,
+   "sha256": "41e3b35b8f78c5f3da8fc1ead33f579f6bd2934f44088bfc872a3842a7118504"
+  },
+  {
+   "path": "NavierStokes/BasePhaseGeometry.lean",
+   "bytes": 64388,
+   "sha256": "9fd6839486f88c2b2f91387a092c9bd5d0386f1bbbf591ec6fd8546058a8afb4"
+  },
+  {
+   "path": "NavierStokes/BasePrefixIdentity.lean",
+   "bytes": 22915,
+   "sha256": "1e4b02e2cdb960d757694ffc1bc96949f9128e5c5bb27aeb0c9c449e032939c4"
+  },
+  {
+   "path": "NavierStokes/BaseRadialJets.lean",
+   "bytes": 21367,
+   "sha256": "f898c6949b7a15a972ba3910da707424808449380d55631681850c4ac0ff1f29"
+  },
+  {
+   "path": "NavierStokes/BaseRankPatch.lean",
+   "bytes": 18643,
+   "sha256": "ac027ec06a232d8a6d76985307db32dd411d4d50dc3d9bea220f901cdfdb9202"
+  },
+  {
+   "path": "NavierStokes/BaseResidual.lean",
+   "bytes": 152345,
+   "sha256": "0f1f9a492e8cea457406dd0b20df625c9bd0650bef5253da49c0c7ac766c0700"
+  },
+  {
+   "path": "NavierStokes/BaseStressClasses.lean",
+   "bytes": 29920,
+   "sha256": "4d3f3b5fa7dfc6435aaaf716628be8870e1042208feb71e2c66d3b0aac8a4381"
+  },
+  {
+   "path": "NavierStokes/BlowupImplication.lean",
+   "bytes": 9741,
+   "sha256": "3f0f889e236aa7f6a4424f53247375d63d3ae4ca92a7bcbaf79f55b61e92706e"
+  },
+  {
+   "path": "NavierStokes/BorelExtension.lean",
+   "bytes": 16242,
+   "sha256": "a6c048b45f2ebbb11d155a0dd332e336786d1f508b7a2a1561ee2c9ee1bf003b"
+  },
+  {
+   "path": "NavierStokes/BoundaryAxisJets.lean",
+   "bytes": 46994,
+   "sha256": "420084e348dacaf17dc21b859166e858180281196c8265b7094be002799f9162"
+  },
+  {
+   "path": "NavierStokes/CandidateConsequences.lean",
+   "bytes": 11789,
+   "sha256": "4dbfba3964bbff446b34f92bb4047d36f2df07a28c6b83caeb5dfa7f6a16f101"
+  },
+  {
+   "path": "NavierStokes/CandidateFromLimits.lean",
+   "bytes": 10762,
+   "sha256": "fda1a76cd1179fa0596f933c3c360fc385048eef7d5b70aa17e9acdbdd7e8ad0"
+  },
+  {
+   "path": "NavierStokes/CartesianCopySource.lean",
+   "bytes": 9902,
+   "sha256": "5905566ecf79bc056c521291cd8f07a216dd0369c515c8b322f36149c245d346"
+  },
+  {
+   "path": "NavierStokes/CauchyRestriction.lean",
+   "bytes": 13743,
+   "sha256": "e50f8cd040633d28c042fe7a04827225b0f16c9574966ec34f2700f393c4af00"
+  },
+  {
+   "path": "NavierStokes/ChartScales.lean",
+   "bytes": 14195,
+   "sha256": "3e06d0814833ca93f01c5cdb2f4d8de8dc8d40668d5a13ceb7477c4672f01f2b"
+  },
+  {
+   "path": "NavierStokes/ClayCSolution.lean",
+   "bytes": 317,
+   "sha256": "d51b29127c3cf2ec0140957a0b35b4470403fb9f381d36694812b162668483ea"
+  },
+  {
+   "path": "NavierStokes/ClayDSolution.lean",
+   "bytes": 323,
+   "sha256": "cbf4c47bc1eb0811ff8789a3aa3b67b6908c95dd7ad6734e413a62b0d294f936"
+  },
+  {
+   "path": "NavierStokes/ClayFeffermanSolution.lean",
+   "bytes": 772,
+   "sha256": "5ee128b1d936ce6be8c6e595033b3488ccbab8de7b6a598515e73c44e2fd0063"
+  },
+  {
+   "path": "NavierStokes/ClosedNativeWaveIdentities.lean",
+   "bytes": 37880,
+   "sha256": "2e9ef00399ba594c649a60d806cc867c0dc056b128fcebe5af28d6c21ca781c2"
+  },
+  {
+   "path": "NavierStokes/CommonBaseContext.lean",
+   "bytes": 33891,
+   "sha256": "0118d96b4a125b3c6709ea98d0de92b262f3f5aa44d46876647a80e5ebdbe1f2"
+  },
+  {
+   "path": "NavierStokes/CommonCoverClass.lean",
+   "bytes": 69135,
+   "sha256": "c216db21d5059008df6b403589fc688381afac15fa71edd4a836866709595a8b"
+  },
+  {
+   "path": "NavierStokes/CommonCoverSolve.lean",
+   "bytes": 47744,
+   "sha256": "67796025e2b0ebadb2e6902940b4371c1ed7cb0019f8f8d923ec96c4e49b1d19"
+  },
+  {
+   "path": "NavierStokes/CompactForceDecay.lean",
+   "bytes": 9378,
+   "sha256": "6d67368eb29c87ecfc6c2097006537fb2504084f3e3fe22ef7a332b31adaad72"
+  },
+  {
+   "path": "NavierStokes/CompactSmoothFamily.lean",
+   "bytes": 12799,
+   "sha256": "7b8e463d7a6c5a3b8883a5989e1b12a533f3715ddcf366415f4c94164d1efe36"
+  },
+  {
+   "path": "NavierStokes/CompactSpatialForceDecay.lean",
+   "bytes": 4655,
+   "sha256": "6d917a5b09e4476bb4ffd9aa50d454ee1c21a10d9908ccfbea96ef52a89c780d"
+  },
+  {
+   "path": "NavierStokes/ComparatorBridge.lean",
+   "bytes": 12624,
+   "sha256": "cbb7731d5dc36363f0d4c3d1d3aba572302de4dc474d3a329b975d8d646c50ab"
+  },
+  {
+   "path": "NavierStokes/ComparatorCompleteSolution.lean",
+   "bytes": 2791,
+   "sha256": "45562713d348b471de9f91afe22f6cec55faf870f6a071c8ba93eed0c12d48da"
+  },
+  {
+   "path": "NavierStokes/ComparatorDefinitions.lean",
+   "bytes": 10979,
+   "sha256": "8d90e0f9eee14f8b01773852083a02fd58bda59d4de2abb60d1787bbc9f6ebf4"
+  },
+  {
+   "path": "NavierStokes/ComparatorR3Bridge.lean",
+   "bytes": 4378,
+   "sha256": "9fc2c90638b1b0ac344bf7d834c3e09214aade778222ec7f25492ba5950239f3"
+  },
+  {
+   "path": "NavierStokes/ComparatorR3Theorem.lean",
+   "bytes": 2098,
+   "sha256": "d05cd1c55e78709dabe1996546eb6ddaaa46e602d2ef1b05c6e2085320781207"
+  },
+  {
+   "path": "NavierStokes/ComparatorSolution.lean",
+   "bytes": 1359,
+   "sha256": "52950d5d618a8d34c9bfbdb16641c81c276e97b6d7fd2a76c08577353f0b0227"
+  },
+  {
+   "path": "NavierStokes/ComparatorTheorem.lean",
+   "bytes": 2711,
+   "sha256": "629c992327e531611c20165eb14db24edcabcf8f646a1d2689be9ac6fe2a9c68"
+  },
+  {
+   "path": "NavierStokes/ConeAlgebra.lean",
+   "bytes": 7078,
+   "sha256": "6abdb1b40360a88bf404468c570083661b164ce7bc58687919da6faabeb8c6cb"
+  },
+  {
+   "path": "NavierStokes/ConstructedSlowBase.lean",
+   "bytes": 53236,
+   "sha256": "e11ceb382f21a852bbd3d0046668fdf0028b4099513ac8d7dd1244db5576f837"
+  },
+  {
+   "path": "NavierStokes/CoordinateAlgebra.lean",
+   "bytes": 8884,
+   "sha256": "a44fdca888466f5e3a7ffa73562496c565a8cfe7748171f1a0574d0ec7b35c0b"
+  },
+  {
+   "path": "NavierStokes/CopyAngularInvariance.lean",
+   "bytes": 24786,
+   "sha256": "37fc300d5659a9212fef1019a47f433635b9e54fa3743fc814764897f79eab5e"
+  },
+  {
+   "path": "NavierStokes/CopySolveCompatibility.lean",
+   "bytes": 36776,
+   "sha256": "0dd1a9119240bd6bef9d80bfaa7b43f64f3aa302fb990a8386beeb0db4b75701"
+  },
+  {
+   "path": "NavierStokes/CorrectedPressureBounds.lean",
+   "bytes": 33999,
+   "sha256": "c325a69b56784219df1e8fbab1120a7b18ab4704978ad744117ca7c1c765a629"
+  },
+  {
+   "path": "NavierStokes/CorrectedPulseAmplitude.lean",
+   "bytes": 26368,
+   "sha256": "2862d5d4201a5fa637546dd58086283c69eeee4570907ebfac82233995b327aa"
+  },
+  {
+   "path": "NavierStokes/CorrectionAnalyticStep.lean",
+   "bytes": 39528,
+   "sha256": "cdb8d393c22b2d11e39e7589bcb3cbfa0ed8cc8837835dea69e17f4863821ab2"
+  },
+  {
+   "path": "NavierStokes/CorrectionInitialization.lean",
+   "bytes": 311211,
+   "sha256": "de409e3e0ce7bba9ee567fa7e51143c7b5219c47622fe44ad7a04d48287e143b"
+  },
+  {
+   "path": "NavierStokes/CorrectionState.lean",
+   "bytes": 23856,
+   "sha256": "22eeff8985d8e546ad4fac61a9f87f778c0f152413bbb8e0e2b55fe7d06b7a1d"
+  },
+  {
+   "path": "NavierStokes/CorrectionStep.lean",
+   "bytes": 575619,
+   "sha256": "a5ab01cd25d186deec3f136cc15d2d31032151ae7ddb5213a7f3d6b244ec8f8f"
+  },
+  {
+   "path": "NavierStokes/Covariance.lean",
+   "bytes": 10013,
+   "sha256": "b2ff9f3242d7593c75cdbd0cece0ef0a5a9a9bcfef0e41d566c2d8d823027b71"
+  },
+  {
+   "path": "NavierStokes/CrossBasedMeanComposition.lean",
+   "bytes": 44016,
+   "sha256": "fda6c0d6f65dc4bf4de1551f9fee81fe5c4e881d8816de477ea5ebea80949814"
+  },
+  {
+   "path": "NavierStokes/CurlClassBounds.lean",
+   "bytes": 45049,
+   "sha256": "4d55fd5b8fbfc8efa27b3819ccd10c5526246aa6e4b70bc9c32dc206f00a2373"
+  },
+  {
+   "path": "NavierStokes/CurlGeometry.lean",
+   "bytes": 6674,
+   "sha256": "316fab7e2cf55a8779b09e68596a6de7eadcf6f2a42ca14c40e5c1d66dc46907"
+  },
+  {
+   "path": "NavierStokes/CurrentModeGeometry.lean",
+   "bytes": 8104,
+   "sha256": "b2c5f5d41bb376bb3757ad1856a4d1d6d6893f0490c066dc25c5fcc5c91abb83"
+  },
+  {
+   "path": "NavierStokes/CurrentParticularLabelBounds.lean",
+   "bytes": 23914,
+   "sha256": "0c647a2b9448843e59c7eb75e6e8f86e4b4fe9fc1a4c7881a2930051b05300f0"
+  },
+  {
+   "path": "NavierStokes/CurrentParticularPhysicalCoherence.lean",
+   "bytes": 3442,
+   "sha256": "d52a79cc99eef0295028ac8c3ab689af7378d9988eb760e8db40b74790deff66"
+  },
+  {
+   "path": "NavierStokes/CurrentPhysicalChartJets.lean",
+   "bytes": 15462,
+   "sha256": "2b8dc3d100ab36e6088da17ffa6bf205b687390746fb0576a134fce099afe1c3"
+  },
+  {
+   "path": "NavierStokes/CurrentPhysicalModeGerms.lean",
+   "bytes": 11992,
+   "sha256": "f3afbb8423326e5d6fea88d494e343ba8aa1a4094ccd1a294f77bdcac29e0089"
+  },
+  {
+   "path": "NavierStokes/CurrentSignedCurl.lean",
+   "bytes": 27392,
+   "sha256": "77a779c28870c4ea77336ad9fffcbf703b89c9cdf548382fe0f0afba347cfda2"
+  },
+  {
+   "path": "NavierStokes/CutStageEstimates.lean",
+   "bytes": 40720,
+   "sha256": "d9a22889d854d7bb07a27259bc4299280b927b08af4fad1fc48cac3a8e29dcbd"
+  },
+  {
+   "path": "NavierStokes/CycleMeanEquation.lean",
+   "bytes": 35212,
+   "sha256": "0e51db5359f968a4191f324475dba070668d8242924525999db45ed472b9a55f"
+  },
+  {
+   "path": "NavierStokes/CyclePhysicalPrefixes.lean",
+   "bytes": 22652,
+   "sha256": "1e3d449ccf5d8766a0ab9ef029ffac2df956705c97c51ae3008a9724fe1f7af0"
+  },
+  {
+   "path": "NavierStokes/CycleStateCoherence.lean",
+   "bytes": 39667,
+   "sha256": "11bad00b20157137ef295733fe6f486b511cb1503e150fa886bcdf64f87bf662"
+  },
+  {
+   "path": "NavierStokes/CylindricalResidual.lean",
+   "bytes": 29971,
+   "sha256": "ac17130b0b70d24fb25c19bcff3c366331e2caa5680496d7ffb21a74f0ee6d37"
+  },
+  {
+   "path": "NavierStokes/DefectIncrementBounds.lean",
+   "bytes": 42099,
+   "sha256": "18ab30e324965dfbb1014e477f6db9f7f83e480ef15958d89a2be83ea03f2662"
+  },
+  {
+   "path": "NavierStokes/DependentSignedPhysicalFamily.lean",
+   "bytes": 24950,
+   "sha256": "44e934b74924ea899ba1159c8cff7e7001cbf806e5d0db2b4cda60739521d697"
+  },
+  {
+   "path": "NavierStokes/DiagonalJetBounds.lean",
+   "bytes": 16200,
+   "sha256": "f4d280335c0fb02d2ae1f459b9a86296d5172bedd404fad6a8bdf313bf894cd5"
+  },
+  {
+   "path": "NavierStokes/DiagonalResidual.lean",
+   "bytes": 21597,
+   "sha256": "fc311fbb36cd0e52bdca561a73d1e4aec7f281c1513c44784edfc48fcebb4230"
+  },
+  {
+   "path": "NavierStokes/DiagonalScale.lean",
+   "bytes": 11202,
+   "sha256": "2b2d15adcf33400d3a192864dd9ae797b6ea1d1ca27a45990554891d3894b3ad"
+  },
+  {
+   "path": "NavierStokes/DiophantineGraph.lean",
+   "bytes": 13065,
+   "sha256": "cd1670e8d468b13cbe2a19987df457943ecf45aaceae3c372ce7e4d710bb29ef"
+  },
+  {
+   "path": "NavierStokes/DirectAngularDiagonal.lean",
+   "bytes": 39421,
+   "sha256": "cf0ada62acda94278fa3c2f7f30688462ba9b2490740e3b73fe21a8d6939651f"
+  },
+  {
+   "path": "NavierStokes/EdgeWeightJets.lean",
+   "bytes": 26378,
+   "sha256": "f05841ea5e29e03df0d342445d6242b563db739fe6a3ccfbf084dfc9bb7f72e8"
+  },
+  {
+   "path": "NavierStokes/EndpointCoordinates.lean",
+   "bytes": 16573,
+   "sha256": "50f6a422ad5f9993e368915b4d1eacdf7dd49e71bfefe9112e64ff57b9d310ee"
+  },
+  {
+   "path": "NavierStokes/EndpointExtension.lean",
+   "bytes": 7677,
+   "sha256": "a4275387cb8f14c6273f18cc9e91bcb5fb26bf99bcd9e3f64fe0a754d8f1d58a"
+  },
+  {
+   "path": "NavierStokes/EntranceAlignedBase.lean",
+   "bytes": 60051,
+   "sha256": "b7edc8b71658a095eef31897b57d874ec6958381198f6acff8d9905f822802d5"
+  },
+  {
+   "path": "NavierStokes/ErrorHarmonics.lean",
+   "bytes": 38484,
+   "sha256": "c735c77e928cb54f6422034012b00ead5a544def18dadefcc6676e35faf2789d"
+  },
+  {
+   "path": "NavierStokes/EvenSmoothDescent.lean",
+   "bytes": 20244,
+   "sha256": "de21ad35eba2ab170aa5fea744f707c29e41d7936e55d8f4f24f2bd772f95a83"
+  },
+  {
+   "path": "NavierStokes/ExponentLedger.lean",
+   "bytes": 11470,
+   "sha256": "06b9d8d6439b0bdd72f44ce404b1ce986e68f367c03c7dfd5edca8e2d2a0140a"
+  },
+  {
+   "path": "NavierStokes/ExtendedHeatDebts.lean",
+   "bytes": 60991,
+   "sha256": "9f12a65cd662b6d39ec735fbfea6e123b05f4b40f8107a93e8fbd218b6776eed"
+  },
+  {
+   "path": "NavierStokes/ExtendedHeatedOutgoing.lean",
+   "bytes": 54193,
+   "sha256": "1b9a1a6597d4f6d68af6e757b5068f3e901413c10a033a481579d9ec859ed151"
+  },
+  {
+   "path": "NavierStokes/FinalSlowBase.lean",
+   "bytes": 42044,
+   "sha256": "d46846fea27ac623967e008301789edc4c52f915e63e2ba1f5f8f73df3d95314"
+  },
+  {
+   "path": "NavierStokes/FiniteHeadClass.lean",
+   "bytes": 6104,
+   "sha256": "5b48b6351377094660dcd52366d168b20ada05f5480737c082e4fd07af53de78"
+  },
+  {
+   "path": "NavierStokes/FirstOrderBaseEdge.lean",
+   "bytes": 54904,
+   "sha256": "f09ee36d118db234f2296f138174e72f471824b9b63d33c6a9c1ab973255ac0d"
+  },
+  {
+   "path": "NavierStokes/FiveProfileMoments.lean",
+   "bytes": 60627,
+   "sha256": "b745efc2f7ad4fabc5fb68408c6641286a2df8421b289dddc501a7084c5674f7"
+  },
+  {
+   "path": "NavierStokes/FiveRowRank.lean",
+   "bytes": 25407,
+   "sha256": "26273fa01b90b282a7b61d941377ca6a5be0ff1cebef94958f3eb02083dd12d8"
+  },
+  {
+   "path": "NavierStokes/FlatCovariance.lean",
+   "bytes": 27074,
+   "sha256": "6fd432f77bf9e914113553756bce063a26b044a4ee2cdec79f0f13da3301e653"
+  },
+  {
+   "path": "NavierStokes/FlatCutoff.lean",
+   "bytes": 8722,
+   "sha256": "fa8b6c0283fbbd949e2501649c67617174fbf4d2d11d5c3ac1556daa6c186d17"
+  },
+  {
+   "path": "NavierStokes/FlatDyadicExtension.lean",
+   "bytes": 13550,
+   "sha256": "071120d9fde60452df6b5973dcfcecd21c43d3de06b3685183797028cd2c4c5a"
+  },
+  {
+   "path": "NavierStokes/FlatKernelBounds.lean",
+   "bytes": 19276,
+   "sha256": "35388c0177533940d0823a9caa38b02e05b633f8b486073457530a4f6dd5de04"
+  },
+  {
+   "path": "NavierStokes/Flatness.lean",
+   "bytes": 5713,
+   "sha256": "550606d4d1e14fb16612375de57d837df325a7b2265de6ed056c935ff96b2bc6"
+  },
+  {
+   "path": "NavierStokes/FlatPrimitive.lean",
+   "bytes": 15963,
+   "sha256": "3067ae265a5193ad39c5c13d61cf4e7f279e09ec373cf5f33d1d6d23000c61ba"
+  },
+  {
+   "path": "NavierStokes/FlatPrimitiveFactor.lean",
+   "bytes": 14609,
+   "sha256": "9d18cc8fbe259c32dcf57328ad146aa64f88b93932bf8061d32f7f99096fb0a7"
+  },
+  {
+   "path": "NavierStokes/FlatZeroExtension.lean",
+   "bytes": 11677,
+   "sha256": "6b1a715e234da5c55139f2e2edfd6d19e534045c36f76dc92322d889040d7482"
+  },
+  {
+   "path": "NavierStokes/FourierAlias.lean",
+   "bytes": 38933,
+   "sha256": "66d31483f4e46eea92f89ac12c8f87c6bb08c7c8174dd0ac2263e8da4198efa7"
+  },
+  {
+   "path": "NavierStokes/FuturePressureBounds.lean",
+   "bytes": 26535,
+   "sha256": "e55060a6239e37b56308ab631949c20174d4231c6f209eaa005ce182c32d5c86"
+  },
+  {
+   "path": "NavierStokes/GaugeAliasDecay.lean",
+   "bytes": 47944,
+   "sha256": "42b50344cf2251490c7ea4f7ca89f1447a586eb7350be8475f733cc3ecfd93d1"
+  },
+  {
+   "path": "NavierStokes/GaugeDebtIncrement.lean",
+   "bytes": 36020,
+   "sha256": "e59a72f625c57a06acf10d5a4854391e21e15e00b185003773695d190274c948"
+  },
+  {
+   "path": "NavierStokes/GaugeExcludedBounds.lean",
+   "bytes": 16801,
+   "sha256": "2bcbd77e5d3781ed7830304f65337014a5be8f5e90e27bb1c2ee5879c842735d"
+  },
+  {
+   "path": "NavierStokes/GaugeMassPreservation.lean",
+   "bytes": 19518,
+   "sha256": "abede97ab52a079f26180bb529fa0053dfb1a976173fde7ec634232f45af4b5a"
+  },
+  {
+   "path": "NavierStokes/GaugeMomentBalances.lean",
+   "bytes": 51227,
+   "sha256": "06d5a93beb5edc2ffff7ccbe1cf7df25f9ce1484aafa10b497b430617bb03ac4"
+  },
+  {
+   "path": "NavierStokes/GaugeRadialResidualBounds.lean",
+   "bytes": 13134,
+   "sha256": "211ef976166b2b04b457135fa83d1454c31782c0dda1d50388690dd637f1ca74"
+  },
+  {
+   "path": "NavierStokes/GaugeStateCoherence.lean",
+   "bytes": 28908,
+   "sha256": "21cd060290ca02670d56ba5ee5ac20ad65540030188f95c23d34482179a6f1a6"
+  },
+  {
+   "path": "NavierStokes/GaussianEnvelope.lean",
+   "bytes": 14523,
+   "sha256": "4526fc3d96bb57ddd887e43d6b69e291a69bd81096340b8baf671ae0755b80b4"
+  },
+  {
+   "path": "NavierStokes/GaussianErrorNaturality.lean",
+   "bytes": 28845,
+   "sha256": "fa1bee4caff766fe9985dec0a7891300f9df8ff9aadd44f6e39752416e0f58f9"
+  },
+  {
+   "path": "NavierStokes/GaussianTailFlat.lean",
+   "bytes": 53653,
+   "sha256": "97a9c971088cb66beb7b58781d46e3a987fe4266d839889c43cfcbed1fce0635"
+  },
+  {
+   "path": "NavierStokes/GenericEndpointExtension.lean",
+   "bytes": 43845,
+   "sha256": "b624345fb4a21a05af53a01cbaf55fe6d4c94992e05284f0292222f708f98dc7"
+  },
+  {
+   "path": "NavierStokes/GermCandidateAssembly.lean",
+   "bytes": 18564,
+   "sha256": "8cb58c1ada5867cd1f92588f7362168bc999629e2fea13bbe33eee239bc6a164"
+  },
+  {
+   "path": "NavierStokes/GermEndpointInputs.lean",
+   "bytes": 23948,
+   "sha256": "ad8b15210c18e428ec8694d51f5ac88daf1431e8dde2725319e4926e45692e1e"
+  },
+  {
+   "path": "NavierStokes/GlobalBaseError.lean",
+   "bytes": 11495,
+   "sha256": "a53d749742da599957c2d2723c98824276b2da7a8c4169eabbf6e896825d3c73"
+  },
+  {
+   "path": "NavierStokes/GlobalSlowProfiles.lean",
+   "bytes": 105667,
+   "sha256": "a192fdd95f1f6169fa1489cb9da3877c1fda81eb11385201959a21c715de5bad"
+  },
+  {
+   "path": "NavierStokes/GlobalStressSupport.lean",
+   "bytes": 26022,
+   "sha256": "68b5b5bfd05fe049f8660cade382a614af3b1ea4c71792819d4ce3ef5fe1120c"
+  },
+  {
+   "path": "NavierStokes/GluedStageEstimates.lean",
+   "bytes": 38998,
+   "sha256": "3a25e7806e31b8c434062b43fb9fc6293de20f66faa5ce4ce6344db45f5dddcf"
+  },
+  {
+   "path": "NavierStokes/GraphCalculus.lean",
+   "bytes": 11406,
+   "sha256": "a2a91d6b6f1a25b13ddb50a0a51f5a1be85327240da15982ca472e45eb104cfd"
+  },
+  {
+   "path": "NavierStokes/GrowingMode.lean",
+   "bytes": 22079,
+   "sha256": "90bfab462d646c1f1e4589d0099c1d822c1cd020ae1a3c5100c9afdbe10e5805"
+  },
+  {
+   "path": "NavierStokes/HarmonicCalculus.lean",
+   "bytes": 37672,
+   "sha256": "50d32515db9e119f41dec0d8d613b20554f6935313f45422fa905dcdf06b0692"
+  },
+  {
+   "path": "NavierStokes/HarmonicCovariance.lean",
+   "bytes": 10884,
+   "sha256": "0a0b784165cda7e91dcc40a4cb59915d229c4cc859bec8ad5e2a8dbc4cabad35"
+  },
+  {
+   "path": "NavierStokes/HarmonicFields.lean",
+   "bytes": 31976,
+   "sha256": "6cde19157ae8d279355206d4db98582eb1a4ae7a831c2419c6bba54b8fe43a41"
+  },
+  {
+   "path": "NavierStokes/HarmonicMeanInteraction.lean",
+   "bytes": 37630,
+   "sha256": "44a0fe3a2882a70c14b8cc5ca0407f07045bf2136612e0116189490c00f97955"
+  },
+  {
+   "path": "NavierStokes/HarmonicResidual.lean",
+   "bytes": 88447,
+   "sha256": "a1584fe2c682abc154862b9ac5186b74d6f02aea2cb8cc18ca76fa2b6fc22b5b"
+  },
+  {
+   "path": "NavierStokes/HarmonicSourceSupport.lean",
+   "bytes": 49394,
+   "sha256": "dc2eb77fecf3d7cfe1423fd3ffb383983a2cb5638fc0acb97132bb68d50d7d85"
+  },
+  {
+   "path": "NavierStokes/HarmonicStructurePreservation.lean",
+   "bytes": 8715,
+   "sha256": "30c79eaf513343deea2753cf6eb5370fac2f9b83e7f63304b2f7457a8abc8bf6"
+  },
+  {
+   "path": "NavierStokes/HarmonicWaveInteraction.lean",
+   "bytes": 64822,
+   "sha256": "52149d5832a6bc9c20fa8b693c80d01b071680eb2c58ec3bb3e9819155c69815"
+  },
+  {
+   "path": "NavierStokes/HeatedOutgoing.lean",
+   "bytes": 50323,
+   "sha256": "48dfe55ed9b7100a7c18c5c70c6e6b68089c9d94ec1de6f35778561c88974399"
+  },
+  {
+   "path": "NavierStokes/HeatProfileExtension.lean",
+   "bytes": 12125,
+   "sha256": "aad000a14b0b83e9b68ffca85c49ce0abd5f9950f832028bca3290a80fdff513"
+  },
+  {
+   "path": "NavierStokes/HeatSwitchCone.lean",
+   "bytes": 68183,
+   "sha256": "23031d9c31adbdddf6ace15349088f3585919c4ed268bbd02b8f331046e7cdea"
+  },
+  {
+   "path": "NavierStokes/HeatSwitchHistoryDerivatives.lean",
+   "bytes": 16795,
+   "sha256": "710a2e12c2394e43e77484ef7a2daef61de0695c01b1ecaba388ad825c94d4a3"
+  },
+  {
+   "path": "NavierStokes/HeatTailEdit.lean",
+   "bytes": 32554,
+   "sha256": "b59c10979ae70d2b6e2b5f8f58721f2330c05ce3e41ced1ade7dce2e23b6ed70"
+  },
+  {
+   "path": "NavierStokes/HeatTailHistoryLimits.lean",
+   "bytes": 40941,
+   "sha256": "b8118d1a93565c7847914a3a27e29e4898b1cd2cd0f71106f3cf08f963a7a1dd"
+  },
+  {
+   "path": "NavierStokes/HolomorphicFamily.lean",
+   "bytes": 19314,
+   "sha256": "2952d07ade05104ed7c6fea89e9506dc05b824a81b297da126c5d1ef699d148c"
+  },
+  {
+   "path": "NavierStokes/InitializedPhysicalBackground.lean",
+   "bytes": 17644,
+   "sha256": "d5ce0291b1b6c41ed0677f4abc1fc2e0fadfe978fac5e1b2505fa73bd30f69e1"
+  },
+  {
+   "path": "NavierStokes/InitialNativeRegularity.lean",
+   "bytes": 9705,
+   "sha256": "4f82e231b8c9f7f3250aec0f9ed43a9a09bcf7266bb7f7c8257655a3179f1bbf"
+  },
+  {
+   "path": "NavierStokes/InitialPhysicalData.lean",
+   "bytes": 158360,
+   "sha256": "1d02c1a398e9cbbbc68afa622fff661c8870ca2138feebbd06aa991614e18e1e"
+  },
+  {
+   "path": "NavierStokes/IntegratedMeanBalances.lean",
+   "bytes": 48144,
+   "sha256": "6ac76e324059a0dfdaee4f6182951171b61b057f205a00d7676896352dec5228"
+  },
+  {
+   "path": "NavierStokes/IntervalCopyTransport.lean",
+   "bytes": 31326,
+   "sha256": "cec324745419c94e1fac2cf248efdac593cf83c11af11184b510483f8f177488"
+  },
+  {
+   "path": "NavierStokes/JetBounds.lean",
+   "bytes": 15282,
+   "sha256": "f1497e9e9821e1dcea778a84607833d304f18041f52af6745b03f620334c6de1"
+  },
+  {
+   "path": "NavierStokes/JointODE.lean",
+   "bytes": 12132,
+   "sha256": "3476f43caf90146f67232ee6416d4b6aeb6d2307af09e48c09f4296f8b5a16aa"
+  },
+  {
+   "path": "NavierStokes/JointResidualLimits.lean",
+   "bytes": 16504,
+   "sha256": "98829b82fd15e4577108367ae0fb8c0ae7289ae707c94b733922cb6bf843b3bf"
+  },
+  {
+   "path": "NavierStokes/LabelSumBounds.lean",
+   "bytes": 64714,
+   "sha256": "96ec7f87e43291b693131119d674c7642243a69ef6932c72ee1533b2eba09c66"
+  },
+  {
+   "path": "NavierStokes/LabelSupportPreservation.lean",
+   "bytes": 32070,
+   "sha256": "e27b747ce553af70257cf13833a92bd07ad55aa5024218228c7de5be90418a62"
+  },
+  {
+   "path": "NavierStokes/LeadingStress.lean",
+   "bytes": 32375,
+   "sha256": "56a709ceac268657c4f2c5e65e151e34ab010554953cf2aa362c69f0199094a2"
+  },
+  {
+   "path": "NavierStokes/LeadingStressWeights.lean",
+   "bytes": 65330,
+   "sha256": "2e5785d0fff68ab3a7ace6abece99bbc47a65b21001a577e07a0598f0e9b742a"
+  },
+  {
+   "path": "NavierStokes/LiftedMeanResidual.lean",
+   "bytes": 71526,
+   "sha256": "6816fe321faea4741d95e63fce6ef9842f7f946fe918f9ae04346888e446d902"
+  },
+  {
+   "path": "NavierStokes/LinearWaveBounds.lean",
+   "bytes": 55549,
+   "sha256": "2a8f5064f25cb97121eb757a3c52307aab3b14e5f6f8c8b9a21d426e84f4d67f"
+  },
+  {
+   "path": "NavierStokes/LinearWaveResidual.lean",
+   "bytes": 36752,
+   "sha256": "4a80e08fef738be7032db1e465e3219d56e10da2e368ac06d1a8023ccc1e85dc"
+  },
+  {
+   "path": "NavierStokes/LocalAngularDiagonal.lean",
+   "bytes": 10532,
+   "sha256": "9da7c4034c502b84ca191e16f545c220a7b1bfa42c6f08f6dcfc300ecd9c9ec6"
+  },
+  {
+   "path": "NavierStokes/LocalAxisymmetricResidual.lean",
+   "bytes": 19269,
+   "sha256": "8efc62eaa945cbd4c3fda1d8861a5ce430cc50011dbe3023ec1119fd39bae0e2"
+  },
+  {
+   "path": "NavierStokes/LocalizedCurlRealization.lean",
+   "bytes": 15454,
+   "sha256": "b308ebc90916e3c2511bc92d207c098063d82aacafadd43511c7c71d9e4d9726"
+  },
+  {
+   "path": "NavierStokes/LocalizedGaussianBounds.lean",
+   "bytes": 30007,
+   "sha256": "ddb2542c3ae51f00535f82415a09f135071f7ccfa8d2bebe51fc7bc2ee3172a5"
+  },
+  {
+   "path": "NavierStokes/LocalizedMeanInteraction.lean",
+   "bytes": 26175,
+   "sha256": "ce0b5d5cafc65f7b8691bd0fb21af33c2f6990f9961a52a931c3a8a9840bb34b"
+  },
+  {
+   "path": "NavierStokes/LocalizedMomentRepair.lean",
+   "bytes": 15258,
+   "sha256": "b85a6f3dfde75e7ea9f6996a2f15da1475418f84c788dbe2558aa73c8a109e25"
+  },
+  {
+   "path": "NavierStokes/LocalizedWaveBounds.lean",
+   "bytes": 77329,
+   "sha256": "dd77712311d6d4bbb563327ba5560d4d26b899879701722f3f16ace8b6d58ebf"
+  },
+  {
+   "path": "NavierStokes/LocalMeanPhysicalBounds.lean",
+   "bytes": 19205,
+   "sha256": "e7d3bbcb8014521cdf39042a3f69b68c2f9039c1ee3b7507aeb14fa988f84197"
+  },
+  {
+   "path": "NavierStokes/LocalPhysicalCopyBounds.lean",
+   "bytes": 47860,
+   "sha256": "edcb7a17b9a03342ec5a072bb7da5569dcb31853b8bf84560ae9b16fd2122dc4"
+  },
+  {
+   "path": "NavierStokes/LocalRankDefect.lean",
+   "bytes": 55653,
+   "sha256": "5959d06849d34137b885e000ff7a9e0c90531ceb472d83c3e700586c7beef978"
+  },
+  {
+   "path": "NavierStokes/LocalResidualGrouping.lean",
+   "bytes": 20250,
+   "sha256": "d09727062da141a299743d7337a3a217f3ede082c61a4989c593365dcdb7f744"
+  },
+  {
+   "path": "NavierStokes/LocalSignedRequest.lean",
+   "bytes": 56298,
+   "sha256": "5245ace61e10bd3ae3e83b26e5d4dd8524901d7d2ba1db8958e18e08358d1dde"
+  },
+  {
+   "path": "NavierStokes/LoopMoments.lean",
+   "bytes": 13063,
+   "sha256": "d708c00e12ec059b047acf2b22546b84a72b6e84299754e3b34da63c404a4ef2"
+  },
+  {
+   "path": "NavierStokes/LoopVariance.lean",
+   "bytes": 42561,
+   "sha256": "d79ee70ca87e6c50ce8413f64bd815183e11d52837dd1913c4c757a9138c279e"
+  },
+  {
+   "path": "NavierStokes/MatchingConeBounds.lean",
+   "bytes": 56310,
+   "sha256": "f24da61f73ec31e616e19f5c8ca3944af4613d670246736ac5391bb1e4f1c874"
+  },
+  {
+   "path": "NavierStokes/MatchingDebtBounds.lean",
+   "bytes": 52596,
+   "sha256": "f3eaf49ea04aaa06392ba14d1157b437c9da07087442498967d9cad3e1e3caf3"
+  },
+  {
+   "path": "NavierStokes/MaximalLifespan.lean",
+   "bytes": 14172,
+   "sha256": "264e0dd85e14c5817af318d5650c1b62c033748d83ffee5ec5653a2b59e3c5b5"
+  },
+  {
+   "path": "NavierStokes/MeanBoundsReindex.lean",
+   "bytes": 16055,
+   "sha256": "96339cf10aea6cc58b5003d8657e813d35509a8abbd383d0555245007f0d4353"
+  },
+  {
+   "path": "NavierStokes/MeanChartCompatibility.lean",
+   "bytes": 71168,
+   "sha256": "3540b7a13a5bc2c32163e6b5da620d34e95cbe19de9e74aa78dd0590c6df24d2"
+  },
+  {
+   "path": "NavierStokes/MeanIncrementBounds.lean",
+   "bytes": 60093,
+   "sha256": "96704a870d77f13c053f766b99bfd11c7e5db7d491588167a3724f9e99a68a41"
+  },
+  {
+   "path": "NavierStokes/MeanMomentBounds.lean",
+   "bytes": 25175,
+   "sha256": "834f3b3b925db977da12ca40d88f75e54559c96f1eaaef04190f951646250cb5"
+  },
+  {
+   "path": "NavierStokes/MeanRankUpdate.lean",
+   "bytes": 111911,
+   "sha256": "297384e99f97232dcff27b0a3a2537185471898e5f24904a35474b7e1a16e392"
+  },
+  {
+   "path": "NavierStokes/MeanResidual.lean",
+   "bytes": 61305,
+   "sha256": "eac401f899ab206a302891c671fa73a58d9e8b7bc6556581cb2e57ee9ac8a3fb"
+  },
+  {
+   "path": "NavierStokes/MeanStageRegularity.lean",
+   "bytes": 16379,
+   "sha256": "c1a146e445edcd7f5f611583521878f0220be88b4cbfd02f799966ec2f539586"
+  },
+  {
+   "path": "NavierStokes/MeanStateRegularity.lean",
+   "bytes": 25349,
+   "sha256": "6e4867619366112ba74bd174c6b15df5f8ffcb7258fc08e9a27a015aeb98366a"
+  },
+  {
+   "path": "NavierStokes/MixedAxisPreservation.lean",
+   "bytes": 34018,
+   "sha256": "b66076e1f17b6c66187319cf99c199d826fb8e375c86eff662ba4a1dcb4f9da5"
+  },
+  {
+   "path": "NavierStokes/MixedCandidateAssembly.lean",
+   "bytes": 11557,
+   "sha256": "e17114b5c3156765615c81c8c2c58f80a9f99d2febf57e8c1776f3d01cd4856a"
+  },
+  {
+   "path": "NavierStokes/MixedCandidateWitness.lean",
+   "bytes": 8793,
+   "sha256": "28e71eb4b5a072c7d44d7c1d3552bab2a4441cc1ef6aa21e990567a816377998"
+  },
+  {
+   "path": "NavierStokes/MixedDiagonalExtensions.lean",
+   "bytes": 11247,
+   "sha256": "14deca2b2eef024cf4df6b2302b03ba736cba9eae62c53741fa32050c9e38a2e"
+  },
+  {
+   "path": "NavierStokes/MixedDiagonalResidual.lean",
+   "bytes": 15038,
+   "sha256": "205b10f76d6133c264cdb699192334c4c2d72755007026eda2ee2a13f84c30ea"
+  },
+  {
+   "path": "NavierStokes/MixedDiagonalSchedule.lean",
+   "bytes": 19358,
+   "sha256": "753f735695069e1bf7abc6a8c95c08eaa8f4458a1ea3922293611c65d8120431"
+  },
+  {
+   "path": "NavierStokes/MixedFiniteBackground.lean",
+   "bytes": 9427,
+   "sha256": "0cb8d2c38d13fdf8451bb322b2547f51c233bbee2ccb2a0443824e8881466090"
+  },
+  {
+   "path": "NavierStokes/MixedPeriodicAssembly.lean",
+   "bytes": 22738,
+   "sha256": "5be1155c4b334fd8921545462dae6048a854e14f19e0e99a8bdb94cd64e4a773"
+  },
+  {
+   "path": "NavierStokes/ModeSolenoidalReindex.lean",
+   "bytes": 5146,
+   "sha256": "769045bd21d60f1ee61b9a387dc49f0af83d5d83ad2fbd1a2e243f6dd26d0194"
+  },
+  {
+   "path": "NavierStokes/ModulatedCone.lean",
+   "bytes": 87040,
+   "sha256": "83ceee8cfcb4f77a6a16f76b9fe33617b7ef2b46adde537798ac577d46e64cd7"
+  },
+  {
+   "path": "NavierStokes/ModulatedExterior.lean",
+   "bytes": 29116,
+   "sha256": "5c6aeaf40b32466d2fe4bb5d651b02e879833539b81d0bfcb3c15a3fdf3123a0"
+  },
+  {
+   "path": "NavierStokes/ModulatedHistories.lean",
+   "bytes": 80494,
+   "sha256": "a39ebe0e9577de51f513111456b10c3032a47004422336f5ab65ef27f7ebd0f3"
+  },
+  {
+   "path": "NavierStokes/ModulatedProfileAssembly.lean",
+   "bytes": 59597,
+   "sha256": "006af898d4f7dd76d8ac79a0ee43189e88ac34ca80e9e92ec7e0d78927fcae47"
+  },
+  {
+   "path": "NavierStokes/ModulatedStockBounds.lean",
+   "bytes": 18283,
+   "sha256": "1f44364eca5d5e7eef1df43873c8f76c553fc2e4ad6e496ad267cd510175a902"
+  },
+  {
+   "path": "NavierStokes/MomentRepair.lean",
+   "bytes": 11621,
+   "sha256": "9e4fb5b8eb471acc59871cbf37c8570d847d2a9197b6b9b4cd78032583fece7d"
+  },
+  {
+   "path": "NavierStokes/MovingFrameODE.lean",
+   "bytes": 41255,
+   "sha256": "237f85280253e318da2c7dace62a5fc33ad635c07143f403962dc557878a2fac"
+  },
+  {
+   "path": "NavierStokes/MovingMomentBounds.lean",
+   "bytes": 21383,
+   "sha256": "090df5c8bdffbc2cefc9a1e51bf123d1134defb6a171ad90f6011ee9e39979a7"
+  },
+  {
+   "path": "NavierStokes/NativeBandExtension.lean",
+   "bytes": 55410,
+   "sha256": "f9d3c3bed76dc607e9a241e922238651ebb72a4b96aa81b830b328bf947aad39"
+  },
+  {
+   "path": "NavierStokes/NativeCutoffJets.lean",
+   "bytes": 5216,
+   "sha256": "1bd2edd525ef22dba986470bb79ec18a7e3679ad1bd6eb74bb01e7f043dee82c"
+  },
+  {
+   "path": "NavierStokes/NativePrincipalEquations.lean",
+   "bytes": 8631,
+   "sha256": "d8857dcfdee523f6812d67d7a6bccda67def36cb248a26b0a877ccd49b4a5a90"
+  },
+  {
+   "path": "NavierStokes/NaturalAxisBridge.lean",
+   "bytes": 39709,
+   "sha256": "9d1d98bdc48199dd483ab6cc8cd5a356847373faab7aca2908c166cd6d0c754f"
+  },
+  {
+   "path": "NavierStokes/NaturalAxisCoefficients.lean",
+   "bytes": 27529,
+   "sha256": "cf762100d7de681f34aba5dcfeecac4b81e6b5d2cda8ec781236e4b3fdd3d9fd"
+  },
+  {
+   "path": "NavierStokes/NaturalAxisData.lean",
+   "bytes": 16544,
+   "sha256": "4fff0e94f1b98acec9ac9efc83a7df8cfe83475e241d79d3697c8df2ab2835f8"
+  },
+  {
+   "path": "NavierStokes/NaturalAxisRange.lean",
+   "bytes": 11085,
+   "sha256": "30777f3cb6cb5c7445ab1d098c51dd282ec898c945d26dca8e242c1aefa97606"
+  },
+  {
+   "path": "NavierStokes/NaturalCoefficientBridge.lean",
+   "bytes": 31578,
+   "sha256": "eb109bef226d45f80bbe8c9ea3d82959f269061ab1fb8488bf34344f4c91136a"
+  },
+  {
+   "path": "NavierStokes/NaturalCore.lean",
+   "bytes": 27057,
+   "sha256": "7d0cf74a92231153daf4a718f7c3c6c20b14c683d5c9ac52ca002ea3c4073409"
+  },
+  {
+   "path": "NavierStokes/NaturalEntrance.lean",
+   "bytes": 74236,
+   "sha256": "05d4871c68cbf59486ba5a34fe42c3c3963218e2ba7be2408363d5f8a8f26af3"
+  },
+  {
+   "path": "NavierStokes/NaturalProfile.lean",
+   "bytes": 35336,
+   "sha256": "e2c53a5cce496789f6636a6b30ae4eac9d62a00f011d0ff2f3a966cea569a10c"
+  },
+  {
+   "path": "NavierStokes/NilpotentVolterra.lean",
+   "bytes": 57414,
+   "sha256": "68e9c6933a788db087384426a96459552d95d82901a321b3b84162e80b9b4be7"
+  },
+  {
+   "path": "NavierStokes/NominalConeAssembly.lean",
+   "bytes": 85122,
+   "sha256": "ad0f8947723416c950c1e3cbb82bac8c83b03ef25fa5aba495a3e29508b14cb5"
+  },
+  {
+   "path": "NavierStokes/NominalProfile.lean",
+   "bytes": 142432,
+   "sha256": "59f2977035db50e680ee38cf4503c47497e50a58a6043d083fdd8755dac06c88"
+  },
+  {
+   "path": "NavierStokes/NormalScaling.lean",
+   "bytes": 3809,
+   "sha256": "a93529712b3daf691c42af11cfa277e15f25fd7a8fe7bd9208e2cb2fc5f5db54"
+  },
+  {
+   "path": "NavierStokes/OffplaneCorrectionExtensions.lean",
+   "bytes": 58193,
+   "sha256": "a136f1c7debc77afce4b6deec6848b1708bfb8ee028c61675ea5b5104a1fc5fe"
+  },
+  {
+   "path": "NavierStokes/OffplaneJetExtensions.lean",
+   "bytes": 18151,
+   "sha256": "7300e09621773cb941a3bb92f782d26acc2687171635344b69879014734b803e"
+  },
+  {
+   "path": "NavierStokes/OscillatoryCurl.lean",
+   "bytes": 16018,
+   "sha256": "c0d1083fedc4bc0628e453a839a153b8658bc84f14a9c789a5f87c4733b6a9d3"
+  },
+  {
+   "path": "NavierStokes/OutgoingCone.lean",
+   "bytes": 41986,
+   "sha256": "615b435a0983f522137f82501ea105773c38d43287433fa33c5de951692c4ce3"
+  },
+  {
+   "path": "NavierStokes/OutgoingDilation.lean",
+   "bytes": 34328,
+   "sha256": "d45c1981a39df2b771065661250e3ca0ef08e352b53e5667976c6bff71b9a809"
+  },
+  {
+   "path": "NavierStokes/OutgoingEntranceCone.lean",
+   "bytes": 114696,
+   "sha256": "5006a2e51e68aca5c9bd3042b7831e88475a9a9879174a2a33575a880f3f4680"
+  },
+  {
+   "path": "NavierStokes/OutgoingHistories.lean",
+   "bytes": 64524,
+   "sha256": "a1ec7816c6f58942e22a329232e49c6b780df33b72a74cd838d91c9f253e0d56"
+  },
+  {
+   "path": "NavierStokes/OutgoingProfile.lean",
+   "bytes": 32970,
+   "sha256": "c62ac452804940732e017daa7ae11545e3db58ee22b5effa395dc3ff9afde520"
+  },
+  {
+   "path": "NavierStokes/OutgoingPulseBounds.lean",
+   "bytes": 64485,
+   "sha256": "c7a25e38f34f1c6d7f3a3f0de830cee9979155956c80896014558b61e27de478"
+  },
+  {
+   "path": "NavierStokes/OutgoingSchedule.lean",
+   "bytes": 44887,
+   "sha256": "680379d41f5ecb928f53278860c807e3344e9bcaefbcd6c4bbcc493f812bc552"
+  },
+  {
+   "path": "NavierStokes/OutgoingTail.lean",
+   "bytes": 45336,
+   "sha256": "450c6d0cea94de6ebaad98d199bfa5b45b1cbc249decec3fd44b796ddd43eba5"
+  },
+  {
+   "path": "NavierStokes/ParametricEvenDescent.lean",
+   "bytes": 18129,
+   "sha256": "6318f297fbbaf6481dbf23e526c936c1b574a218a84f30531c16812770d12f1f"
+  },
+  {
+   "path": "NavierStokes/ParametricFlatFactor.lean",
+   "bytes": 12891,
+   "sha256": "aaf668ac7dab3cbd942a4dd72343bcffda5051379afeca8d75f5dc98cc577ef2"
+  },
+  {
+   "path": "NavierStokes/ParametricHeatTail.lean",
+   "bytes": 52186,
+   "sha256": "af647fa400a693330ee9553ac33832add39657c6fca2eb90bbe25e9e2934d28b"
+  },
+  {
+   "path": "NavierStokes/ParametricKernelBounds.lean",
+   "bytes": 16627,
+   "sha256": "241582869a91ff877ad0064f79e7c734e102047180cf858f0b000cbfc457a049"
+  },
+  {
+   "path": "NavierStokes/ParametricModulation.lean",
+   "bytes": 32666,
+   "sha256": "1706cacc24f99d57de20f3bbbd89529ec5cae25877094329caa3cd9692431c5f"
+  },
+  {
+   "path": "NavierStokes/ParametricODE.lean",
+   "bytes": 22276,
+   "sha256": "aa70ca575903663a3161320315ff997b1a05d435a1a90a2878fe751763e18122"
+  },
+  {
+   "path": "NavierStokes/ParametricRadialExtension.lean",
+   "bytes": 17440,
+   "sha256": "2f2407622d0fb13cbe7929d087e72ef470b3752122ce0673cd93106add54ac4b"
+  },
+  {
+   "path": "NavierStokes/ParametricRephase.lean",
+   "bytes": 13989,
+   "sha256": "27c7fdee501b0f32d31ac5ef7dc85a200ed81400d8d740729638ee46d62b818f"
+  },
+  {
+   "path": "NavierStokes/ParametricTerminalCompensation.lean",
+   "bytes": 27314,
+   "sha256": "002cd46b8bada02fc2794680f2fa5785834b2b2a707b2de4216ab562384c7d77"
+  },
+  {
+   "path": "NavierStokes/ParametricTorusInverse.lean",
+   "bytes": 32993,
+   "sha256": "b4930518678ae79a85cfde23ecf7200d01495a94b5f19e0443aaea89e25f6cb0"
+  },
+  {
+   "path": "NavierStokes/ParticularCopyBounds.lean",
+   "bytes": 37666,
+   "sha256": "02065f814496e71885090c55f25e9bf30266b35115676003ce5e8c575bbe269e"
+  },
+  {
+   "path": "NavierStokes/ParticularPaddedBackground.lean",
+   "bytes": 19875,
+   "sha256": "229d3da72ab1963835a145a91f45130048acc2f94c9d72f8d67f0c447df71093"
+  },
+  {
+   "path": "NavierStokes/ParticularWaveAssembly.lean",
+   "bytes": 113679,
+   "sha256": "6db7956c021b8742c9bbf1f92127abecb2c24fce2529ad40a96cf08e59e9296d"
+  },
+  {
+   "path": "NavierStokes/ParticularWaveBounds.lean",
+   "bytes": 153723,
+   "sha256": "71febf45bbed1c5aacc7c7f9d91bf6ddea0284bcbda14c8e9f03a178489fa555"
+  },
+  {
+   "path": "NavierStokes/PartitionedCovariance.lean",
+   "bytes": 55748,
+   "sha256": "2fa4f3f7a6d4780556abc587ce8306952e69aaaabdbeedfd6858e3a2a2c74863"
+  },
+  {
+   "path": "NavierStokes/PastExtension.lean",
+   "bytes": 16142,
+   "sha256": "70b40604b420c843738b323895cf54b96763015c982818f23a691fea464575de"
+  },
+  {
+   "path": "NavierStokes/PeriodicComparatorSolution.lean",
+   "bytes": 1513,
+   "sha256": "3959b5ea8f674ed0798d29618f086688db6b37dfcf7dd1676477811d819896dd"
+  },
+  {
+   "path": "NavierStokes/PeriodicIntegration.lean",
+   "bytes": 15757,
+   "sha256": "4f637ee61edc17fd3e99da4c407f13a9c749bf7e6f6a2c49a85396e7a56eec1a"
+  },
+  {
+   "path": "NavierStokes/PeriodicLocalization.lean",
+   "bytes": 12509,
+   "sha256": "97f246d8ec74ee6a4f49afa54f909f20d74c5c5293ed4303057b89030dc09898"
+  },
+  {
+   "path": "NavierStokes/PeriodicPaperComparator.lean",
+   "bytes": 2674,
+   "sha256": "cc43036123e52c0f2aa895a9c6cc2ef8f222831f0fbb6a1988b6414567ff10a2"
+  },
+  {
+   "path": "NavierStokes/PeriodicPaperScalingSupport.lean",
+   "bytes": 5297,
+   "sha256": "3c04ef73b9867eb250c7dfd138d6b296a832b3c29490dc95a5de694be8e6ec43"
+  },
+  {
+   "path": "NavierStokes/PeriodicPaperSupport.lean",
+   "bytes": 4636,
+   "sha256": "9d54f5705aee058ca01103bae6e0ad34c91abebcc298bd1041457b8a2bdbadb6"
+  },
+  {
+   "path": "NavierStokes/PeriodicPaperTheorem.lean",
+   "bytes": 8048,
+   "sha256": "ca8ff98ef146dbbc136b0837888565385ad035f6e47b606d0bb075156c1ff7b2"
+  },
+  {
+   "path": "NavierStokes/PeriodicPhaseAssembly.lean",
+   "bytes": 46736,
+   "sha256": "ee936a3fb36821b5f541bea8b77b860e807aa26f6eac5c3fd719075e4ebc461c"
+  },
+  {
+   "path": "NavierStokes/PeriodicResidualLimits.lean",
+   "bytes": 27108,
+   "sha256": "d5a9baa1de9abf9990a775f77ec2235f11dab6d6d3cb3c3c070cc2973c60eed2"
+  },
+  {
+   "path": "NavierStokes/PeriodicSobolev.lean",
+   "bytes": 17295,
+   "sha256": "95f45f4e0b8dccbc57b38ebdd85a16c4d9253b85e8bdeda8f4bd189347ce8c7b"
+  },
+  {
+   "path": "NavierStokes/PeriodicUniqueness.lean",
+   "bytes": 36475,
+   "sha256": "fa8f82a4f4fabb6bd6b6c8d0d450152ab7fa540f9bf22235ea8eb70931a30558"
+  },
+  {
+   "path": "NavierStokes/PeriodicViscosity.lean",
+   "bytes": 3168,
+   "sha256": "744b0803971ec20d2e3062eb31a8c67b439d74bcc9d61d10a1ea83f333757132"
+  },
+  {
+   "path": "NavierStokes/PeriodicViscosityUniqueness.lean",
+   "bytes": 5530,
+   "sha256": "c167ecc2a09de16f6e52d2ece9fe455d5df3bc111ea20fd91ca7ee19521f0c4a"
+  },
+  {
+   "path": "NavierStokes/PeriodizedWaveBounds.lean",
+   "bytes": 88278,
+   "sha256": "2b8356c500c42ab0acf4f1f18be4c18d6936905e66c859ffc1ac2aa24ec35085"
+  },
+  {
+   "path": "NavierStokes/PeriodizeLatticeCover.lean",
+   "bytes": 760,
+   "sha256": "f867ca567554c455c91d0dad8a6da7e6ef0649de2398a7b78f2d79bf15ca5289"
+  },
+  {
+   "path": "NavierStokes/PeriodizePDE.lean",
+   "bytes": 7255,
+   "sha256": "fcd6bcf77fabc89a8a2ab664e34870382cd2328ccf958385ff0434b745cede29"
+  },
+  {
+   "path": "NavierStokes/PhaseCalculus.lean",
+   "bytes": 15152,
+   "sha256": "779aa94a4a4ffe83089bb21b24e61503948449a98ec09bf500789d791181255e"
+  },
+  {
+   "path": "NavierStokes/PhaseEstimates.lean",
+   "bytes": 58223,
+   "sha256": "d450bccab6fe76231b4b0a0d72a3977e4254d2ee5366e00a30d6bbf8eb685b9e"
+  },
+  {
+   "path": "NavierStokes/PhaseJetBounds.lean",
+   "bytes": 53574,
+   "sha256": "815362ab83b9d078e825214f517ca7b3262823849d5745e0f41f5138ac8cc05d"
+  },
+  {
+   "path": "NavierStokes/PhysicalClassBounds.lean",
+   "bytes": 40991,
+   "sha256": "4d09f8d6a42e13ca5892f1a4d7ac736ea57c2561a9aba92799b4853f31163f3e"
+  },
+  {
+   "path": "NavierStokes/PhysicalCoordinateBounds.lean",
+   "bytes": 29983,
+   "sha256": "b69675f414a1fcb6a152d8f361bdc218b43a8d4a69357fe542ac58618288a743"
+  },
+  {
+   "path": "NavierStokes/PhysicalCopyBounds.lean",
+   "bytes": 38457,
+   "sha256": "ec9f3b772c4d3c1192930ff2a3709a051559af8df89c6a6b80b933d8746c2b8b"
+  },
+  {
+   "path": "NavierStokes/PhysicalCurlCovariance.lean",
+   "bytes": 62081,
+   "sha256": "cf6f9b6df11d2db493f260b71ad0c34c571405e606f834d497e9d4c80474a8dd"
+  },
+  {
+   "path": "NavierStokes/PhysicalGraphBounds.lean",
+   "bytes": 79575,
+   "sha256": "a281c27cd3f6cc40ad6791556a10b569682a216784dddec9db6c9c1cdde12838"
+  },
+  {
+   "path": "NavierStokes/PhysicalHeatCoordinates.lean",
+   "bytes": 5252,
+   "sha256": "d99ad202f3d84449b04fdb107dd92e777e53fc2363a5ea7daad90900008e88a7"
+  },
+  {
+   "path": "NavierStokes/PhysicalMeanDomain.lean",
+   "bytes": 101820,
+   "sha256": "2ca751a5641510c6d60752e1769c4ef6afed3aa274eeb3289873250003455104"
+  },
+  {
+   "path": "NavierStokes/PhysicalMeanJetBounds.lean",
+   "bytes": 51487,
+   "sha256": "c588b5b12bdf2d5dc7c2997fc57c89c8166f9b326482908ce11aea1186c53e1f"
+  },
+  {
+   "path": "NavierStokes/PhysicalParticularWave.lean",
+   "bytes": 85725,
+   "sha256": "2632a076fcf0dac82339db9dafe501ac1dcc32e3b05fbea97134d9b8999f4fad"
+  },
+  {
+   "path": "NavierStokes/PhysicalResidualBridge.lean",
+   "bytes": 42212,
+   "sha256": "4e1bd852b2d5e0ecdd1134896d6ff44cdc757da7f1e9738130bfb9a9ca3e22b4"
+  },
+  {
+   "path": "NavierStokes/PhysicalResidualJetBounds.lean",
+   "bytes": 59724,
+   "sha256": "9fe11980d3ef8338f11c8845d3adcab3ff3c7fc5bd21cbcb1d53bd5314ddd2d9"
+  },
+  {
+   "path": "NavierStokes/PhysicalResidualNaturality.lean",
+   "bytes": 60619,
+   "sha256": "adbdb99bea374a4cfc0452712760607dcb6db0a1e645929860fe933ac49328aa"
+  },
+  {
+   "path": "NavierStokes/PhysicalResidualTZ.lean",
+   "bytes": 26853,
+   "sha256": "4107bfef57037dc6cc9eb80e6bb2a856dae337be848aab64b6f467c4dffa80ad"
+  },
+  {
+   "path": "NavierStokes/PhysicalSignedWave.lean",
+   "bytes": 93265,
+   "sha256": "5fc5e5a2aabfddd22fb1a64bb1951e6a009d5774ebb5bb0c974dd3bf335c209f"
+  },
+  {
+   "path": "NavierStokes/PhysicalStageBounds.lean",
+   "bytes": 32981,
+   "sha256": "b86797123c5c17bfacaeb069232d0231dbfa0bf47b2ff3a69fab872b353c9a30"
+  },
+  {
+   "path": "NavierStokes/PhysicalStageSupport.lean",
+   "bytes": 24457,
+   "sha256": "82f49228e3406c7a77aaa2b426f7831332d154fbbc75c8cc9702cb0d3eedd30d"
+  },
+  {
+   "path": "NavierStokes/PhysicalWaveSum.lean",
+   "bytes": 55436,
+   "sha256": "5713536b5d510c2ab2c2151b4b1aa6c8822535169ae0e73ff60d9f7b69e9ea81"
+  },
+  {
+   "path": "NavierStokes/PolarCharts.lean",
+   "bytes": 23039,
+   "sha256": "eab3f37646bd642ca0d6710e8db1f231b85e247e6f2bf1635037226271e0cec0"
+  },
+  {
+   "path": "NavierStokes/PositiveAxisExistence.lean",
+   "bytes": 49793,
+   "sha256": "ad88813104428c30dc08d190fbe997a7c7953fecd57310137963d6c155334ed5"
+  },
+  {
+   "path": "NavierStokes/PositiveAxisSystem.lean",
+   "bytes": 52275,
+   "sha256": "75183c27ba7a8502c0d944d62e0f19afca3d997dabec6b6845eaf582207c2cab"
+  },
+  {
+   "path": "NavierStokes/PositiveOrderMoments.lean",
+   "bytes": 50500,
+   "sha256": "97e62940ffe93b0535c4d87fd3c30967febd85830bfff7bbf4d4ce54684db2e5"
+  },
+  {
+   "path": "NavierStokes/PositiveRepresentatives.lean",
+   "bytes": 36266,
+   "sha256": "302673b00ad8deb0bb701e0052cc91d1d74e3ee153363b37e291ac35e2f28882"
+  },
+  {
+   "path": "NavierStokes/PositiveTimeCopyFamily.lean",
+   "bytes": 9252,
+   "sha256": "85d4a69dfdee2c2b4df0a8030581df6766f312becbaece4fca0a703073adce04"
+  },
+  {
+   "path": "NavierStokes/PositiveTimeSignedData.lean",
+   "bytes": 29107,
+   "sha256": "6c668281be4891207883497ce2fef8e91b9528ad184659b6725b5437b972fa98"
+  },
+  {
+   "path": "NavierStokes/PositiveTimeSignedLocalization.lean",
+   "bytes": 5652,
+   "sha256": "4b99969be51c159e0d59def5428a7d3dc1bd606b3bd8b05b3c7020b23bdff14d"
+  },
+  {
+   "path": "NavierStokes/PowerMomentMatrix.lean",
+   "bytes": 13561,
+   "sha256": "22db0293650330a0098df08e85b6c39ca2a622eef661df5a6e65b5016c0aa34e"
+  },
+  {
+   "path": "NavierStokes/PreparedOutgoing.lean",
+   "bytes": 5723,
+   "sha256": "b17ae08fd3e31ae75821d47fe801901a226d7ebe8f2fff8f442fc8751ad1a069"
+  },
+  {
+   "path": "NavierStokes/PressureDatum.lean",
+   "bytes": 21192,
+   "sha256": "a1ad3e25e569532b0dc21c71f5f8e0092bb8abd2096f03c3469639d2435a2513"
+  },
+  {
+   "path": "NavierStokes/PressureStream.lean",
+   "bytes": 43477,
+   "sha256": "d0fe232768935e56975a160a60c1bb380021b87da42d70b270a904a846cf92c3"
+  },
+  {
+   "path": "NavierStokes/PrimaryCopyBounds.lean",
+   "bytes": 79555,
+   "sha256": "9be9720cce018dcc06eb6227ec5899200f172be2549c77c90b71754c8ca27d46"
+  },
+  {
+   "path": "NavierStokes/PrimaryCopyBridge.lean",
+   "bytes": 28221,
+   "sha256": "0393f51a0881c396d45564da573df02a252f70949489a5c2543e1a58816548d4"
+  },
+  {
+   "path": "NavierStokes/PrimaryCovarianceBounds.lean",
+   "bytes": 38669,
+   "sha256": "7417f840e9689a41504a1cc368acc04d565d2c5bac2cca3959675a9a86b97862"
+  },
+  {
+   "path": "NavierStokes/PrimaryFieldAssembly.lean",
+   "bytes": 55723,
+   "sha256": "dd8a5487a5706e914c172fa6c28575cb87c3d981c738a93fced8bafd39468aa7"
+  },
+  {
+   "path": "NavierStokes/PrimaryGeometryAssembly.lean",
+   "bytes": 32278,
+   "sha256": "ca704dcae58e7339d91758a0f5e0fd545628e24df4d3841ea3d118e542feceab"
+  },
+  {
+   "path": "NavierStokes/PrimaryMaterialDefect.lean",
+   "bytes": 24863,
+   "sha256": "e80e28e25fa37b2c97da2bbdea43ee2785d5de4d8c552dd1989437be05f72225"
+  },
+  {
+   "path": "NavierStokes/PrimaryODE.lean",
+   "bytes": 66847,
+   "sha256": "8952eec0456e15b311826e7d1a0ab42bf0974622a445d1adc02dc043d6cf6b82"
+  },
+  {
+   "path": "NavierStokes/PrimaryPulseBounds.lean",
+   "bytes": 105015,
+   "sha256": "f40c04d957721fca7162aefe9a3af377a544480679d9e5a1b1b7169ef4167472"
+  },
+  {
+   "path": "NavierStokes/PrimaryRepresentatives.lean",
+   "bytes": 40248,
+   "sha256": "4cc7961bb79ee22a1c95bde37d9113a0c1c834f1fd4f8654c97c9bf9cdfa08e4"
+  },
+  {
+   "path": "NavierStokes/PrimaryResidualClass.lean",
+   "bytes": 40195,
+   "sha256": "18f4c21020e6e82db1a89199a73d1c72aecd8fca4a57f14f3d30ff6ec71b1bc2"
+  },
+  {
+   "path": "NavierStokes/PrimaryTargetBounds.lean",
+   "bytes": 55785,
+   "sha256": "56ef8f911a7805f72657b5c6671a7049c9d81fba5f2cac3139a57e3f67672f0f"
+  },
+  {
+   "path": "NavierStokes/ProblemStatement.lean",
+   "bytes": 8107,
+   "sha256": "d2f5cdf24a060acd41011b50492e89058991965e18d2cb797c58d915f95af633"
+  },
+  {
+   "path": "NavierStokes/ProfileHistories.lean",
+   "bytes": 36108,
+   "sha256": "1e4176760ac0ec433f72c57a632362fafcff5d420246689b3fad18a06d1d35e7"
+  },
+  {
+   "path": "NavierStokes/ProfileSpectralCone.lean",
+   "bytes": 27943,
+   "sha256": "6ed8f36dd65be0a30a2b93cf2f7da513ceea9c9143175b7ad7abe16b2507aed9"
+  },
+  {
+   "path": "NavierStokes/PulseAmplitude.lean",
+   "bytes": 76911,
+   "sha256": "7b04d2c9266f20f35137b554793f6730b902efb92166d58f323ecbc4f3f043a2"
+  },
+  {
+   "path": "NavierStokes/PulseCone.lean",
+   "bytes": 104948,
+   "sha256": "d48c935f688cfe8bf5c8234006bd7c1dfacfa2bf2aece60ec21db469ee36fcbb"
+  },
+  {
+   "path": "NavierStokes/PulseCovariance.lean",
+   "bytes": 38417,
+   "sha256": "b93b8ed06651c256254ea0751b12d9967b196415ab295ad8c102cb5aadf4634a"
+  },
+  {
+   "path": "NavierStokes/PulseEnergyHistory.lean",
+   "bytes": 26423,
+   "sha256": "598fb0a367e62cf6e9ceef1d9f1f96d7399776ece7d9f507c8a2819d0137207a"
+  },
+  {
+   "path": "NavierStokes/PulseGrowth.lean",
+   "bytes": 8150,
+   "sha256": "beccfa127913f2224b114a1f2a4f41983032c1666fb17c50ca04a1ed774d7277"
+  },
+  {
+   "path": "NavierStokes/PulseLag.lean",
+   "bytes": 41181,
+   "sha256": "5130bf734c38d364fcbf696d74fa3d2ddabf179ade01398781252a6e297e5bd5"
+  },
+  {
+   "path": "NavierStokes/R3/ActualCandidate.lean",
+   "bytes": 7494,
+   "sha256": "93d728679c20650ca6ae256b8f96618aaaf004904b589d8f69da759e740046fa"
+  },
+  {
+   "path": "NavierStokes/R3/ActualPressureFlux.lean",
+   "bytes": 2777,
+   "sha256": "56c026a1fe91d64a8e05b13ca678cffa9073d39d308f990939d72286c094f0ee"
+  },
+  {
+   "path": "NavierStokes/R3/CandidateBreakdown.lean",
+   "bytes": 3373,
+   "sha256": "a9aa816d3aa474012f5e4020e1a2744ffcab3a89e8ef3d172235c8046e2c09e5"
+  },
+  {
+   "path": "NavierStokes/R3/CompactComparisonBounds.lean",
+   "bytes": 7733,
+   "sha256": "0dd8f41bcf68dc768c15bdaade7f57fb4b7635a5c4f435849b49f564b8493cd6"
+  },
+  {
+   "path": "NavierStokes/R3/CompactEnergy.lean",
+   "bytes": 19508,
+   "sha256": "5f6b0e17cd55b82672d52d04de70a973d74ee483316a5fe993aee7ccdb9ac71e"
+  },
+  {
+   "path": "NavierStokes/R3/CompactForceBound.lean",
+   "bytes": 2433,
+   "sha256": "ed2e1ad50aa4b24554092ee0bfe19390131c85d43f2b563d26e1a184ea85f36b"
+  },
+  {
+   "path": "NavierStokes/R3/CompactSchwartz.lean",
+   "bytes": 2701,
+   "sha256": "d56930b6144facde894ff13057791b0235833d739c8bca5a313f2d7a2f9ad622"
+  },
+  {
+   "path": "NavierStokes/R3/CompactTimeIntegral.lean",
+   "bytes": 9380,
+   "sha256": "65f72cbcff36ec69bc7b2cf925db98aad723dc6a4a09be8acc76f9ef1ce3d08a"
+  },
+  {
+   "path": "NavierStokes/R3/ComparatorBridge.lean",
+   "bytes": 3758,
+   "sha256": "95bab4f64bb4879f5f893d328475718a8bfb0d34cc59c5a4e866a965b5a425e9"
+  },
+  {
+   "path": "NavierStokes/R3/ComparisonCutoffs.lean",
+   "bytes": 11987,
+   "sha256": "7df4c24131bd910ce1aad9f1baf7f0942a76aafc9714e3b8fbadf31d3b523f14"
+  },
+  {
+   "path": "NavierStokes/R3/ComparisonFiniteEnergy.lean",
+   "bytes": 11495,
+   "sha256": "22bd010604f7a580cc5172b5bfd2e88ea18b18a349c7a30f0e9771dec2b47225"
+  },
+  {
+   "path": "NavierStokes/R3/ComparisonFourierSetup.lean",
+   "bytes": 919,
+   "sha256": "30b9551a34a825c2c9de181eb28c4e48a14091e927ad8dfdedad1c84e8a468ff"
+  },
+  {
+   "path": "NavierStokes/R3/ComparisonGronwall.lean",
+   "bytes": 7702,
+   "sha256": "165a2076c39df025d4dbc94e94b46c21ac9e8ccb03c0ab5f241fe1f073ba22d2"
+  },
+  {
+   "path": "NavierStokes/R3/ComparisonRateBound.lean",
+   "bytes": 7102,
+   "sha256": "b992584a72424037527f2db635834446b873f3d77ebe362f3f896c777ae9334b"
+  },
+  {
+   "path": "NavierStokes/R3/ComparisonSetup.lean",
+   "bytes": 1985,
+   "sha256": "2c1335d9da753d25c73b2b102b0c7686648c8928ddfac416d87284bb9b20fbde"
+  },
+  {
+   "path": "NavierStokes/R3/ComparisonTimeAverages.lean",
+   "bytes": 31188,
+   "sha256": "4dc777ee06ac153a271a4b670ab63e761d67e1a7237d3d5109a0f3773495bbfa"
+  },
+  {
+   "path": "NavierStokes/R3/ComparisonYoung.lean",
+   "bytes": 7383,
+   "sha256": "1ede4e4ee74651b222e1676ff7a1fd32d3772eff0a866aca28ec4e05c2e3e2b4"
+  },
+  {
+   "path": "NavierStokes/R3/ConservativeDifference.lean",
+   "bytes": 25012,
+   "sha256": "380ad80fd48eb8a509d618fbba31e2e0bec6fed9b8254596db4cc8f65d8f31db"
+  },
+  {
+   "path": "NavierStokes/R3/DelayedExtension.lean",
+   "bytes": 4123,
+   "sha256": "1a0eeda83784ed86ed23e7f00abd75a5d55f51ce963b2d3fa33ce048759d069e"
+  },
+  {
+   "path": "NavierStokes/R3/ForceL2Norm.lean",
+   "bytes": 4019,
+   "sha256": "5926f22726722b2b243911b9bec5c0c4874dc17b86279faef7d93ae2412ea9a7"
+  },
+  {
+   "path": "NavierStokes/R3/FourierConvolution.lean",
+   "bytes": 4380,
+   "sha256": "394ffeddbc14c6cdfc61aec9ff1d98dcfa57e3e4a9f941686b32125f0b794d47"
+  },
+  {
+   "path": "NavierStokes/R3/FourierSobolevWeights.lean",
+   "bytes": 7262,
+   "sha256": "073f501e63394b0b378e1a8480a8443f217c6b337d96941df461210115990245"
+  },
+  {
+   "path": "NavierStokes/R3/FourierTestDerivatives.lean",
+   "bytes": 3563,
+   "sha256": "3937144132a8a69cb739890a585a964d9c98f12850fba615217b6292422f8c63"
+  },
+  {
+   "path": "NavierStokes/R3/GaussianMoments.lean",
+   "bytes": 3403,
+   "sha256": "638e482ba99943b1c3198949ffb8a894140d04d2cfb04661ba1e6e011898430d"
+  },
+  {
+   "path": "NavierStokes/R3/GradientOperator.lean",
+   "bytes": 2222,
+   "sha256": "94559bda701acd5e8be547573aa95f8324d92ab420653af01dc27cde5f73c5bb"
+  },
+  {
+   "path": "NavierStokes/R3/HarmonicTestFunctionals.lean",
+   "bytes": 5031,
+   "sha256": "5046e01dd9701ffa030b59aa6d86ab6740444fed3eaec2d7abc4baac47ec62b8"
+  },
+  {
+   "path": "NavierStokes/R3/HeatKernel.lean",
+   "bytes": 5547,
+   "sha256": "a15d6b8e8d21756fddddaa5525e2cdd36d9d4b3c12d17a7321c7eefadcbe7212"
+  },
+  {
+   "path": "NavierStokes/R3/HeatKernelCancellation.lean",
+   "bytes": 9253,
+   "sha256": "1d4cb71389454447f3e1e818c379fc726bc836a312662e125028470bc77c0267"
+  },
+  {
+   "path": "NavierStokes/R3/HeatKernelCommutator.lean",
+   "bytes": 5535,
+   "sha256": "a72f167f34047e271508da9bcda8ee5bf7739247a36e85da9769d87051a08e20"
+  },
+  {
+   "path": "NavierStokes/R3/HeatKernelFourier.lean",
+   "bytes": 9764,
+   "sha256": "43de750a908fe9e9203d0d210a7ee37e1830ff5d77f23a9c2761ca94f158ded8"
+  },
+  {
+   "path": "NavierStokes/R3/HeatKernelFubini.lean",
+   "bytes": 5483,
+   "sha256": "16d156e1264df28d130cbbd5dca6cc8cf8d76ea07132358eea5712a696c7364e"
+  },
+  {
+   "path": "NavierStokes/R3/HeatKernelPairedBound.lean",
+   "bytes": 8335,
+   "sha256": "64dfb0726c3edc2c38542315b7db8eff2500a4405f2e7f3890e202d7651c9e17"
+  },
+  {
+   "path": "NavierStokes/R3/HeatKernelTimeBound.lean",
+   "bytes": 10265,
+   "sha256": "0fb569cbbc8757f8bb6ceca8e4465287e1185fd2383e3d916ebf270e03d0db59"
+  },
+  {
+   "path": "NavierStokes/R3/HilbertFunctionalExtension.lean",
+   "bytes": 1950,
+   "sha256": "757d1c4955ac1e88a5207292da7e306c7c203c50f0dec114edcdd401685fc536"
+  },
+  {
+   "path": "NavierStokes/R3/IntegratedDissipation.lean",
+   "bytes": 16138,
+   "sha256": "62e55af0514efd6f2c2d22a5b61add9dfc591b7a479868a0b9948e2307b84b80"
+  },
+  {
+   "path": "NavierStokes/R3/LocalizedDifferenceEnergy.lean",
+   "bytes": 12174,
+   "sha256": "08751df30963bfced9a1aeba5c56d3a263fdae2b4c68e69b42f3b640c39733aa"
+  },
+  {
+   "path": "NavierStokes/R3/LocalizedFluxEstimates.lean",
+   "bytes": 14228,
+   "sha256": "21107a7128e70e3ea6e7884e9373bbc0cc222682b1ea97c4412d29a76a514e6e"
+  },
+  {
+   "path": "NavierStokes/R3/LocalizedLaplacian.lean",
+   "bytes": 8197,
+   "sha256": "5ee2093c65c9c02327237f9c093d45c1afca69924c77ed1cb9fcbfc7542c6965"
+  },
+  {
+   "path": "NavierStokes/R3/LocalizedTensorBounds.lean",
+   "bytes": 12074,
+   "sha256": "0230a9bc313b075ceb54999a0f29b79ce425624f816db33f1af0c2fc87e5b924"
+  },
+  {
+   "path": "NavierStokes/R3/LocalizedTransport.lean",
+   "bytes": 4095,
+   "sha256": "a1d95e1e9a57544cb9652fd3993cf2ec9fecf7b4894f00a9882dc4821dd1a4f7"
+  },
+  {
+   "path": "NavierStokes/R3/LpNormTools.lean",
+   "bytes": 3234,
+   "sha256": "a42b4c10977d6aad0c09e0a5deb43102caf241caf8c1e1928afd831a54ee1547"
+  },
+  {
+   "path": "NavierStokes/R3/PairedKernelBound.lean",
+   "bytes": 14948,
+   "sha256": "00d49dbc83fa198638486fd212201066c5998eb46d686cf47783c92505376975"
+  },
+  {
+   "path": "NavierStokes/R3/ParabolicCalculus.lean",
+   "bytes": 4638,
+   "sha256": "211667fc22ba26e99cec5204a5464948dcb88c880c48a09aae973d3c3933b043"
+  },
+  {
+   "path": "NavierStokes/R3/ParabolicDefinitions.lean",
+   "bytes": 1047,
+   "sha256": "51d284af2d91eae95c9076f597703e551adc3fc2067669045d9dc6a11bac488a"
+  },
+  {
+   "path": "NavierStokes/R3/ParabolicEnergy.lean",
+   "bytes": 2379,
+   "sha256": "130293fa08c4ac8de21963bb2700ae5197b98f59b06da818e1fbfa249685f3d7"
+  },
+  {
+   "path": "NavierStokes/R3/ParabolicScaling.lean",
+   "bytes": 7149,
+   "sha256": "ab11577fc7fcebae6af09f0dd6d6c25429d4c3e69f202c61b3e9d45e43c2bde4"
+  },
+  {
+   "path": "NavierStokes/R3/ParabolicSupport.lean",
+   "bytes": 2918,
+   "sha256": "a05a0782682f635184d0ccad2dd927ca61ceb4714d5f5ad1a86fc93fee00c95b"
+  },
+  {
+   "path": "NavierStokes/R3/PositiveTimeForce.lean",
+   "bytes": 3008,
+   "sha256": "5a127cdeba096bf91e65191c05f67ac2ac450454f4912365b19635e0a5e2788b"
+  },
+  {
+   "path": "NavierStokes/R3/PressureFlux.lean",
+   "bytes": 35286,
+   "sha256": "919bf156136a1d0079f99a236fdf07088f5cca703dc59d5020c38377adc12675"
+  },
+  {
+   "path": "NavierStokes/R3/PressureFluxIdentity.lean",
+   "bytes": 9317,
+   "sha256": "a6167833447ef6e0f03e0b91e98266820c8fa40b6dae34bce99a3ac42f5fc25e"
+  },
+  {
+   "path": "NavierStokes/R3/PressureFluxTest.lean",
+   "bytes": 19621,
+   "sha256": "af5568a3bf0367c1a3704023ecfa6c524691c19ae397a744689868156b496e9c"
+  },
+  {
+   "path": "NavierStokes/R3/PressureFunctionals.lean",
+   "bytes": 14974,
+   "sha256": "dfdce812fd5e5614b0bbe411c02554b7045970b12a4dda72e4fad9a217c12094"
+  },
+  {
+   "path": "NavierStokes/R3/PressureRecovery.lean",
+   "bytes": 26070,
+   "sha256": "089962e70d0e0c8aa1970785e4203910bdb56d9e16cd98cf80d5bbe72d4e6098"
+  },
+  {
+   "path": "NavierStokes/R3/PressureRecoveryHelpers.lean",
+   "bytes": 9441,
+   "sha256": "efa98613cf549e064efb6bc44b92648e0b00a461bb423864586fe4ff3fcc24b7"
+  },
+  {
+   "path": "NavierStokes/R3/PressureTemporalIdentity.lean",
+   "bytes": 11575,
+   "sha256": "4cc785f9e168faab1ed11b34a4ba6f8165d63b54f35e4eeb448192d7f39f55ef"
+  },
+  {
+   "path": "NavierStokes/R3/PressureTestBounds.lean",
+   "bytes": 15025,
+   "sha256": "3d9984e6a89c9e252af10e8bdd226723570457260f5c3c366e60de5825df9527"
+  },
+  {
+   "path": "NavierStokes/R3/ProblemStatement.lean",
+   "bytes": 10258,
+   "sha256": "8b0a28b3b93fb8dfcf967d0082a5a2829a5e5f079de6662c846417057b0856d7"
+  },
+  {
+   "path": "NavierStokes/R3/RadialKernelBounds.lean",
+   "bytes": 11823,
+   "sha256": "4dfc00b6ee64e9886a98456cff3b344dc86ef299252068068486fef81b501140"
+  },
+  {
+   "path": "NavierStokes/R3/RieszHeatRepresentation.lean",
+   "bytes": 6874,
+   "sha256": "238018df10708279be34b9e21efbacd854b3a7bdbb72575534fa3809cf792dec"
+  },
+  {
+   "path": "NavierStokes/R3/RieszL2Bounds.lean",
+   "bytes": 9172,
+   "sha256": "986161e3e04e00668868a5b46902675b73139c4639bbd09bea4b4241db8897fe"
+  },
+  {
+   "path": "NavierStokes/R3/RieszLinearityDecay.lean",
+   "bytes": 3237,
+   "sha256": "0d23e250e2605f29362400ff5763072ea018865e59a9982ea2286afe2c725fa1"
+  },
+  {
+   "path": "NavierStokes/R3/RieszPairing.lean",
+   "bytes": 5115,
+   "sha256": "6da03c719747f40ca67d7b37721932efa0e015224c2ab66aff5e0acad285aee0"
+  },
+  {
+   "path": "NavierStokes/R3/RieszSymbolRegularity.lean",
+   "bytes": 5702,
+   "sha256": "9087b62cecf3a443ed55c9d833846b30ac9728dd4d7af5168eb5f0b02ddba41d"
+  },
+  {
+   "path": "NavierStokes/R3/RieszTestOperators.lean",
+   "bytes": 15914,
+   "sha256": "fe8b16a0a014edc403f885ffe1989801a67cae771e499d11057d8d736b14a779"
+  },
+  {
+   "path": "NavierStokes/R3/ScalarEnergyBound.lean",
+   "bytes": 3296,
+   "sha256": "ee2a47869f1f8466984dc025eeb448b0165cb4980cc278e95bea49aa6755f5d9"
+  },
+  {
+   "path": "NavierStokes/R3/SchwartzCompactApproximation.lean",
+   "bytes": 11900,
+   "sha256": "65805b2ea9af8a2f96c00ed1c76e11783662d25a38493d4ceecfab9cd4e356fd"
+  },
+  {
+   "path": "NavierStokes/R3/SchwartzParseval.lean",
+   "bytes": 3743,
+   "sha256": "c45a84eb3715812072a6772e58e11e866f91a4675ca35b72a67d06df32039c68"
+  },
+  {
+   "path": "NavierStokes/R3/SharpEnergyBound.lean",
+   "bytes": 3267,
+   "sha256": "dbf734b4a08064f8836de379d4d506e433efa8ddd291d878bd0af72a1f5aff8d"
+  },
+  {
+   "path": "NavierStokes/R3/SmoothSobolevL6.lean",
+   "bytes": 7752,
+   "sha256": "fb99adc1656bc505b4cf945b699f70d53db2472fe1298ce85ef5b97622952b8d"
+  },
+  {
+   "path": "NavierStokes/R3/SpatialCauchySchwarz.lean",
+   "bytes": 1884,
+   "sha256": "1c85ee997ddec06b7c8cb1d7b4e6f05a2f4cefe7411925e438396f993d16a03d"
+  },
+  {
+   "path": "NavierStokes/R3/SpatialEnergyScaling.lean",
+   "bytes": 2209,
+   "sha256": "57f10d517728db077b524c789a889c9b7a47757f34c0b6a1b1e639c301d4683b"
+  },
+  {
+   "path": "NavierStokes/R3/SpatialSupportScaling.lean",
+   "bytes": 2663,
+   "sha256": "1bb563ae029fc2ff1a928508c6ead1e5a6836772b10fd618f0812d7547aeed3b"
+  },
+  {
+   "path": "NavierStokes/R3/TemporalTestUniqueness.lean",
+   "bytes": 2163,
+   "sha256": "8da8ce6d03d609ee8d20a60b3995103d5414da96eb0a62bdcf2b386fbc931051"
+  },
+  {
+   "path": "NavierStokes/R3/Theorem.lean",
+   "bytes": 3850,
+   "sha256": "e896ba297671c33d516d41fa47e7e186438b71ec14ab0738d3d3fc9e4df341cb"
+  },
+  {
+   "path": "NavierStokes/R3/ViscosityScaling.lean",
+   "bytes": 9373,
+   "sha256": "c7c4b8a2aaf54c4ecdd0b3f0f7dc2fdfe20c910dc0fcf0780b0101c56a681f98"
+  },
+  {
+   "path": "NavierStokes/R3/ViscousEnergyBalance.lean",
+   "bytes": 5373,
+   "sha256": "b6f9084c9cb062ce250a8aef9297a865b5d12548087d674cdf0cbc76e0572f79"
+  },
+  {
+   "path": "NavierStokes/R3/WeakFourierUniqueness.lean",
+   "bytes": 4666,
+   "sha256": "18a754a3dc55954c11e397126529fa170c7552eab4065c47da24572fc0162d95"
+  },
+  {
+   "path": "NavierStokes/R3/WeakTimeContinuity.lean",
+   "bytes": 8645,
+   "sha256": "35c1c03b202bc8ff103c61ccba274c04241ecd22b34113d67972e59c09248ea2"
+  },
+  {
+   "path": "NavierStokes/R3/WeightedInterpolation.lean",
+   "bytes": 11387,
+   "sha256": "438f06f88d1884d635be967752c4eba3c7eec3c26652ecfcaef8f26e2c7fec63"
+  },
+  {
+   "path": "NavierStokes/R3/WeightedSobolev.lean",
+   "bytes": 13249,
+   "sha256": "08fffd9e8d8fc8a67f9c389495da5b28868c2fb4b0cd87aeef587db5b7336e96"
+  },
+  {
+   "path": "NavierStokes/R3/WholeSpaceComparisonClosure.lean",
+   "bytes": 8409,
+   "sha256": "a341c40686a2ab0f4b5916b2813814a176438210df63350b2d88b308ce106b3d"
+  },
+  {
+   "path": "NavierStokes/R3/WholeSpaceEnergyLimit.lean",
+   "bytes": 4530,
+   "sha256": "1a0518847b2b01324506d288a28148f4ec24b87f584d838383f469ef8a5589e1"
+  },
+  {
+   "path": "NavierStokes/R3/WholeSpaceUniqueness.lean",
+   "bytes": 5893,
+   "sha256": "c5db96b5a524d852cecc34947be821e1ccab983febdb3fd71f398cabf5e46dcf"
+  },
+  {
+   "path": "NavierStokes/R3ActualCandidate.lean",
+   "bytes": 766,
+   "sha256": "4f4d09f05a6cad9cdeb52b3be2f3e8b365c83db89df5e79bbc5970e82106308b"
+  },
+  {
+   "path": "NavierStokes/R3CompactCandidate.lean",
+   "bytes": 14087,
+   "sha256": "5831f975030543c5b670ee3b0ed116222848725df7b14892ba4d6592a47ae5f0"
+  },
+  {
+   "path": "NavierStokes/R3FiniteEnergyComparison.lean",
+   "bytes": 3149,
+   "sha256": "9cecb20779c021c6203d0c0ff497d0c980eb12f95156df5719f6d54f640fb5f4"
+  },
+  {
+   "path": "NavierStokes/RadialAlias.lean",
+   "bytes": 13189,
+   "sha256": "73e102688dbbf8b2305f8d443dcde8fd99b42d7cd41fbbbfc6841bc21db4180c"
+  },
+  {
+   "path": "NavierStokes/RadialFluxResidual.lean",
+   "bytes": 11737,
+   "sha256": "f2e2e202bcf2dde6c3e61e20560a7a6081d0ab2d3be72e9df3f35310dd646eb7"
+  },
+  {
+   "path": "NavierStokes/RadialHeatProfile.lean",
+   "bytes": 34843,
+   "sha256": "0f013be73eb2d1715efff3d755f96d53a5d7b88d3d9a0f00d5ce7a6c5062bfc3"
+  },
+  {
+   "path": "NavierStokes/RadialModulation.lean",
+   "bytes": 21191,
+   "sha256": "0bfa57acf961b66cb8c7a07f8ba6c8e5f81c71d4711974b5f3c53030e5f6f606"
+  },
+  {
+   "path": "NavierStokes/RadialPullback.lean",
+   "bytes": 46546,
+   "sha256": "9a340c3e53adc2085a5c214eba3c362cb74b5457aa2e2f9ba375dd76678a2c3a"
+  },
+  {
+   "path": "NavierStokes/RadialSchedule.lean",
+   "bytes": 10527,
+   "sha256": "7fd62542bc5a4c4c3bf48eb8098f66cbf9616200fb6349dd704bd42e7873e17f"
+  },
+  {
+   "path": "NavierStokes/RankStateBounds.lean",
+   "bytes": 19944,
+   "sha256": "233483831ddf3eb2ba98ff472931968bf04348f952651ec82ad0c70386827798"
+  },
+  {
+   "path": "NavierStokes/RankStateCoherence.lean",
+   "bytes": 29329,
+   "sha256": "c5193a9590af15dbfaae2655fe4b6d32945592c8ecbc6c7b3549e11076ec6520"
+  },
+  {
+   "path": "NavierStokes/ReferenceBounds.lean",
+   "bytes": 65535,
+   "sha256": "14138947176689e706447e3fcc242fee1911018fc762b32fe1ca37cf182123af"
+  },
+  {
+   "path": "NavierStokes/ReferenceJetBounds.lean",
+   "bytes": 38635,
+   "sha256": "0c6339d4ff995d6adde59151e461f353415f483e3627ec38624de9e7ab97cccd"
+  },
+  {
+   "path": "NavierStokes/ReferencePath.lean",
+   "bytes": 43731,
+   "sha256": "906261b8e3fe1f94345eb1176e58c1f2c9d6ed3bb404c576afe12a473513efe8"
+  },
+  {
+   "path": "NavierStokes/ReleaseMoments.lean",
+   "bytes": 25313,
+   "sha256": "60c04774f52818314e034cee95702eefe5e8b31b0de73829f7e262d63c0dbe72"
+  },
+  {
+   "path": "NavierStokes/RenormalizedHeatMoment.lean",
+   "bytes": 40085,
+   "sha256": "c9d357894e9aec32c0cd759a92eac51ff4a0f6f82670a4b9946e1bfb9f3a167b"
+  },
+  {
+   "path": "NavierStokes/RepairConeBounds.lean",
+   "bytes": 71647,
+   "sha256": "7b3efa13a32a1691f546b8edfee94110e1f524340f5f2b93415844511bc9a11e"
+  },
+  {
+   "path": "NavierStokes/ReservedPatches.lean",
+   "bytes": 32880,
+   "sha256": "1128ac51aa4ab7f41b9ff3b6e860c69c4cdd5881ed29068043deead3f619ac53"
+  },
+  {
+   "path": "NavierStokes/ResetEnergyBounds.lean",
+   "bytes": 23529,
+   "sha256": "b762b6bd1182f6cdacdcc14e5126f1ecfc0ac91514c7f174b4ced30465263596"
+  },
+  {
+   "path": "NavierStokes/ResidualCalculus.lean",
+   "bytes": 13403,
+   "sha256": "128b42ecd93d9b7623e8a6499306fdfe5f135f148c1c503da236e9e0c2988eab"
+  },
+  {
+   "path": "NavierStokes/ResidualPolarGraph.lean",
+   "bytes": 9419,
+   "sha256": "a11be923e9946b29c62592e50dc812fe4c149d9a6387be39710a495d4e40d233"
+  },
+  {
+   "path": "NavierStokes/ResidualRegularity.lean",
+   "bytes": 13427,
+   "sha256": "919da797b7627ec6fa38d77c4b4a6c9adda3541ef4fbbd110cc2cf522bc0ad52"
+  },
+  {
+   "path": "NavierStokes/ResidualStability.lean",
+   "bytes": 36304,
+   "sha256": "cb0611d2fc94bc84f498b4eac743bdfa2b60fb7cf497ce90e470293d3bd059c1"
+  },
+  {
+   "path": "NavierStokes/ScalarParticularSupport.lean",
+   "bytes": 6412,
+   "sha256": "4894c9d6615fbbdd8160b1073683ef17827c1632992d95c79eae3111c8450fe3"
+  },
+  {
+   "path": "NavierStokes/ScaledActualParticularControl.lean",
+   "bytes": 39687,
+   "sha256": "2c79a60d2a572f02843d302bc99f313d0d750d2c7457374ff6729e2981285f51"
+  },
+  {
+   "path": "NavierStokes/ScaledParticularFrameJets.lean",
+   "bytes": 14506,
+   "sha256": "4636f2a5baa9dd8014f4fcda38a3df29203a726caa81ff69e2d63d66c7f677af"
+  },
+  {
+   "path": "NavierStokes/ScaledTangentTransport.lean",
+   "bytes": 32167,
+   "sha256": "9dcce4090a92123d5b78c825af02e1bf7bcd4a33001e038dbe5d1780a73c4fb0"
+  },
+  {
+   "path": "NavierStokes/Scaling.lean",
+   "bytes": 9818,
+   "sha256": "d42a5c7983e4626082be605ac56a52f2cea398c56afe9a5ada00d4640d5f62b3"
+  },
+  {
+   "path": "NavierStokes/ScheduledProfileChoice.lean",
+   "bytes": 6954,
+   "sha256": "8601fa30190269937efd5afeb72587ed0834d28631603b9996477061709a3485"
+  },
+  {
+   "path": "NavierStokes/SchedulePressure.lean",
+   "bytes": 13053,
+   "sha256": "d4146daa477827b6f69c752510699becf1c97973f96e50f8636991958fa1e159"
+  },
+  {
+   "path": "NavierStokes/ShapedWaitBounds.lean",
+   "bytes": 73712,
+   "sha256": "21c1bc976fca73b3403965aa45f566aee6615bef8e6a467678047d1eebdd6693"
+  },
+  {
+   "path": "NavierStokes/ShapeTransition.lean",
+   "bytes": 76424,
+   "sha256": "b77976925675b3708712bbcb629dd05e9ae1f319cb962517d2a367d69b251b23"
+  },
+  {
+   "path": "NavierStokes/SignedCopyBounds.lean",
+   "bytes": 44936,
+   "sha256": "92c80c65c74c64c45c3021f44c3ed50f94a7ea44c8779d67a3e0f18cb70029c3"
+  },
+  {
+   "path": "NavierStokes/SignedCovariance.lean",
+   "bytes": 54546,
+   "sha256": "55a60ffd8bc1e7e0d223930619990573b3303bdd4f0589ba15f565c6ea4eef57"
+  },
+  {
+   "path": "NavierStokes/SignedCrossDefectClass.lean",
+   "bytes": 11246,
+   "sha256": "de50e43622270e62c26dd764f184568aab72b1506333108db3e8baaa6205ef8b"
+  },
+  {
+   "path": "NavierStokes/SignedMeanGain.lean",
+   "bytes": 73819,
+   "sha256": "e5d0fb76670920b23fc7c5a59b17ad3362990133574fd2d36ec3a839d6c17744"
+  },
+  {
+   "path": "NavierStokes/SignedPhysicalSumCalculus.lean",
+   "bytes": 2610,
+   "sha256": "35788a333484c73f5c6b44a8bd5ec8df83448285dac002c4d3bc5b915586a108"
+  },
+  {
+   "path": "NavierStokes/SignedStressPrimitive.lean",
+   "bytes": 68833,
+   "sha256": "cf683d91506d6ec3bb99817a03f40867f01fac51c18fa250177598d1467ff971"
+  },
+  {
+   "path": "NavierStokes/SignedWaveUpdate.lean",
+   "bytes": 84831,
+   "sha256": "f3eb4dfb2505dedbe5538259f709ad49dfdb3380afc1b3947b99e57f7eaf9445"
+  },
+  {
+   "path": "NavierStokes/SimilarityApproach.lean",
+   "bytes": 4739,
+   "sha256": "6bc176a7e69e0b164f310ef424c7773a875d5988d66c55c6e5a34478acd881fc"
+  },
+  {
+   "path": "NavierStokes/SimilarityCoordinates.lean",
+   "bytes": 24681,
+   "sha256": "de85505217232fed653c70fb73edf5658c1bf995bb36792cab5a4653d063ca1f"
+  },
+  {
+   "path": "NavierStokes/SimilarityHomogeneity.lean",
+   "bytes": 17709,
+   "sha256": "cdfde019bd66003d2067fe386545b0781febd58aa0457e5a40a1d108dc668393"
+  },
+  {
+   "path": "NavierStokes/SimilarityProfile.lean",
+   "bytes": 17497,
+   "sha256": "82ef1138367d9a916ab6a478086a6e308ad24d901e58a62920c6f0095a503cd0"
+  },
+  {
+   "path": "NavierStokes/SlotColoring.lean",
+   "bytes": 20522,
+   "sha256": "e1dc6ebeb18e91be7dcbb253dae4ba94975354a4dc3a7cba3c7259f778cac617"
+  },
+  {
+   "path": "NavierStokes/SlotGeometry.lean",
+   "bytes": 20804,
+   "sha256": "dab3c73fbaacaee8626ed2d5ff5834184d386865078b958a9145a0e575d5603f"
+  },
+  {
+   "path": "NavierStokes/SlowBaseEndpoint.lean",
+   "bytes": 24850,
+   "sha256": "a8d28d6228860ba8c9d2373839649526cdf0f7c7b0014a6932fc9286f6fde490"
+  },
+  {
+   "path": "NavierStokes/SlowBorelBase.lean",
+   "bytes": 89869,
+   "sha256": "10f39b7931e942874396afcdfdd88a806d36a785cd6ef55faed710014757a550"
+  },
+  {
+   "path": "NavierStokes/SlowDivergence.lean",
+   "bytes": 9791,
+   "sha256": "deebed99a10501f5b8c6c777f4e71786048ff31781d808772aff2642c774415f"
+  },
+  {
+   "path": "NavierStokes/SlowExpansionResidual.lean",
+   "bytes": 53656,
+   "sha256": "bab85a3afb1980c19bf8d32f399b7c6f0a22afaf5945ec537ce34b385f5f85f7"
+  },
+  {
+   "path": "NavierStokes/SlowFirstOrderEdge.lean",
+   "bytes": 37074,
+   "sha256": "5d163978cb70bf73a467dad78070bfad214b48d022ee07782305534a001bd1ee"
+  },
+  {
+   "path": "NavierStokes/SlowRecursion.lean",
+   "bytes": 75306,
+   "sha256": "a6fcbc3cafc6bb120728c5f8ef0fd2acc6b8b5cf672805b6c5a7386cf15108fe"
+  },
+  {
+   "path": "NavierStokes/SlowResidualMatching.lean",
+   "bytes": 83713,
+   "sha256": "e280caedf620cfd64c7aa58610810cab4b605ecb1284205d5b3a4049b71c82f7"
+  },
+  {
+   "path": "NavierStokes/SlowStressSupport.lean",
+   "bytes": 62431,
+   "sha256": "018fc8896392d75d1104176bf64331d37435ceacaac9166162291da0eba99710"
+  },
+  {
+   "path": "NavierStokes/SmoothCovariance.lean",
+   "bytes": 16531,
+   "sha256": "1124f4ae69a3a8237081b7596c8dbeb8557afac52ff894f8c4a5a8af4d0580ee"
+  },
+  {
+   "path": "NavierStokes/SmoothCutoffs.lean",
+   "bytes": 12964,
+   "sha256": "b91e18a05f40cb46257b481b2281d2a3cf56b2409a93b16ac2aab88dc58eafd2"
+  },
+  {
+   "path": "NavierStokes/SmoothFamilyTorusInverse.lean",
+   "bytes": 57334,
+   "sha256": "165c097077dc3687fd1d6f93c356059e5254be17c799950873f54d91a71e90c8"
+  },
+  {
+   "path": "NavierStokes/SmoothFourierData.lean",
+   "bytes": 28366,
+   "sha256": "980b746ca551345d88351dd961d30b69876c68c84f0c758445593025d9dbc642"
+  },
+  {
+   "path": "NavierStokes/SmoothLoop.lean",
+   "bytes": 28408,
+   "sha256": "bdbd7a430c187bcd4604767ddadd0538642c148389b7bae908ddf9a224485682"
+  },
+  {
+   "path": "NavierStokes/SmoothMomentRepair.lean",
+   "bytes": 17633,
+   "sha256": "268dfcc29154a52c3feda85db884aa9230f8aa89f6d109b4d7e00b4458a46acb"
+  },
+  {
+   "path": "NavierStokes/SmoothParameterIntegral.lean",
+   "bytes": 15349,
+   "sha256": "354cd9ec9630c3436bfa1b867dfc12ac0f978932ca91d2571d973fe91c7d2b7a"
+  },
+  {
+   "path": "NavierStokes/SmoothPathFamily.lean",
+   "bytes": 13695,
+   "sha256": "d3f2d5a03bd066a52cb2a5444154fa34d32f023aff0b05797a1cf2372b2e3b42"
+  },
+  {
+   "path": "NavierStokes/SolenoidalDiagonal.lean",
+   "bytes": 16422,
+   "sha256": "548b6292d7e41f434ec996ee2d6ee683c526339422da18ff9ee96a93486329c7"
+  },
+  {
+   "path": "NavierStokes/SpacetimeEndpoint.lean",
+   "bytes": 20032,
+   "sha256": "e48e544364e7c6b1728c8e341dd74fbb530895d2e0591e84c66ce05bea43ffbe"
+  },
+  {
+   "path": "NavierStokes/SpacetimeGluing.lean",
+   "bytes": 21755,
+   "sha256": "b365b88d0e2cd529b1d8bc025e6b479c89598efcf3aa340b756507c343b6c7a2"
+  },
+  {
+   "path": "NavierStokes/SpatialBorelExtension.lean",
+   "bytes": 24820,
+   "sha256": "c89ef7d3e704618f76ec8c732093332241046eaf10443101acb2d0c4d7c35208"
+  },
+  {
+   "path": "NavierStokes/SpatialCurl.lean",
+   "bytes": 11178,
+   "sha256": "09f00171979dbfbd2bfa6ad6a561b6e27fd384bd91b025e58240f6647af1a94d"
+  },
+  {
+   "path": "NavierStokes/SpatialLocalization.lean",
+   "bytes": 29913,
+   "sha256": "62afe29ed1dffe71e178784b76b5ea4cc965b1d2ca854602d982210e2de94785"
+  },
+  {
+   "path": "NavierStokes/SquaredPartition.lean",
+   "bytes": 37268,
+   "sha256": "977d398868e26de886d4ecc943d8c7590853d84f3cc8e5c07a834707e14eed7a"
+  },
+  {
+   "path": "NavierStokes/StateMomentBalances.lean",
+   "bytes": 61463,
+   "sha256": "35af8bb1f3fc66f644c929e7c4271dd6188742f55aa7f8541f673cdf742e5264"
+  },
+  {
+   "path": "NavierStokes/StateReindex.lean",
+   "bytes": 39856,
+   "sha256": "f99b3002510dd3097d1293dee271bd5c447bd23a096c6d6144d47e6bf6f67ec1"
+  },
+  {
+   "path": "NavierStokes/StressActivation.lean",
+   "bytes": 63406,
+   "sha256": "cf4920c889087fb0a7fa3c334cd48e4d0ae7598e39bc9c30939285fffdf9099d"
+  },
+  {
+   "path": "NavierStokes/StressAlgebra.lean",
+   "bytes": 15794,
+   "sha256": "60dd4b762b4193f082f6d376b7185ef5e70a35a063bde8ba1c8c55d7aeaeb3cc"
+  },
+  {
+   "path": "NavierStokes/SubcoverPeriodicity.lean",
+   "bytes": 15115,
+   "sha256": "84f436fd13e42e0770417faea3a2283d1d936494f378fd0b3d335e6e936e696d"
+  },
+  {
+   "path": "NavierStokes/TailCone.lean",
+   "bytes": 97129,
+   "sha256": "51d6aa37e0cdd5fa7c0dff3f7d4d0fbb8bc4eaf6d0ef4fbc37175bb7dab19f28"
+  },
+  {
+   "path": "NavierStokes/TailEnergyBounds.lean",
+   "bytes": 34878,
+   "sha256": "cc2771933c88bef01f7957b4903e28c84ec8ed588c9ae757c17b519e458abd1d"
+  },
+  {
+   "path": "NavierStokes/TailGaugePotential.lean",
+   "bytes": 26892,
+   "sha256": "fe7b635fe047f4ebd57f05fb4991c8707fe66569f1d96d53847e18fcac173b54"
+  },
+  {
+   "path": "NavierStokes/TangentODE.lean",
+   "bytes": 17165,
+   "sha256": "68a2bb985ce28c8d98c43aae33179d4bf8d5eeac4ead2729fea2cfe8de113c5c"
+  },
+  {
+   "path": "NavierStokes/TangentProjection.lean",
+   "bytes": 6864,
+   "sha256": "bb1bf09359e60eb7f429333e4874fdc3c61c76985361062c3ba827826a67b9e6"
+  },
+  {
+   "path": "NavierStokes/TemporalMeanUpdate.lean",
+   "bytes": 88812,
+   "sha256": "e0c9c6790f1a770966f55d6c9edc1284c425fc8528a9116f71cb5585efdba282"
+  },
+  {
+   "path": "NavierStokes/TemporalStateCoherence.lean",
+   "bytes": 31165,
+   "sha256": "e6f8d59c8c5ca89d27bf8ed428d812c8b0048fda5aac4b29063da4fe41084e7c"
+  },
+  {
+   "path": "NavierStokes/TerminalCompensation.lean",
+   "bytes": 49580,
+   "sha256": "f3be972d01e2053aeb03afb95ccf8a0755b82f01bcaecd08dda4cf083a4a3a0e"
+  },
+  {
+   "path": "NavierStokes/TerminalCone.lean",
+   "bytes": 32274,
+   "sha256": "1f9861a45be73b92cd998cffc027384e7bafb0635bf5ec2990a513153ec0aa12"
+  },
+  {
+   "path": "NavierStokes/TerminalEdgeFactor.lean",
+   "bytes": 85190,
+   "sha256": "b14ed441de67342cbe609f3a1abbd8d5824be95c7cbe7837badbf64305fb2943"
+  },
+  {
+   "path": "NavierStokes/TerminalHistoryBridge.lean",
+   "bytes": 92523,
+   "sha256": "fcb96f9ce69eb9eb8b72c95a9944a54be28f86ee76cd5cce94f9092e258d1354"
+  },
+  {
+   "path": "NavierStokes/TerminalPressure.lean",
+   "bytes": 86790,
+   "sha256": "31e8d8865bbf66b31fcf621e2c72bfbcb7f60d71da286ed1ff36fa35e2b90933"
+  },
+  {
+   "path": "NavierStokes/TerminalStress.lean",
+   "bytes": 53120,
+   "sha256": "1f6d08fe9cddb2b7fbf738db961c1423c51dbf19b79d78e474a2806b6321adac"
+  },
+  {
+   "path": "NavierStokes/TimeLocalization.lean",
+   "bytes": 10895,
+   "sha256": "295de27f11ba189b9bd1263dc6571f7410947b3e6de1106d55f05440fdb79a70"
+  },
+  {
+   "path": "NavierStokes/TorusAverages.lean",
+   "bytes": 34742,
+   "sha256": "5371eb425510ac42686fe66713073b3a7cd97a4031d1ccb48959af9027d7eb87"
+  },
+  {
+   "path": "NavierStokes/TorusInverse.lean",
+   "bytes": 27785,
+   "sha256": "891440bdb5501c67b63d2758c2dfb98c46f250aca38ce0b33498e1eacc768aeb"
+  },
+  {
+   "path": "NavierStokes/TorusMeanRequestRebase.lean",
+   "bytes": 14321,
+   "sha256": "f8246acbc47d65e91e64ab89d30e0b52f09a1723f30c6c2ac894e1c4b6b142fc"
+  },
+  {
+   "path": "NavierStokes/TransitionRamp.lean",
+   "bytes": 124556,
+   "sha256": "5b89596296dee12ee43150a160bef6e3ff1192317b32fdcf2bc69c20d84ee937"
+  },
+  {
+   "path": "NavierStokes/TransportPrimitive.lean",
+   "bytes": 48160,
+   "sha256": "789ab1c05fbd0399bd0e65e4c4c29faa0dfdf7aa57906fa9431d9b6799fc7fd4"
+  },
+  {
+   "path": "NavierStokes/TrueConeLoop.lean",
+   "bytes": 42675,
+   "sha256": "d2dff774bb9a5227ee5a58767b5e0603d04a66c7affe726b818c1beafd2d2c39"
+  },
+  {
+   "path": "NavierStokes/UniformAngularReset.lean",
+   "bytes": 68393,
+   "sha256": "f34b5ac90f565d9ce34d1d417a56b0f99a3ed771f22988ee9ba16d7629b90584"
+  },
+  {
+   "path": "NavierStokes/UniformBlockBounds.lean",
+   "bytes": 18923,
+   "sha256": "22a7de68f8c407fd6349b09f7c033b78060f229002a4d572043836975ed9536b"
+  },
+  {
+   "path": "NavierStokes/UniformCone.lean",
+   "bytes": 14810,
+   "sha256": "c1ccacdc8020a75880e6079f88ba74dea91f9452b43576638ba083615cd40380"
+  },
+  {
+   "path": "NavierStokes/UniformFourierAlias.lean",
+   "bytes": 70563,
+   "sha256": "5ff6a898ed9aba76cea7038a356efd97674ffb06dc43a56d1779f2b6ca7fbeed"
+  },
+  {
+   "path": "NavierStokes/UniformHarmonicInteraction.lean",
+   "bytes": 23620,
+   "sha256": "d4536d3e6ebf61a513ec67a68832a30eb39d71b35297eac2962261cc021be9aa"
+  },
+  {
+   "path": "NavierStokes/UniformPrimaryWeights.lean",
+   "bytes": 38493,
+   "sha256": "43580129bbd6ceb3a76f489b9f386f2749d06365efdc1a1af0c5c0bbe070cba6"
+  },
+  {
+   "path": "NavierStokes/ValidBandGluing.lean",
+   "bytes": 8351,
+   "sha256": "d22381ae30fb6db529a6e2885fa77edf6b3e66a88e03b0cfebeeb17a5fd1f743"
+  },
+  {
+   "path": "NavierStokes/ValidDyadicBandCover.lean",
+   "bytes": 9124,
+   "sha256": "694c8a83c01f0fdd5c670f81e24570d559585025b6d216067c9362eea2e6d75c"
+  },
+  {
+   "path": "NavierStokes/VariableGaugeMean.lean",
+   "bytes": 179069,
+   "sha256": "21f00ccc8c9aee33c16cde2f3a2ce477c1f39580db96a8d3ae668bb46f0806bb"
+  },
+  {
+   "path": "NavierStokes/ViscousPropagator.lean",
+   "bytes": 24042,
+   "sha256": "f214fbb7f2699b7aeeeef8af595a53b3a0c6ef350c568f84ff774e901cca8f1f"
+  },
+  {
+   "path": "NavierStokes/VolterraAnalyticBounds.lean",
+   "bytes": 28067,
+   "sha256": "05523a67ac37504fce86e87c6a13e436a36b59829a3a7274d275ca64371c462d"
+  },
+  {
+   "path": "NavierStokes/VolterraParity.lean",
+   "bytes": 39191,
+   "sha256": "364f87a2a1361b8ee1dd68f0c3aa9dbcbcf3a02c1cfa128bb66c6fc2146048b0"
+  },
+  {
+   "path": "NavierStokes/VolterraRegularity.lean",
+   "bytes": 44324,
+   "sha256": "522fe09045047d904cf81d3e4ac6f0132750727fba1755b7c8636e52d1699433"
+  },
+  {
+   "path": "NavierStokes/WaveEdgeExtension.lean",
+   "bytes": 51056,
+   "sha256": "c3c03266954802b9ba07ab09043673aed9cf163608bbd1d1c114c924e142d34b"
+  },
+  {
+   "path": "NavierStokes/WaveEnvelopeTransport.lean",
+   "bytes": 29024,
+   "sha256": "3a290f4fee86cb84cf45a298e5eccccfe2d0ed91035fd7e470f66c96bd65227f"
+  },
+  {
+   "path": "NavierStokes/WaveInteractionBounds.lean",
+   "bytes": 65996,
+   "sha256": "dc321405c8f02c5c1c268b90314700eb967fbdc8defe8c105467fc171cfa0bea"
+  },
+  {
+   "path": "NavierStokes/WaveStateRegularity.lean",
+   "bytes": 15640,
+   "sha256": "c6e7098cc1ef9a2ad0dbb8c5c7bab1becf5b40fd099c786b6765577dcd175b31"
+  },
+  {
+   "path": "NavierStokes/WeightedClasses.lean",
+   "bytes": 23321,
+   "sha256": "aa1724190228aadedc8ae1cd4bee9efe7c35c5bceac234a18448894f78d21bd7"
+  },
+  {
+   "path": "NavierStokes/WeightedODEJets.lean",
+   "bytes": 40198,
+   "sha256": "f47cffe2850dc9135407aa2ead9956c052ccab4c4279abdd1b48442ded275b73"
+  },
+  {
+   "path": "NavierStokes/WeightedQuotients.lean",
+   "bytes": 37227,
+   "sha256": "f5dde8a7610465f599cdd88b02f5ae6b029183c37aeda316373684f31673fc4b"
+  },
+  {
+   "path": "NavierStokes/WeightedRadialPrimitive.lean",
+   "bytes": 59514,
+   "sha256": "5d47a9c350dabaf775708b5c0099d16b08aa74d810f80bd35155e2e89e1dbb89"
+  },
+  {
+   "path": "NavierStokes/ZerothStressIdentity.lean",
+   "bytes": 18836,
+   "sha256": "566ee77b1a113c3aa00dfa50f0bcf40c7026dc5fde3dd3055126193a24b6b0d1"
+  },
+  {
+   "path": "NOTICE",
+   "bytes": 1382,
+   "sha256": "e6ac83fde54f43a9d063361a58bce50214ce3a51b4295b80bb85dd4eaba22eee"
+  },
+  {
+   "path": "README.md",
+   "bytes": 2868,
+   "sha256": "8178dec1ccd94ab1b08d7914ea6d7d5c8901ceb6a3b898f1daf1cbc9366de90c"
+  },
+  {
+   "path": "RELEASE_NOTES.md",
+   "bytes": 1665,
+   "sha256": "d2db37d5a39c382f290ef08c455a1297c7c241ce7de49e7e06417918bd3523ba"
+  },
+  {
+   "path": "REPO_DESCRIPTION.txt",
+   "bytes": 50,
+   "sha256": "0784caf406ca3000a3c312fdb8905c557cb35abcdefb82aeb066480fb7072455"
+  },
+  {
+   "path": "results.json",
+   "bytes": 13681,
+   "sha256": "92c6af6876b9e65ee34c7f5130052743a6f1d643d334eac13bb44bd52b10633a"
+  },
+  {
+   "path": "scripts/check-results.sh",
+   "bytes": 1729,
+   "sha256": "7968645bf41fe38f4c2cfc3d0135ede51e54b98851e9547a02b1e1361d9bcd29"
+  },
+  {
+   "path": "scripts/mutation-tests.sh",
+   "bytes": 1302,
+   "sha256": "12f8556fc0eeb34d981b32475216a4fb64b467a3f689cc53000023243a981714"
+  },
+  {
+   "path": "scripts/mutations/M0_control_pass.lean.txt",
+   "bytes": 90,
+   "sha256": "526fcb58081fe713b12006b41a275899054d31942561501e821d9bf0c50c6f9a"
+  },
+  {
+   "path": "scripts/mutations/M1_drop_premise.lean.txt",
+   "bytes": 112,
+   "sha256": "67b45120d2f60addc08a5f7b1170ca4ec17570040f98ff57d6f33e06d3a9601d"
+  },
+  {
+   "path": "scripts/mutations/M2_wrong_alternative_D.lean.txt",
+   "bytes": 90,
+   "sha256": "f690aa55eef89b4fd006392fe36154b96bd2d8f47ece038c7bb39b9c5f52f4e1"
+  },
+  {
+   "path": "scripts/mutations/M3_unproved_in_assert_list.lean.txt",
+   "bytes": 114,
+   "sha256": "4ade8200d2e7d4b4fd4515d76cba35f62f15e2adc4e20957ca0de9dbd3fc3d03"
+  },
+  {
+   "path": "scripts/mutations/M4_claim_alternative_A.lean.txt",
+   "bytes": 90,
+   "sha256": "d34cf64db5283fdceb40bd8c6615ad08718a264fef93b658f3e3d681d1b5cde8"
+  },
+  {
+   "path": "scripts/scan-tokens.sh",
+   "bytes": 237,
+   "sha256": "61dd8f234ec3440e2a263629033a46c9cc195f6950693aa1fef5085e8ac4db82"
+  },
+  {
+   "path": "scripts/scan_tokens.py",
+   "bytes": 2300,
+   "sha256": "f395d8972c7aca315b8439d400b386750cff869d9da157a0a4c68b9f2fbb03f6"
+  },
+  {
+   "path": "scripts/verify-offline.sh",
+   "bytes": 2449,
+   "sha256": "75b93653fe851aeab616376079eabedfd3209a6d406da406e80b0de6c61238ec"
+  },
+  {
+   "path": "scripts/verify-online.sh",
+   "bytes": 1290,
+   "sha256": "c6542df6658d97485c2dfd647c4a3b02bc1e72cd6af3ad24daf197e23ea8033b"
+  },
+  {
+   "path": "SECURITY.md",
+   "bytes": 335,
+   "sha256": "3b51c234cf556981abb9ef5957afcaa8b673c4058d132cdd4c79267e4b65f113"
+  },
+  {
+   "path": "STATUS.md",
+   "bytes": 1147,
+   "sha256": "07f8cc64218f2bf0661ed2538bc53b6ea3e5629183c31162a3a7e72de7c299f1"
+  },
+  {
+   "path": "third_party/NavierStokesAndEuler/formalization.yaml",
+   "bytes": 4555,
+   "sha256": "d9866d5c1fdc16832f098e5f2affa96baf0b156a5f34b9be015d793e1abe2fdd"
+  },
+  {
+   "path": "third_party/NavierStokesAndEuler/LICENSE",
+   "bytes": 11358,
+   "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+   "path": "third_party/NavierStokesAndEuler/README.upstream.md",
+   "bytes": 2470,
+   "sha256": "25f3752edf6d674064b67f995691ddd15bffaf347822086cba3fbd5333781f49"
+  }
+ ],
+ "lean_sources_identical_to_rc3": true
+}

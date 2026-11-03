@@ -1,0 +1,4 @@
+import CDVerification
+theorem mutation_probe : (1 : Nat) = 2 := by sorry
+#assert_standard_axioms
+  mutation_probe

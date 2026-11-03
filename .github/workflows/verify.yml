@@ -1,0 +1,23 @@
+name: verify (cache-assisted)
+on:
+  workflow_dispatch:
+  push:
+permissions:
+  contents: read
+jobs:
+  cache-assisted:
+    # The Mathlib proof cache (lake exe cache get) IS used here. This job builds this project's modules against that cache.
+    # It is NOT a from-source build of Mathlib; that claim rests on the builder's offline rebuild (docs/REBUILD_OFFLINE.md).
+    # The 620 project modules are large: a hosted runner may not finish within its limit. A timeout is reported as such, not as a pass.
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - name: Fetch the commit (no third-party action)
+        run: |
+          git init . && git remote add origin "https://github.com/${{ github.repository }}" && git fetch --depth 1 origin "${{ github.sha }}" && git checkout FETCH_HEAD
+      - name: Install elan (the Lean version is pinned by lean-toolchain)
+        run: curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none && echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Verify (cache-assisted)
+        run: ./scripts/verify-online.sh
+      - name: Mutation tests
+        run: ./scripts/mutation-tests.sh

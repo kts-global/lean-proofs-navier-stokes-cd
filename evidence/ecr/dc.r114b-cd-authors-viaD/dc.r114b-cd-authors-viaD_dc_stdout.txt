@@ -1,0 +1,13 @@
+BATTERY|decl|NavierStokes.Comparator.navier_stokes_clay_via_D|role=LEMMA
+BATTERY|axioms|[propext, Classical.choice, Quot.sound]|standard_only=true
+BATTERY|pin|verdict=NOT_REQUIRED|required=[]|project_modules=[NavierStokes.ComparatorCompleteSolution, NavierStokes.ComparatorDefinitions]|closure_size=39
+BATTERY|vacuity|conclusion_defeq_hypothesis=false|conclusion_True=false|hypothesis_False=false|binders=0
+BATTERY|mutant|S_false|strengthening|expected=FAIL|proved=false|ok=true|bounded closer (assumption/tauto/aesop) with the theorem in context
+BATTERY|mutant|W_extra|weakening|expected=PROVE|proved=true|ok=true|term built from the actual proof and type-checked
+BATTERY|mutant|W_disj|weakening|expected=PROVE|proved=true|ok=true|Or.inl of the actual proof, type-checked
+BATTERY|constrained|all_mutants_as_expected=true
+BATTERY|dimensional|UNDEFINED
+BATTERY|END
+NavierStokes.Comparator.navier_stokes_clay_via_D : NavierStokes.Comparator.OptionA ∨
+  NavierStokes.Comparator.OptionB ∨ NavierStokes.Comparator.OptionC ∨ NavierStokes.Comparator.OptionD
+'NavierStokes.Comparator.navier_stokes_clay_via_D' depends on axioms: [propext, Classical.choice, Quot.sound]

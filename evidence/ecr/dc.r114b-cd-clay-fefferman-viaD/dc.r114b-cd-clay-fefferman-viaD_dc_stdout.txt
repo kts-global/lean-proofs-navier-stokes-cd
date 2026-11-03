@@ -1,0 +1,14 @@
+BATTERY|decl|NavierStokes.ClayChallenge.clay_navier_stokes_fefferman_via_D|role=TARGET
+BATTERY|axioms|[propext, Classical.choice, Quot.sound]|standard_only=true
+BATTERY|pin|verdict=PINNED|required=[Clay.NavierStokes.ClayNavierStokes]|project_modules=[ClayStatement.Fefferman]|closure_size=193
+BATTERY|vacuity|conclusion_defeq_hypothesis=false|conclusion_True=false|hypothesis_False=false|binders=0
+BATTERY|mutant|S_false|strengthening|expected=FAIL|proved=false|ok=true|bounded closer (assumption/tauto/aesop) with the theorem in context
+BATTERY|mutant|W_extra|weakening|expected=PROVE|proved=true|ok=true|term built from the actual proof and type-checked
+BATTERY|mutant|W_disj|weakening|expected=PROVE|proved=true|ok=true|Or.inl of the actual proof, type-checked
+BATTERY|constrained|all_mutants_as_expected=true
+BATTERY|dimensional|UNDEFINED
+BATTERY|END
+NavierStokes.ClayChallenge.clay_navier_stokes_fefferman_via_D : Clay.NavierStokes.ClayNavierStokes
+'NavierStokes.ClayChallenge.clay_navier_stokes_fefferman_via_D' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
