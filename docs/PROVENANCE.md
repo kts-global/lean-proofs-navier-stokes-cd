@@ -3,7 +3,7 @@
 | Part | Author per the records | Basis |
 |---|---|---|
 | The mathematics and the Lean formalization of the blow-up (the `NavierStokes/` modules) | OpenAI (repository NavierStokesAndEuler, commit f9e8bc5b38b6e212696e8a30e3e91517af887bbd, Apache-2.0) | `third_party/NavierStokesAndEuler/`; the R2R1 package's UPSTREAM_AND_CONTRIBUTIONS.md |
-| Port to Lean 4.34.1 and Mathlib d13f23b7 (24 upstream files modified) | KTS Global (no person is named for the port patch in any R2R1 record or published text) | R2R1 `SOURCE_PATCH/R2_over_upstream.patch` (not redistributed here) |
+| Port to Lean 4.34.1 and Mathlib d13f23b7 (24 upstream files modified: 21 `NavierStokes/*.lean` and `lean-toolchain`, `lake-manifest.json`, `lakefile.toml`; measured in `docs/PORT_SUMMARY.md`) | KTS Global (no person is named for the port patch in any R2R1 record or published text) | R2R1 `SOURCE_PATCH/R2_over_upstream.patch` (not redistributed here) |
 | Fefferman-style statements `ClayStatement/Fefferman.lean`, bridges `ClayStatement/Bridge*.lean`, solution modules, R3 additions (`ClayA..D` challenge statements are NOT shipped) | Tim Jacobs, KTS Global, per the R2R1 release notes: "statement and bridge layer, R3 per-alternative packaging, and community verification tooling and documentation" | same |
 | Any proof found by a CHAOS route | **none recorded** | ECR records carry `chaos_route_proof: none recorded` |
 | Statement battery and ECR class | builder-run, as returned jobs; class LIBRARY_SUPPORT (never closing) | `docs/ECR.md`, `evidence/ecr/` |
@@ -41,3 +41,8 @@ The original public credit was looked for in the R2R1 package's README, NOTICE, 
 
 ## What this package changes in the files
 Nothing in the 620 shipped Lean modules: each is byte-identical to the R2R1 package's file (checked when this candidate was assembled and again by the archive profiles). The package adds `CDVerification.lean`, `CDNonVacuity.lean`, a new `lakefile.toml` and trimmed `lake-manifest.json` (no `Comparator` or `lean4export` requirement), scripts, documents and evidence.
+
+## v1.0.1 attribution additions (operator-supplied)
+The records and quotes above are as published and are not edited. v1.0.1 adds two attributions that come **from the operator's statement, not from any record**:
+* **Port to Lean 4.34.1 / Mathlib d13f23b7:** Tim Jacobs, KTS Global. The R2R1 records name KTS Global and no person for the port patch; this attribution was not in the published v1.0.0 notes.
+* **`NavierStokes/ClayCSolution.lean`, `ClayDSolution.lean`, `ClayFeffermanSolution.lean`, `ComparatorCompleteSolution.lean`:** CHAOS. No CHAOS route record (a leaf-route order or receipt) was found for them. Kernel-checked records exist for the declarations in these files (the returned `DECLARATION_CHECK` jobs and the ECR records in `evidence/ecr/`), but they classify them as externally authored, class `LIBRARY_SUPPORT`, with `chaos_route_proof: none recorded`; they do not support the attribution. In v1.0.0 these files' proof terms were described as the package publisher's.

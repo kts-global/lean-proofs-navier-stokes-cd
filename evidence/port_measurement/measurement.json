@@ -1,0 +1,68 @@
+{
+ "build_files_modified": [
+  "lean-toolchain",
+  "lake-manifest.json",
+  "lakefile.toml"
+ ],
+ "build_patch_bytes": 7535,
+ "build_patch_hunks": 3,
+ "byte_identical": 588,
+ "byte_identical_after_line_ending_normalization": 588,
+ "check_patch_identical": true,
+ "declarations_changed_in_proof_body_only": 40,
+ "declarations_changed_in_statement": 6,
+ "edits_outside_any_declaration": 1,
+ "modified": 21,
+ "modified_files": [
+  "NavierStokes/ActualCandidateConstruction.lean",
+  "NavierStokes/EdgeWeightJets.lean",
+  "NavierStokes/PrimaryPulseBounds.lean",
+  "NavierStokes/R3/CompactComparisonBounds.lean",
+  "NavierStokes/R3/ComparatorBridge.lean",
+  "NavierStokes/R3/ComparisonCutoffs.lean",
+  "NavierStokes/R3/ComparisonFiniteEnergy.lean",
+  "NavierStokes/R3/ComparisonTimeAverages.lean",
+  "NavierStokes/R3/LocalizedFluxEstimates.lean",
+  "NavierStokes/R3/LocalizedTensorBounds.lean",
+  "NavierStokes/R3/LpNormTools.lean",
+  "NavierStokes/R3/PairedKernelBound.lean",
+  "NavierStokes/R3/PressureFlux.lean",
+  "NavierStokes/R3/PressureFluxTest.lean",
+  "NavierStokes/R3/PressureFunctionals.lean",
+  "NavierStokes/R3/RieszTestOperators.lean",
+  "NavierStokes/R3/SmoothSobolevL6.lean",
+  "NavierStokes/R3/WeightedInterpolation.lean",
+  "NavierStokes/R3/WeightedSobolev.lean",
+  "NavierStokes/R3FiniteEnergyComparison.lean",
+  "NavierStokes/WeightedRadialPrimitive.lean"
+ ],
+ "other_shared_files_modified": [
+  ".gitignore",
+  "README.md"
+ ],
+ "package_lean_files": 613,
+ "package_lean_toolchain": "leanprover/lean4:v4.34.1",
+ "package_mathlib": [
+  "d13f23b723b8",
+  "d13f23b723b8a846827a245b89c10fc7d3f11612"
+ ],
+ "package_only": [
+  "NavierStokes/ClayCSolution.lean",
+  "NavierStokes/ClayDSolution.lean",
+  "NavierStokes/ClayFeffermanSolution.lean",
+  "NavierStokes/ComparatorCompleteSolution.lean"
+ ],
+ "patch_bytes": 43042,
+ "patch_hunks": 48,
+ "shared_lean_files": 609,
+ "upstream_commit": "f9e8bc5b38b6e212696e8a30e3e91517af887bbd",
+ "upstream_files_modified_lean_plus_build": 24,
+ "upstream_lean_files": 816,
+ "upstream_lean_toolchain": "leanprover/lean4:v4.34.0-rc2",
+ "upstream_license_apache_2_0": true,
+ "upstream_mathlib": [
+  "85e3a25e006c",
+  "v4.34.0-rc2"
+ ],
+ "upstream_not_shipped": 207
+}
