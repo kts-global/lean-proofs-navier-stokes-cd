@@ -1,0 +1,15 @@
+upstream commit f9e8bc5b38b6, committed 2026-09-10T09:40:53-04:00
+upstream LICENSE is Apache License 2.0: True
+upstream: Lean toolchain leanprover/lean4:v4.34.0-rc2, Mathlib 85e3a25e006c (v4.34.0-rc2)
+package : Lean toolchain leanprover/lean4:v4.34.1, Mathlib d13f23b723b8 (d13f23b723b8a846827a245b89c10fc7d3f11612)
+NavierStokes/*.lean: upstream 816, package 613
+  shared 609: byte-identical 588 (588 after CRLF->LF), modified 21
+  package-only 4: NavierStokes/ClayCSolution.lean, NavierStokes/ClayDSolution.lean, NavierStokes/ClayFeffermanSolution.lean, NavierStokes/ComparatorCompleteSolution.lean
+  upstream files not shipped 207
+build files modified (3): lean-toolchain, lake-manifest.json, lakefile.toml
+upstream files the port modified = 21 Lean + 3 build = 24
+other shared files that differ (package-owned: not part of the port): .gitignore, README.md
+PORT_DIFF.patch: 21 files, 48 hunks, 43042 bytes
+PORT_DIFF_BUILD.patch: 3 files, 3 hunks, 7535 bytes
+position heuristic over the 21 modified Lean files: 6 declarations changed in their statement region, 40 changed in their proof body only, 1 edits outside any declaration
+PORT_DIFF.patch is IDENTICAL to the patch generated above

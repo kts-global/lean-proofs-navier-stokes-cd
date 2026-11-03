@@ -1,7 +1,7 @@
 {
  "package": "lean-proofs-navier-stokes-cd",
- "version": "1.0.0",
- "status": "release v1.0.0; approved for publication by the operator on 2026-11-03; not independently reviewed or reproduced",
+ "version": "1.0.1",
+ "status": "release v1.0.1 (documentation and provenance only; Lean sources byte-identical to v1.0.0); approved for publication by the operator on 2026-11-03; not independently reviewed or reproduced",
  "lean_toolchain": "leanprover/lean4:v4.34.1",
  "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
  "scope": "Lean-checked proofs of Fefferman's alternatives (C) and (D) of the Clay Navier-Stokes problem as formalized in ClayStatement/Fefferman.lean, and of the disjunction A or B or C or D, with logical bridges to the authors' formulation. The mathematics and formalization are OpenAI's. Not claimed: (A) or (B); independent confirmation that the Lean statements transcribe the official text; a CHAOS-route proof.",
@@ -11,6 +11,7 @@
    "id": "cd-01",
    "declaration": "NavierStokes.ClayC.clay_C",
    "role": "TARGET",
+   "layer": "solution_assembly",
    "description": "alternative (C) alone: forced breakdown on R^3",
    "source_file": "NavierStokes/ClayCSolution.lean",
    "source_line": 6,
@@ -28,12 +29,13 @@
     "statement_class": "LIBRARY_SUPPORT",
     "closing": false
    },
-   "authorship": "statement: package publisher (Fefferman-style StatementC/D); proof term (R3 addition NavierStokes/ClayCSolution.lean): package publisher, one application of the publisher's bridge to OpenAI's navier_stokes_breakdown_R3"
+   "authorship": "statement: package publisher (Fefferman-style StatementC/D); proof term (R3 addition NavierStokes/ClayCSolution.lean): CHAOS (operator-supplied attribution since v1.0.1; no route record found), one application of the publisher's bridge to OpenAI's navier_stokes_breakdown_R3"
   },
   {
    "id": "cd-02",
    "declaration": "NavierStokes.ClayD.clay_D",
    "role": "TARGET",
+   "layer": "solution_assembly",
    "description": "alternative (D) alone: forced breakdown on the torus",
    "source_file": "NavierStokes/ClayDSolution.lean",
    "source_line": 6,
@@ -51,12 +53,13 @@
     "statement_class": "LIBRARY_SUPPORT",
     "closing": false
    },
-   "authorship": "statement: package publisher (Fefferman-style StatementC/D); proof term (R3 addition NavierStokes/ClayDSolution.lean): package publisher, one application of the publisher's bridge to OpenAI's navier_stokes_breakdown_periodic"
+   "authorship": "statement: package publisher (Fefferman-style StatementC/D); proof term (R3 addition NavierStokes/ClayDSolution.lean): CHAOS (operator-supplied attribution since v1.0.1; no route record found), one application of the publisher's bridge to OpenAI's navier_stokes_breakdown_periodic"
   },
   {
    "id": "cd-03",
    "declaration": "NavierStokes.ClayChallenge.clay_navier_stokes_fefferman",
    "role": "TARGET",
+   "layer": "solution_assembly",
    "description": "A or B or C or D, proved through C",
    "source_file": "NavierStokes/ClayFeffermanSolution.lean",
    "source_line": 15,
@@ -74,12 +77,13 @@
     "statement_class": "LIBRARY_SUPPORT",
     "closing": false
    },
-   "authorship": "statement: package publisher (Fefferman-style statement module ClayStatement/Fefferman.lean); proof term (solution module NavierStokes/ClayFeffermanSolution.lean): package publisher, using OpenAI's breakdown theorems"
+   "authorship": "statement: package publisher (Fefferman-style statement module ClayStatement/Fefferman.lean); proof term (solution module NavierStokes/ClayFeffermanSolution.lean): CHAOS (operator-supplied attribution since v1.0.1; no route record found), using OpenAI's breakdown theorems"
   },
   {
    "id": "cd-04",
    "declaration": "NavierStokes.ClayChallenge.clay_navier_stokes_fefferman_via_D",
    "role": "TARGET",
+   "layer": "solution_assembly",
    "description": "A or B or C or D, proved through D",
    "source_file": "NavierStokes/ClayFeffermanSolution.lean",
    "source_line": 19,
@@ -97,12 +101,13 @@
     "statement_class": "LIBRARY_SUPPORT",
     "closing": false
    },
-   "authorship": "statement: package publisher; proof term (NavierStokes/ClayFeffermanSolution.lean): package publisher, through alternative D, using OpenAI's breakdown theorems"
+   "authorship": "statement: package publisher; proof term (NavierStokes/ClayFeffermanSolution.lean): CHAOS (operator-supplied attribution since v1.0.1; no route record found), through alternative D, using OpenAI's breakdown theorems"
   },
   {
    "id": "cd-05",
    "declaration": "NavierStokes.Comparator.navier_stokes_clay_via_C",
    "role": "TARGET",
+   "layer": "solution_assembly",
    "description": "the authors' formal disjunction OptionA..OptionD, proved through C",
    "source_file": "NavierStokes/ComparatorCompleteSolution.lean",
    "source_line": 44,
@@ -120,12 +125,13 @@
     "statement_class": "LIBRARY_SUPPORT",
     "closing": false
    },
-   "authorship": "statement: OpenAI (the authors' formal disjunction of OptionA..OptionD, ComparatorChallenges/NavierStokesComplete.lean, added to the package by the publisher); proof term (NavierStokes/ComparatorCompleteSolution.lean): package publisher, using OpenAI's breakdown theorems"
+   "authorship": "statement: OpenAI (the authors' formal disjunction of OptionA..OptionD, ComparatorChallenges/NavierStokesComplete.lean, added to the package by the publisher); proof term (NavierStokes/ComparatorCompleteSolution.lean): CHAOS (operator-supplied attribution since v1.0.1; no route record found), using OpenAI's breakdown theorems"
   },
   {
    "id": "cd-06",
    "declaration": "NavierStokes.Comparator.navier_stokes_clay_via_D",
    "role": "TARGET",
+   "layer": "solution_assembly",
    "description": "the authors' formal disjunction OptionA..OptionD, proved through D",
    "source_file": "NavierStokes/ComparatorCompleteSolution.lean",
    "source_line": 48,
@@ -143,12 +149,13 @@
     "statement_class": "LIBRARY_SUPPORT",
     "closing": false
    },
-   "authorship": "statement: OpenAI (as above); proof term (NavierStokes/ComparatorCompleteSolution.lean): package publisher, using OpenAI's breakdown theorems"
+   "authorship": "statement: OpenAI (as above); proof term (NavierStokes/ComparatorCompleteSolution.lean): CHAOS (operator-supplied attribution since v1.0.1; no route record found), using OpenAI's breakdown theorems"
   },
   {
    "id": "cd-07",
    "declaration": "Clay.NavierStokes.Bridge.optionA_iff_statementA",
    "role": "BRIDGE",
+   "layer": "statement_bridge",
    "description": "bridge: authors' option A <-> Fefferman (A)",
    "source_file": "ClayStatement/Bridge.lean",
    "source_line": 34,
@@ -172,6 +179,7 @@
    "id": "cd-08",
    "declaration": "Clay.NavierStokes.Bridge.optionB_iff_statementB",
    "role": "BRIDGE",
+   "layer": "statement_bridge",
    "description": "bridge: authors' option B <-> Fefferman (B)",
    "source_file": "ClayStatement/Bridge.lean",
    "source_line": 42,
@@ -195,6 +203,7 @@
    "id": "cd-09",
    "declaration": "Clay.NavierStokes.Bridge.optionC_imp_statementC",
    "role": "BRIDGE",
+   "layer": "statement_bridge",
    "description": "bridge: authors' option C -> Fefferman (C)",
    "source_file": "ClayStatement/Bridge.lean",
    "source_line": 51,
@@ -218,6 +227,7 @@
    "id": "cd-10",
    "declaration": "Clay.NavierStokes.Bridge.optionD_imp_statementD",
    "role": "BRIDGE",
+   "layer": "statement_bridge",
    "description": "bridge: authors' option D -> Fefferman (D)",
    "source_file": "ClayStatement/Bridge.lean",
    "source_line": 57,
@@ -241,6 +251,7 @@
    "id": "cd-11",
    "declaration": "Clay.NavierStokes.BridgeConverse.statementC_imp_optionC",
    "role": "BRIDGE",
+   "layer": "statement_bridge",
    "description": "bridge converse: Fefferman (C) -> authors' option C",
    "source_file": "ClayStatement/BridgeConverse.lean",
    "source_line": 16,
@@ -264,6 +275,7 @@
    "id": "cd-12",
    "declaration": "Clay.NavierStokes.BridgeConverse.statementD_imp_optionD",
    "role": "BRIDGE",
+   "layer": "statement_bridge",
    "description": "bridge converse: Fefferman (D) -> authors' option D",
    "source_file": "ClayStatement/BridgeConverse.lean",
    "source_line": 23,
@@ -294,9 +306,10 @@
  "attribution": {
   "kts_global_statement_and_bridge_layer_r3_packaging_verification_tooling": "Tim Jacobs, KTS Global",
   "basis": "published R2R1 release notes and README (quoted in docs/PROVENANCE.md); the operator's statement agrees",
-  "port_patch": "KTS Global; no person named",
+  "port_patch": "Tim Jacobs, KTS Global (operator-supplied attribution, v1.0.1; the R2R1 records name KTS Global and no person)",
   "mathematics_and_formalization": "OpenAI",
-  "chaos_route_proof": "none recorded"
+  "chaos_route_proof": "none recorded",
+  "solution_assembly_files": "CHAOS (operator-supplied attribution, v1.0.1; no route record found)"
  },
  "builder_authored_files_not_claimed": [
   "CDVerification.lean",

@@ -8,9 +8,10 @@ authors:
     given-names: "Tim"
     affiliation: "KTS Global"
     orcid: "https://orcid.org/0009-0008-7130-1448"
-version: "1.0.0"
+  - name: "OpenAI"
+version: "1.0.1"
 license: Apache-2.0
-abstract: "Lean 4.34.1 proofs of Fefferman's alternatives C and D of the Clay Navier-Stokes problem and of the disjunction A or B or C or D, with bridges to the authors' formulation. Mathematics and formalization: OpenAI (NavierStokesAndEuler, Apache-2.0). Not independently reviewed or reproduced; not a proof of A or B."
+abstract: "Lean 4.34.1 proofs of Fefferman's alternatives C and D of the Clay Navier-Stokes problem and of the disjunction A or B or C or D, with bridges to the authors' formulation. Contributions: OpenAI (upstream mathematics and Lean formalization, NavierStokesAndEuler, Apache-2.0); Tim Jacobs, KTS Global (the port of that library to Lean 4.34.1 and Mathlib d13f23b7, attribution operator-supplied; the statement and bridge layer, R3 per-alternative packaging and verification tooling). Not independently reviewed or reproduced; not a proof of A or B."
 keywords:
   - Lean 4
   - Navier-Stokes

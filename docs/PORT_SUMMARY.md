@@ -1,34 +1,41 @@
 # Port summary: upstream library to Lean 4.34.1 / Mathlib d13f23b
 
-This file reports **measurements** of the `NavierStokes/` directory of this repository's `main` against the upstream commit it was ported from. It adds no proof and changes no Lean file. Branch `v1.0.1-port-credit`; no tag and no release were created.
+Measurements only. This file adds no proof and changes no Lean file. Every figure below is printed by `evidence/port_measurement/measure_port.py` (raw output: `measurement_output.txt`; data: `measurement.json`), run on the v1.0.0 tree against the upstream commit, twice, with identical output.
 
-## Upstream and target
+## Upstream and package
 
-| | upstream | this repository |
+| | upstream | this package |
 |---|---|---|
-| source | `openai/NavierStokesAndEuler` at `f9e8bc5b38b6e212696e8a30e3e91517af887bbd` | `kts-global/lean-proofs-navier-stokes-cd` at `9f3df6786654ffdcfd87e9d324b58f924e60f7c6` |
-| `lean-toolchain` | `leanprover/lean4:v4.34.0-rc2` | `leanprover/lean4:v4.34.1` |
-| Mathlib pin (`lake-manifest.json`) | `85e3a25e006c` (inputRev `v4.34.0-rc2`) | `d13f23b723b8` (inputRev `d13f23b723b8a846827a245b89c10fc7d3f11612`) |
+| source | OpenAI `NavierStokesAndEuler`, commit `f9e8bc5b38b6` (2026-09-10), Apache-2.0 | `kts-global/lean-proofs-navier-stokes-cd` |
+| Lean | `leanprover/lean4:v4.34.0-rc2` | `leanprover/lean4:v4.34.1` |
+| Mathlib | `85e3a25e006c` | `d13f23b723b8` |
 
-## What changed in `NavierStokes/*.lean` (counted by comparing bytes)
+## Files (`NavierStokes/*.lean`)
 
-* upstream `NavierStokes/*.lean` files at that commit: **816**; files in this repository: **613**
-* shared paths: **609**: **588 byte-identical** to upstream, **21 modified**
-* present here and not upstream: **4** (`NavierStokes/ClayCSolution.lean`, `NavierStokes/ClayDSolution.lean`, `NavierStokes/ClayFeffermanSolution.lean`, `NavierStokes/ComparatorCompleteSolution.lean`); present upstream and not shipped here: **207**
-* The figure "24 files modified" that appeared in earlier notes **did not reproduce**; the measured number is **21**.
+* upstream 816; this package 613
+* shared: **609**, of which **588 are byte-identical** to upstream and **21 are modified**
+* present here and not upstream: **4** (`ClayCSolution.lean`, `ClayDSolution.lean`, `ClayFeffermanSolution.lean`, `ComparatorCompleteSolution.lean`)
+* upstream files not shipped here: **207**
 
-## The patch (`docs/PORT_DIFF.patch`)
+## The patch
 
-A unified diff (`git diff`, 3 lines of context) of the 21 modified files, upstream (`upstream/...`) to this repository (`package/...`): **48 hunks**. It does not include the 4 added files, which are new, or the toolchain and manifest pins above.
+* `docs/PORT_DIFF.patch`: the 21 modified Lean files, upstream to this package (`git diff`, 3 lines of context): **48 hunks**.
+* Position heuristic: **6 declarations** changed in their statement region and **40 declarations** changed in their proof body only (1 edit lies outside any declaration). This records **where text changed, not what was repaired or why**; it counts declarations, not hunks.
+* Build files: three more upstream files differ, `lean-toolchain`, `lake-manifest.json` and `lakefile.toml` (`docs/PORT_DIFF_BUILD.patch`, 3 hunks). The 21 Lean files plus these three make **24 upstream files modified**: the "24 upstream files modified" of the R2R1 records and `docs/PROVENANCE.md`. The R2R1 package's `SOURCE_PATCH/R2_over_upstream.patch` (not redistributed here; read by the builder) modifies exactly those 24 existing upstream files and adds 15 new files.
+* `README.md` and `.gitignore` also differ from upstream; they are this package's own files, not part of the port.
 
-Heuristic classification of what the edits touch, computed by line position (a change is *statement* when it falls before the first `:=` of a declaration, *proof* when after; this is a reading of **where text changed**, not a proof of what was repaired or why): **6 declarations** have a change in their statement region and **40 declarations** have a change only in their proof body; 1 edits fall outside any declaration. The classification counts declarations, not diff hunks, and is not the same number as the hunk count.
+## Corrections
 
-## Attribution (operator-supplied; read this before citing)
+* **"24 files modified"** reproduces as 21 Lean files + 3 build files = 24. An earlier draft of this file on this branch said it did not reproduce; that draft counted `NavierStokes/*.lean` only and was wrong.
+* **"67 hunks"** did not reproduce. It was a count of line-level edits, a different unit. The hunks of the patch are 48 (Lean files) and 3 (build files).
 
-* **Mathematics and Lean formalization of the blow-up:** OpenAI, `openai/NavierStokesAndEuler` at the commit above (Apache-2.0).
-* **The port to Lean 4.34.1 / Mathlib d13f23b:** attributed to **Tim Jacobs, KTS Global**. This attribution is **operator-supplied** (operator ruling R129). It was **not** in the published v1.0.0 release notes, and no machine record names a person for the port patch.
-* **`NavierStokes/ClayCSolution.lean`, `ClayDSolution.lean`, `ClayFeffermanSolution.lean`, `ComparatorCompleteSolution.lean`:** attributed to **CHAOS**. This attribution is **operator-supplied** (operator ruling R131). It was not stated in the published v1.0.0 release notes. The builder searched the work-order registry and the ECR records: **no CHAOS leaf-route order, receipt or kernel-check record exists for `ClayCSolution` or `ClayDSolution`**, and the registry rows that mention the other two (`WO-S522-R2-BRIDGE` CLOSED, `WO-S523-NEGCTL-R2F2` CLOSED, `WO-S522-MAP-S521` RECORDED) concern closing and packaging the bridge on 4.34.1 and a negative control, not the authorship of those files. The attribution therefore rests on the operator's statement alone.
+## Attribution
+
+* **Mathematics and original Lean formalization:** OpenAI (upstream).
+* **Port to Lean 4.34.1 / Mathlib d13f23b:** Tim Jacobs, KTS Global. **Operator-supplied attribution** (v1.0.1). It was not in the published v1.0.0 notes; the R2R1 records name KTS Global and no person for the port patch (`docs/PROVENANCE.md`).
+* **Statement and bridge layer, R3 per-alternative packaging, community verification tooling:** Tim Jacobs, KTS Global, as published in the R2R1 release notes (quoted exactly in `docs/PROVENANCE.md`).
+* **Solution assembly files** (`NavierStokes/ClayCSolution.lean`, `ClayDSolution.lean`, `ClayFeffermanSolution.lean`, `ComparatorCompleteSolution.lean`): CHAOS. **Operator-supplied attribution** (v1.0.1). **No CHAOS route record was found** for any of them: there is no leaf-route order, receipt or kernel check naming them, and the ECR records in `evidence/ecr/` say `chaos_route_proof: none recorded` and class `LIBRARY_SUPPORT`. The attribution rests on the operator's statement alone. In v1.0.0 these files' proof terms were described as the package publisher's (`results.json`); v1.0.1 records the operator's attribution instead.
 
 ## Limits
 
-Measurements of this branch's own repository and the upstream commit only. Nothing here was built or re-verified on the node for this branch; the published v1.0.0 verification is unchanged.
+These are measurements of this repository and one upstream commit. Nothing was rebuilt for this file, and the verification of v1.0.0 is unchanged.
